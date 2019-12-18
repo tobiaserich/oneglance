@@ -8,7 +8,7 @@ export default {
   decorators: [withKnobs]
 };
 
-export function LoginButtons() {
+export function Buttons() {
   return (
     <>
       <div>As event manager</div>
@@ -19,7 +19,7 @@ export function LoginButtons() {
   );
 }
 
-export function LoginInputUsername() {
+export function Input() {
   const loginType = { text: "text", password: "password" };
   return (
     <>
