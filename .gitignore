@@ -23,6 +23,7 @@ storybook-static
 /resources
 thoughts.md
 allRepos.md
+.env
 
 npm-debug.log*
 yarn-debug.log*
