@@ -4,7 +4,7 @@ import LoginInput from "../components/LoginInput";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 
 export default {
-  title: "Login Page",
+  title: "Login Site",
   decorators: [withKnobs]
 };
 
