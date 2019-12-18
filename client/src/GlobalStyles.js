@@ -11,9 +11,10 @@ function GlobalStyles() {
           box-sizing: border-box;
         }
         body {
-          font-size: 16px;
+          font-size: 18px;
           margin: 0;
-          background: black;
+          height: 100vh;
+          width: 100vw;
         }
       `}
     />
