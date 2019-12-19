@@ -9,7 +9,7 @@ const ProfileImage = styled.img`
   margin-left: 10px;
 `;
 
-export default function UserImage({ src }) {
-  const imgLink = src ? src : placeholder;
+export default function UserImage(props) {
+  const imgLink = props.src ? props.src : placeholder;
   return <ProfileImage src={imgLink} />;
 }
