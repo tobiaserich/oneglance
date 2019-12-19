@@ -9,6 +9,7 @@ const LoginInput = styled.input`
   border-radius: 12px;
   font-size: 18px;
   margin: auto;
+  margin-top: 10px;
 `;
 
 export default LoginInput;
