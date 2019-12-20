@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { checkPropTypes } from "prop-types";
 
 const H2 = styled.h2`
   font-weight: normal;
