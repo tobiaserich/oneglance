@@ -11,5 +11,5 @@ const ProfileImage = styled.img`
 
 export default function UserImage(props) {
   const imgLink = props.src ? props.src : placeholder;
-  return <ProfileImage src={imgLink} />;
+  return <ProfileImage src={imgLink} alt="Your profile picture" />;
 }
