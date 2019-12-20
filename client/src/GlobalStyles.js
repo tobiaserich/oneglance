@@ -15,6 +15,7 @@ function GlobalStyles() {
           margin: 0;
           height: 100vh;
           width: 100vw;
+          font-family: "roboto", "sans-serif";
         }
       `}
     />
