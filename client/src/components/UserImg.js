@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import placeholder from "../../resources/userPlaceholder.png";
+
+const placeholder = "/images/userPlaceholder.png";
 
 const ProfileImage = styled.img`
   width: 50px;

@@ -1,7 +1,7 @@
 const normal = {
   colors: {
     active: "#F7F9FC",
-    background: "yellow",
+    background: "#BAE0FF",
     font: "#F7F9FC",
     darkfont: "#707070"
   }
