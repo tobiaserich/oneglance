@@ -16,5 +16,5 @@ export default function DateInput({ date }) {
 }
 
 DateInput.propTypes = {
-  date: PropTypes.string
+  date: PropTypes.string.isRequired
 };
