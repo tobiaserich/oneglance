@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import Headline from "../components/Headline";
 import DateOutput from "../components/DateOutput";
 import DescriptionOutput from "../components/DescriptionOutput";
-import MenueButton from "./MenueButton";
-import CardMenue from "./CardMenue";
+import MenuButton from "./MenuButton";
+import CardMenu from "./CardMenu";
 import DarkFilter from "../components/DarkFilter";
 
 const CardContainer = styled.article`
@@ -19,14 +19,14 @@ const CardContainer = styled.article`
   overflow: hidden;
 `;
 
-export default function Card({ imgsrc, eventDatas, menueOn }) {
+export default function Card({ imgsrc, eventDatas, menuOn }) {
   return (
     <CardContainer imgsrc={imgsrc}>
       <DarkFilter />
       <Headline eventName={eventDatas.title ? eventDatas.title : "Event"} />
       <DateOutput date={eventDatas.date} />
       <DescriptionOutput>{eventDatas.description}</DescriptionOutput>
-      {menueOn ? <CardMenue /> : <MenueButton />}
+      {menuOn ? <CardMenu /> : <MenuButton />}
     </CardContainer>
   );
 }
@@ -34,5 +34,5 @@ export default function Card({ imgsrc, eventDatas, menueOn }) {
 Card.propTypes = {
   imgsrc: PropTypes.string,
   eventDatas: PropTypes.object,
-  menueOn: PropTypes.bool
+  menuOn: PropTypes.bool
 };

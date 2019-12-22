@@ -20,7 +20,7 @@ export function fullCard() {
     )
   };
 
-  const menueSelect = { ON: true, OFF: false };
+  const menuSelect = { ON: true, OFF: false };
   return (
     <Card
       imgsrc={text(
@@ -28,12 +28,12 @@ export function fullCard() {
         "http://ellomedia.de/galleries/AmoreMioParty/AMLindenbrauerei181014/IMG_9075141018B.jpg"
       )}
       eventDatas={eventDatas}
-      menueOn={select("MenueOn?", menueSelect, false)}
+      menuOn={select("MenuOn?", menuSelect, false)}
     />
   );
 }
 
-export function cardContainerAndMenueButton() {
+export function cardContainerAndMenuButton() {
   const emptyEventDatas = {
     title: " ",
     date: " ",

@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
 import ExitButton from "./ExitButton";
-import MenueItem from "./MenueItem";
+import MenuItem from "./MenuItem";
 
-const SideMenue = styled.div`
+const SideMenu = styled.div`
   background-size: 100% 100%;
   transform: translateZ(50%);
   height: 100%;
@@ -16,13 +16,13 @@ const SideMenue = styled.div`
   z-index: 9010;
 `;
 
-export default function CardMenue() {
+export default function Cardmenu() {
   return (
-    <SideMenue>
+    <SideMenu>
       <ExitButton />
-      <MenueItem spacer={30}>Add users</MenueItem>
-      <MenueItem spacer={0}>Delete user</MenueItem>
-      <MenueItem spacer={40}>Settings</MenueItem>
-    </SideMenue>
+      <MenuItem spacer={30}>Add users</MenuItem>
+      <MenuItem spacer={0}>Delete user</MenuItem>
+      <MenuItem spacer={40}>Settings</MenuItem>
+    </SideMenu>
   );
 }

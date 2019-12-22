@@ -1,15 +1,13 @@
 import React from "react";
-import CardMenue from "../../components/CardMenue";
+import CardMenu from "../../components/CardMenu";
 import ExitButton from "../../components/ExitButton";
-import MenueItem from "../../components/MenueItem";
-import { text } from "@storybook/addon-knobs";
 
 export default {
-  title: "Main Page|Card/Side Menue"
+  title: "Main Page|Card/Side menu"
 };
 
-export function fullSideMenue() {
-  return <CardMenue />;
+export function fullSideMenu() {
+  return <CardMenu />;
 }
 
 export function exitButton() {

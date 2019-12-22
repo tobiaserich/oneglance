@@ -11,11 +11,11 @@ const Item = styled.div`
   color: ${props => props.theme.colors.font};
 `;
 
-export default function MenueItem({ children, spacer }) {
+export default function menuItem({ children, spacer }) {
   return <Item spacer={spacer}>{children}</Item>;
 }
 
-MenueItem.propTypes = {
+menuItem.propTypes = {
   children: PropTypes.node.isRequired,
   spacer: PropTypes.number
 };
