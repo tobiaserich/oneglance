@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const Description = styled.div`
   width: 96%;
@@ -13,6 +14,10 @@ const Description = styled.div`
   overflow: hidden;
 `;
 
-export default function DescriptionOutput(props) {
-  return <Description>{props.children}</Description>;
+export default function DescriptionOutput({ children }) {
+  return <Description>{children}</Description>;
 }
+
+DescriptionOutput.propTypes = {
+  children: PropTypes.node
+};

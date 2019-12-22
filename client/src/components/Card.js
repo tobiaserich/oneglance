@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 import Headline from "../components/Headline";
 import DateOutput from "../components/DateOutput";
 import DescriptionOutput from "../components/DescriptionOutput";
@@ -35,8 +36,13 @@ export default function Card({ imgsrc, eventDatas, menueOn }) {
       <Headline eventName={eventDatas.title ? eventDatas.title : "Event"} />
       <DateOutput date={eventDatas.date} />
       <DescriptionOutput>{eventDatas.description}</DescriptionOutput>$
-      {console.log("Menue " + menueOn)}
       {menueOn ? <CardMenue /> : <MenueButton />}
     </CardContainer>
   );
 }
+
+Card.propTypes = {
+  imgsrc: PropTypes.string,
+  eventDatas: PropTypes.object,
+  menueOn: PropTypes.bool
+};

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const placeholder = "/images/userPlaceholder.png";
 
@@ -10,7 +11,11 @@ const ProfileImage = styled.img`
   margin-left: 10px;
 `;
 
-export default function UserImage(props) {
-  const imgLink = props.src ? props.src : placeholder;
+export default function UserImage({ src }) {
+  const imgLink = src ? src : placeholder;
   return <ProfileImage src={imgLink} alt="Your profile picture" />;
 }
+
+UserImage.propTypes = {
+  src: PropTypes.string
+};
