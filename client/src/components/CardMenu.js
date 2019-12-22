@@ -8,7 +8,9 @@ const SideMenu = styled.div`
   transform: translateZ(50%);
   height: 100%;
   width: 100px;
-  background: ${props => props.theme.colors.backgroundTransparent};
+
+  background: ${({ theme }) => theme.colors.backgroundTransparent};
+
   position: absolute;
   top: 0;
   right: 0px;

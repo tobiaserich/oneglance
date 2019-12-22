@@ -3,12 +3,14 @@ import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
 const Item = styled.div`
-  margin-top: ${props => {
-    return props.spacer + "px";
+
+  margin-top: ${({ spacer }) => {
+    return spacer + "px";
   }};
   font-size: 16px;
   margin-left: 5px;
-  color: ${props => props.theme.colors.font};
+  color: ${({ theme }) => theme.colors.font};
+
 `;
 
 export default function menuItem({ children, spacer }) {
