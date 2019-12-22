@@ -20,7 +20,7 @@ const MenueDots = styled.span`
   border: 0.2px solid black;
 `;
 
-export function MenueButton() {
+export default function MenueButton() {
   return (
     <MenueButtonContainer>
       <MenueDots></MenueDots>

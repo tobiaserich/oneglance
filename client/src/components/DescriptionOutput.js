@@ -19,5 +19,5 @@ export default function DescriptionOutput({ children }) {
 }
 
 DescriptionOutput.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node.isRequired
 };

@@ -23,5 +23,5 @@ export default function Headline({ eventName }) {
 }
 
 Headline.propTypes = {
-  eventName: PropTypes.string
+  eventName: PropTypes.string.isRequired
 };

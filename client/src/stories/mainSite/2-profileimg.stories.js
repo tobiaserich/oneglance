@@ -3,7 +3,7 @@ import UserImg from "../../components/UserImg";
 import { text } from "@storybook/addon-knobs";
 
 export default {
-  title: "Main Page| header/Profile Image"
+  title: "Main Page| Header/Profile Image"
 };
 
 export function withoutUserImage() {
