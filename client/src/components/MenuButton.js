@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const menuButtonContainer = styled.div`
+const MenuButtonContainer = styled.div`
   width: 18px;
   height: 4px;
   display: flex;
@@ -11,7 +11,7 @@ const menuButtonContainer = styled.div`
   right: 10px;
 `;
 
-const menuDots = styled.span`
+const MenuDots = styled.span`
   height: 4px;
   width: 4px;
   border-radius: 50%;
@@ -22,10 +22,10 @@ const menuDots = styled.span`
 
 export default function menuButton() {
   return (
-    <menuButtonContainer>
-      <menuDots></menuDots>
-      <menuDots></menuDots>
-      <menuDots></menuDots>
-    </menuButtonContainer>
+    <MenuButtonContainer>
+      <MenuDots></MenuDots>
+      <MenuDots></MenuDots>
+      <MenuDots></MenuDots>
+    </MenuButtonContainer>
   );
 }
