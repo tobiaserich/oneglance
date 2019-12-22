@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const DateField = styled.time`
   color: ${props => props.theme.colors.font};
@@ -13,3 +14,7 @@ const DateField = styled.time`
 export default function DateInput({ date }) {
   return <DateField>{date}</DateField>;
 }
+
+DateInput.propTypes = {
+  date: PropTypes.string
+};

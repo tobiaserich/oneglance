@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const H2 = styled.h2`
   font-weight: normal;
@@ -17,6 +18,10 @@ const H2 = styled.h2`
   white-space: nowrap;
 `;
 
-export default function Headline(props) {
-  return <H2>{props.eventName}</H2>;
+export default function Headline({ eventName }) {
+  return <H2>{eventName}</H2>;
 }
+
+Headline.propTypes = {
+  eventName: PropTypes.string
+};
