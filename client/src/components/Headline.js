@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const H2 = styled.h2`
   font-weight: normal;
-  color: ${props => props.theme.colors.font};
+  color: ${({ theme }) => theme.colors.font};
   position: relative;
   z-index: 8003;
   margin: 0px;

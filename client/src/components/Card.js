@@ -10,7 +10,7 @@ import CardMenue from "./CardMenue";
 const CardContainer = styled.article`
   height: 140px;
   width: 280px;
-  background-image: url(${props => props.imgsrc});
+  background-image: url(${({ imgsrc }) => imgsrc});
   background-size: 100% 100%;
   border-radius: 10px;
   position: relative;

@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
 const DateField = styled.time`
-  color: ${props => props.theme.colors.font};
+  color: ${({ theme }) => theme.colors.font};
   font-weight: 500;
   margin-left: 10px;
   position: relative;
