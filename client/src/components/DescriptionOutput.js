@@ -7,7 +7,7 @@ const Description = styled.div`
   max-height: 45%;
   margin-top: 10px;
   margin-left: 10px;
-  color: ${theme => theme.colors.font};
+  color: ${({ theme }) => theme.colors.font};
   position: relative;
   text-shadow: 0px 0px 10px #262626;
   z-index: 9002;
