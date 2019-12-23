@@ -3,8 +3,9 @@ const normal = {
     active: "#F7F9FC",
     background: "#254B74",
     backgroundTransparent: "#254B74CC",
+    cardBackground: "#516F90",
     font: "#F7F9FC",
-    darkfont: "#707070"
+    darkfont: "#545454"
   }
 };
 

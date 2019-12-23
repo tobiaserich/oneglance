@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 const Labeling = styled.label`
   text-align: center;
   display: block;
+  margin-top: 10px;
+  color: ${({ theme }) => theme.colors.font};
 `;
 
 export default function Label({ children }) {
