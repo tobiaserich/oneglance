@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const DateInput = styled.input`
+
   width: 80%;
   display: block;
   margin: auto;

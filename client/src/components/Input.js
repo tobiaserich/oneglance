@@ -1,8 +1,7 @@
-import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
-const InputField = styled.input`
+export const Input = styled.input`
   display: block;
   height: 40px;
   width: 80%;
@@ -14,10 +13,6 @@ const InputField = styled.input`
   margin-top: 10px;
   padding-left: 5px;
 `;
-
-export default function Input({ name }) {
-  return <InputField name={name} />;
-}
 
 Input.propTypes = {
   name: PropTypes.string.isRequired

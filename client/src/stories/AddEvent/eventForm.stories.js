@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
-
-import { AddEventCard } from "../../components/AddEventCard";
+import AddEventCard from "../../components/AddEventCard";
 import Label from "../../components/Label";
 import Input from "../../components/Input";
-import { DateInput } from "../../components/DateInput";
-import { DescriptionInput } from "../../components/DescriptionInput";
+import DateInput from "../../components/DateInput";
+import DescriptionInput from "../../components/DescriptionInput";
 import LoginButton from "../../components/LoginButton";
 
 export default {
@@ -27,9 +26,7 @@ export function fullForm() {
 
       <Label>
         Date
-
-        <DateInput type="date" />
-
+        <DateInput />
       </Label>
 
       <Label>
@@ -48,8 +45,8 @@ export function Card() {
 }
 
 export function dateInput() {
-
-  return <DateInput type="date" />;
+  return <DateInput />;
+}
 
 export function descriptionInput() {
   return <DescriptionInput />;
