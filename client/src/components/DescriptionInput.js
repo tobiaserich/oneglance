@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const TextInput = styled.textarea`
+export const DescriptionInput = styled.textarea`
   height: 150px;
   width: 250px;
   margin-top: 10px;
@@ -11,7 +11,3 @@ const TextInput = styled.textarea`
   font-size: 16px;
   background-color: ${({ theme }) => theme.colors.active};
 `;
-
-export default function DescriptionInput() {
-  return <TextInput />;
-}
