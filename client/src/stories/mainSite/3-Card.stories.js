@@ -3,7 +3,7 @@ import Card from "../../components/Card";
 import { text, select } from "@storybook/addon-knobs";
 import DarkFilter from "../../components/DarkFilter";
 import Headline from "../../components/Headline";
-import DateOutput from "../../components/DateOutput";
+import { DateOutput } from "../../components/DateOutput";
 import DescriptionOutput from "../../components/DescriptionOutput";
 
 export default {
@@ -51,7 +51,7 @@ export function headline() {
 }
 
 export function date() {
-  return <DateOutput date={text("Date: ", "11.11.2019")} />;
+  return <DateOutput> {text("Date: ", "11.11.2019")} </DateOutput>;
 }
 
 export function description() {
