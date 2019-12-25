@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
-const InfoNav = styled.ul`
+export const InfoNav = styled.ul`
   width: 280px;
   display: flex;
   flex-direction: column;
 `;
 
-const InfoEntry = styled.li`
+export const InfoEntry = styled.li`
   height: 40px;
   width: 100%;
   list-style: none;
@@ -26,3 +27,7 @@ export default function ProfileNavigation() {
     </InfoNav>
   );
 }
+
+InfoEntry.propTypes = {
+  item: PropTypes.number
+};
