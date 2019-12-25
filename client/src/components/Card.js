@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 import Headline from "../components/Headline";
-import DateOutput from "../components/DateOutput";
+import { DateOutput } from "../components/DateOutput";
 import DescriptionOutput from "../components/DescriptionOutput";
 import MenuButton from "./MenuButton";
 import CardMenu from "./CardMenu";
@@ -24,7 +24,7 @@ export default function Card({ imgsrc, eventDatas, menuOn }) {
     <CardContainer imgsrc={imgsrc}>
       <DarkFilter />
       <Headline eventName={eventDatas.title ? eventDatas.title : "Event"} />
-      <DateOutput date={eventDatas.date} />
+      <DateOutput>{eventDatas.date}</DateOutput>
       <DescriptionOutput>{eventDatas.description}</DescriptionOutput>
       {menuOn ? <CardMenu /> : <MenuButton />}
     </CardContainer>

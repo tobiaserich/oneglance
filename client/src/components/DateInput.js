@@ -1,7 +1,7 @@
-import React from "react";
 import styled from "@emotion/styled";
 
-const Input = styled.input`
+export const DateInput = styled.input`
+
   width: 80%;
   display: block;
   margin: auto;
@@ -16,7 +16,3 @@ const Input = styled.input`
   background-color: ${({ theme }) => theme.colors.active};
   color: ${({ theme }) => theme.colors.darkfont};
 `;
-
-export default function DateInput() {
-  return <Input type="date" />;
-}

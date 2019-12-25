@@ -14,9 +14,7 @@ export const InfoEntry = styled.li`
   width: 100%;
   list-style: none;
   background: ${({ item, theme }) => (item % 2 === 0 ? theme.colors.active : "")};
-  color: ${({ theme }) => {
-    return theme.colors.darkfont;
-  }};
+  color: ${({ theme }) => theme.colors.darkfont};
 `;
 
 export default function ProfileNavigation() {
