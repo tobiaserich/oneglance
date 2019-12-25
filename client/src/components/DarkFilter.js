@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "@emotion/styled";
 
-const CardFilter = styled.div`
+export const DarkFilter = styled.div`
   margin: 0;
   padding: 0;
   position: absolute;
@@ -11,7 +10,3 @@ const CardFilter = styled.div`
   width: 100%;
   border-radius: 10px;
 `;
-
-export default function DarkFilter() {
-  return <CardFilter />;
-}

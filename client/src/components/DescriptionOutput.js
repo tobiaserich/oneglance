@@ -1,8 +1,7 @@
-import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
-const Description = styled.div`
+export const DescriptionOutput = styled.div`
   width: 96%;
   max-height: 45%;
   margin-top: 10px;
@@ -13,10 +12,6 @@ const Description = styled.div`
   z-index: 9002;
   overflow: hidden;
 `;
-
-export default function DescriptionOutput({ children }) {
-  return <Description>{children}</Description>;
-}
 
 DescriptionOutput.propTypes = {
   children: PropTypes.node.isRequired

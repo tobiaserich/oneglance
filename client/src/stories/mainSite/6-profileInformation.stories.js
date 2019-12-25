@@ -2,10 +2,9 @@ import React from "react";
 import { text, select } from "@storybook/addon-knobs";
 import ProfileNavigation from "../../components/ProfileNavigation";
 import PersonalInformation from "../../components/PersonalInformation";
-import DetailCard from "../../components/DetailCard";
+import { DetailCard } from "../../components/DetailCard";
 import PollInfo from "../../components/PollInfo";
 import { InfoNav } from "../../components/ProfileNavigation";
-
 
 export default {
   title: "Main Page|Profile Navigation"
@@ -14,7 +13,6 @@ export default {
 export function profileNavigation() {
   return <ProfileNavigation />;
 }
-
 
 export function personalInformation() {
   const gender = { male: "male", female: "female", divers: "divers", Airplane: "Airplane" };
@@ -50,4 +48,3 @@ export function pollInformation() {
     </DetailCard>
   );
 }
-
