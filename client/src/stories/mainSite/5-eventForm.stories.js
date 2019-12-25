@@ -4,7 +4,7 @@ import { AddEventCard } from "../../components/AddEventCard";
 import Label from "../../components/Label";
 import Input from "../../components/Input";
 import { DateInput } from "../../components/DateInput";
-import DescriptionInput from "../../components/DescriptionInput";
+import { DescriptionInput } from "../../components/DescriptionInput";
 import LoginButton from "../../components/LoginButton";
 
 export default {
