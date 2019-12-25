@@ -13,7 +13,6 @@ export const Input = styled.input`
   margin-top: 10px;
   padding-left: 5px;
 `;
-
 Input.propTypes = {
   name: PropTypes.string.isRequired
 };
