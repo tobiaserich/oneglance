@@ -26,7 +26,6 @@ export const PollDetailContainer = styled.aside`
 
 export default function DetailInformation({ item, title, children }) {
   const expand = children ? true : false;
-  console.log(expand);
   return (
     <DetailContainer item={item}>
       <Title expand={expand}>{title}</Title>
