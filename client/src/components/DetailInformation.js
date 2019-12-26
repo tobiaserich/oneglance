@@ -17,12 +17,14 @@ const Title = styled.summary`
   }
 `;
 
+
 export const PollDetailContainer = styled.aside`
   width: 100%;
   display: flex;
   font-size: 16px;
   justify-content: space-between;
 `;
+
 
 export default function DetailInformation({ item, title, children }) {
   const expand = children ? true : false;
