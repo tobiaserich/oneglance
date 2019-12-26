@@ -1,7 +1,7 @@
 import React from "react";
 import { withKnobs, select } from "@storybook/addon-knobs";
-import Input from "../../components/Input";
-import Label from "../../components/Label";
+import { Input } from "../../components/Input";
+import { Label } from "../../components/Label";
 export default {
   title: "Login Site|Input fields",
   decorators: [withKnobs]

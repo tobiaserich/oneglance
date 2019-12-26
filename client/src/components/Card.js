@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
-import Headline from "../components/Headline";
+import { Headline } from "../components/Headline";
 import { DateOutput } from "../components/DateOutput";
-import DescriptionOutput from "../components/DescriptionOutput";
+import { DescriptionOutput } from "../components/DescriptionOutput";
 import MenuButton from "./MenuButton";
 import CardMenu from "./CardMenu";
-import DarkFilter from "../components/DarkFilter";
+import { DarkFilter } from "../components/DarkFilter";
 
 const CardContainer = styled.article`
   height: 140px;
@@ -23,7 +23,7 @@ export default function Card({ imgsrc, eventDatas, menuOn }) {
   return (
     <CardContainer imgsrc={imgsrc}>
       <DarkFilter />
-      <Headline eventName={eventDatas.title ? eventDatas.title : "Event"} />
+      <Headline>{eventDatas.title ? eventDatas.title : "Event"}</Headline>
       <DateOutput>{eventDatas.date}</DateOutput>
       <DescriptionOutput>{eventDatas.description}</DescriptionOutput>
       {menuOn ? <CardMenu /> : <MenuButton />}
