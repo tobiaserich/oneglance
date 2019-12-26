@@ -38,7 +38,6 @@ export function personalInformation() {
 export function pollInformation() {
   const status = {
     blank: "blank",
-    pending: "pending",
     finished: "finished"
   };
   return (
