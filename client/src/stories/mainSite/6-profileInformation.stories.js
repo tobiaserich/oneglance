@@ -5,6 +5,7 @@ import PersonalInformation from "../../components/PersonalInformation";
 import { DetailCard } from "../../components/DetailCard";
 import PollInfo from "../../components/PollInfo";
 import { InfoNav } from "../../components/ProfileNavigation";
+
 import DetailInformation from "../../components/DetailInformation";
 
 export default {

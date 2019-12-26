@@ -16,6 +16,10 @@ const Title = styled.summary`
     display: ${({ expand }) => (expand ? "" : "none")};
   }
 `;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6577cb8deeda6923416c3db33e9922273695bd0b
 
 export const PollDetailContainer = styled.aside`
   width: 100%;
@@ -24,6 +28,10 @@ export const PollDetailContainer = styled.aside`
   justify-content: space-between;
 `;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6577cb8deeda6923416c3db33e9922273695bd0b
 export default function DetailInformation({ item, title, children }) {
   const expand = children ? true : false;
   console.log(expand);
