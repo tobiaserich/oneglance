@@ -16,10 +16,6 @@ const Title = styled.summary`
     display: ${({ expand }) => (expand ? "" : "none")};
   }
 `;
-<<<<<<< HEAD
-=======
-
->>>>>>> 6577cb8deeda6923416c3db33e9922273695bd0b
 
 export const PollDetailContainer = styled.aside`
   width: 100%;
