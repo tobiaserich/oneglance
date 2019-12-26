@@ -6,6 +6,9 @@ import { DetailCard } from "../../components/DetailCard";
 import PollInfo from "../../components/PollInfo";
 import { InfoNav } from "../../components/ProfileNavigation";
 
+import DetailInformation from "../../components/DetailInformation";
+
+
 export default {
   title: "Main Page|Profile Navigation"
 };
@@ -37,7 +40,6 @@ export function personalInformation() {
 export function pollInformation() {
   const status = {
     blank: "blank",
-    pending: "pending",
     finished: "finished"
   };
   return (
@@ -48,3 +50,19 @@ export function pollInformation() {
     </DetailCard>
   );
 }
+
+export function taskInformation() {
+  return (
+    <>
+      <DetailInformation item={1} title="Driving with Hannes">
+        {text("Text field 1:", "")}
+      </DetailInformation>
+      <DetailInformation item={2} title="Alkohol?">
+        {text("text field 2:", "Whiskey")}
+      </DetailInformation>
+    </>
+  );
+}
+
+
+

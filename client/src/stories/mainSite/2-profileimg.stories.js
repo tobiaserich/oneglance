@@ -7,9 +7,15 @@ export default {
 };
 
 export function withoutUserImage() {
-  return <UserImg />;
+  return <UserImg username="you" thread="header" />;
 }
 
 export function withUserImage() {
-  return <UserImg src={text("ImgSrc:", "http://dogletter.com/images/strange-dog-main.jpg")} />;
+  return (
+    <UserImg
+      src={text("ImgSrc:", "http://dogletter.com/images/strange-dog-main.jpg")}
+      username="you"
+      thread="header"
+    />
+  );
 }

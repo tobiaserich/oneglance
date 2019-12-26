@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 import { InfoEntry } from "./ProfileNavigation";
 import blank from "../assets/icons/errorIcon.svg";
-import pending from "../assets/icons/pendingIcon.svg";
 import finished from "../assets/icons/doneIcon.svg";
 
 const PollEntry = styled(InfoEntry)`
@@ -16,7 +15,6 @@ const StatusImage = styled.img`
 `;
 const pollStatus = {
   blank: blank,
-  pending: pending,
   finished: finished
 };
 export default function PollInfo({ status }) {
