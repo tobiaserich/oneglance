@@ -16,6 +16,14 @@ const Title = styled.summary`
     display: ${({ expand }) => (expand ? "" : "none")};
   }
 `;
+
+export const PollDetailContainer = styled.aside`
+  width: 100%;
+  display: flex;
+  font-size: 16px;
+  justify-content: space-between;
+`;
+
 export default function DetailInformation({ item, title, children }) {
   const expand = children ? true : false;
   console.log(expand);
