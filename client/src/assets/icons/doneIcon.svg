@@ -1,9 +1,10 @@
 
-<svg   xmlns="http://www.w3.org/2000/svg">
 
-
- <g>
-  <circle fill="#00BF26" cx="12.66487" cy="12.66768" r="12.5"/>
-  <text fill="#ffffff" x="66.59783" y="35.89034"  font-size="20" font-family="Sans-serif" text-anchor="middle" transform="matrix(1.3637844324111938,0,0,1.1291671991348267,-79.02079967781901,-19.683870205655694) ">✓</text>
- </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<g>
+	<g>
+		<path style="fill:#00BF26;" d="M16,0C7.164,0,0,7.164,0,16s7.164,16,16,16s16-7.164,16-16S24.836,0,16,0z M13.52,23.383
+			L6.158,16.02l2.828-2.828l4.533,4.535l9.617-9.617l2.828,2.828L13.52,23.383z"/>
+	</g>
+</g>
 </svg>
