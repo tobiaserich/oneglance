@@ -26,5 +26,5 @@ const status = {
 };
 
 export function userDetail() {
-  return <UserDetailImg status={select("status", status, "finished")} />;
+  return <UserDetailImg status={select("status", status, "finished")} username="Tobias" />;
 }

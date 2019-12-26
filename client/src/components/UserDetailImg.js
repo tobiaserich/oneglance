@@ -5,11 +5,6 @@ import blank from "../assets/icons/errorIcon.svg";
 import finished from "../assets/icons/doneIcon.svg";
 import pending from "../assets/icons/pendingIcon.svg";
 
-const StatusWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-`;
 const StatusImg = styled.img`
   width: 15px;
   height: 15px;
@@ -25,10 +20,11 @@ const pollStatus = {
   finished: finished,
   pending: pending
 };
-export default function UserDetailImg({ status }) {
+export default function UserDetailImg({ status, username }) {
+  const statusReport = `PollStatus for User ${username}: ${status}`;
   return (
-    <UserImg username="Tobi" thread="detail">
-      <StatusImg src={pollStatus[status]} status={status} />{" "}
+    <UserImg username={username} thread="detail">
+      <StatusImg src={pollStatus[status]} status={status} alt={statusReport} />
     </UserImg>
   );
 }
