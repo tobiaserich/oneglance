@@ -5,7 +5,7 @@ import PersonalInformation from "../../components/PersonalInformation";
 import { DetailCard } from "../../components/DetailCard";
 import PollInfo from "../../components/PollInfo";
 import { InfoNav } from "../../components/ProfileNavigation";
-import TaskDetail from "../../components/DetailInformation";
+import DetailInformation from "../../components/DetailInformation";
 
 export default {
   title: "Main Page|Profile Navigation"
@@ -53,12 +53,12 @@ export function pollInformation() {
 export function taskInformation() {
   return (
     <>
-      <TaskDetail item={1} title="Driving with Hannes">
+      <DetailInformation item={1} title="Driving with Hannes">
         {text("Text field 1:", "")}
-      </TaskDetail>
-      <TaskDetail item={2} title="Alkohol?">
+      </DetailInformation>
+      <DetailInformation item={2} title="Alkohol?">
         {text("text field 2:", "Whiskey")}
-      </TaskDetail>
+      </DetailInformation>
     </>
   );
 }

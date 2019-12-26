@@ -4,18 +4,38 @@ import PropTypes from "prop-types";
 
 const placeholder = "/images/userPlaceholder.png";
 
-const ProfileImage = styled.img`
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+const ImageWrapper = styled.div`
+  width: ${({ size }) => size};
+  height: ${({ size }) => size};
   margin-left: 10px;
+  margin-top: 10px;
+  position: relative;
+`;
+const ProfileImage = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 `;
 
-export default function UserImage({ src }) {
+export default function UserImg({ src, username, thread, children }) {
   const imgLink = src ? src : placeholder;
-  return <ProfileImage src={imgLink} alt="Your profile picture" />;
+  const user = `Profile picture from ${username}`;
+  const imagesize = {
+    header: "50px",
+    detail: "40px",
+    test: "20px"
+  };
+  return (
+    <ImageWrapper size={imagesize[thread]}>
+      <ProfileImage src={imgLink} alt={user} />
+      {children}
+    </ImageWrapper>
+  );
 }
 
-UserImage.propTypes = {
-  src: PropTypes.string
+UserImg.propTypes = {
+  src: PropTypes.string,
+  username: PropTypes.string.isRequired,
+  thread: PropTypes.string.isRequired,
+  children: PropTypes.node
 };
