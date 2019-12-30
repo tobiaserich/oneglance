@@ -17,6 +17,8 @@ const CardContainer = styled.article`
   position: relative;
   z-index: 8001;
   overflow: hidden;
+  margin: auto;
+  margin-top: 20px;
 `;
 
 export default function Card({ imgsrc, eventDatas }) {
