@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import ExitButton from "./ExitButton";
 import MenuItem from "./MenuItem";
+import PropTypes from "prop-types";
 
 const SideMenu = styled.div`
   background-size: 100% 100%;
@@ -18,13 +19,17 @@ const SideMenu = styled.div`
   z-index: 9010;
 `;
 
-export default function Cardmenu() {
+export default function Cardmenu({ onClick }) {
   return (
     <SideMenu>
-      <ExitButton />
+      <ExitButton onClick={onClick} />
       <MenuItem spacer={30}>Add users</MenuItem>
       <MenuItem spacer={0}>Delete user</MenuItem>
       <MenuItem spacer={40}>Settings</MenuItem>
     </SideMenu>
   );
 }
+
+Cardmenu.propTypes = {
+  onClick: PropTypes.func
+};
