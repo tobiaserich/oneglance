@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const LoginButton = styled.button`
+const Button = styled.button`
   height: 40px;
   width: 80%;
   background: ${({ theme }) => theme.colors.active};
@@ -12,4 +12,4 @@ const LoginButton = styled.button`
   margin-top: 5px;
 `;
 
-export default LoginButton;
+export default Button;

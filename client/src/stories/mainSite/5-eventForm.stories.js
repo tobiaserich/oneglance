@@ -1,25 +1,25 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-import { AddEventCard } from "../../components/AddEventCard";
+import { AddCard } from "../../components/AddEventCard";
 import { Label } from "../../components/Label";
 import { Input } from "../../components/Input";
 import { DateInput } from "../../components/DateInput";
 import { DescriptionInput } from "../../components/DescriptionInput";
-import LoginButton from "../../components/LoginButton";
+import Button from "../../components/Button";
 
 export default {
   title: "Add Event| Event Form "
 };
 
-const Button = styled(LoginButton)`
+const CardButton = styled(Button)`
   width: 100px;
   margin-left: 25px;
 `;
 
 export function fullForm() {
   return (
-    <AddEventCard>
+    <AddCard>
       <Label>
         Title
         <Input name="title" />
@@ -35,14 +35,14 @@ export function fullForm() {
         <DescriptionInput />
       </Label>
 
-      <Button>Cancel</Button>
-      <Button>Submit</Button>
-    </AddEventCard>
+      <CardButton>Cancel</CardButton>
+      <CardButton>Submit</CardButton>
+    </AddCard>
   );
 }
 
 export function Card() {
-  return <AddEventCard></AddEventCard>;
+  return <AddCard></AddCard>;
 }
 
 export function dateInput() {

@@ -1,5 +1,5 @@
 import React from "react";
-import LoginButton from "../../components/LoginButton";
+import Button from "../../components/Button";
 import { text } from "@storybook/addon-knobs";
 
 export default {
@@ -10,9 +10,9 @@ export function Buttons() {
   return (
     <>
       <div>As event manager</div>
-      <LoginButton>{text("Input Text", "Login as event manager")}</LoginButton>
+      <Button>{text("Input Text", "Login as event manager")}</Button>
       <div>As user</div>
-      <LoginButton>{text("Input Text 2", "Login as user")}</LoginButton>
+      <Button>{text("Input Text 2", "Login as user")}</Button>
     </>
   );
 }
