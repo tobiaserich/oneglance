@@ -7,6 +7,7 @@ const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: ${({ theme }) => theme.colors.font};
 `;
 
 export default HeaderContainer;

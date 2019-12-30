@@ -6,10 +6,6 @@ import GlobalStyles from "./GlobalStyles";
 import LoginPage from "./pages/LoginPage";
 import Main from "./pages/Main";
 
-function NotFound() {
-  return "Du musst dich erst einloggen";
-}
-
 function App() {
   const [auth, setAuth] = React.useState(false);
 

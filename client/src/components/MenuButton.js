@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const MenuButtonContainer = styled.div`
   width: 18px;
@@ -20,12 +21,20 @@ const MenuDots = styled.span`
   border: 0.2px solid black;
 `;
 
-export default function menuButton() {
+export default function MenuButton({ onClick }) {
   return (
-    <MenuButtonContainer>
+    <MenuButtonContainer
+      onClick={() => {
+        onClick(true);
+      }}
+    >
       <MenuDots></MenuDots>
       <MenuDots></MenuDots>
       <MenuDots></MenuDots>
     </MenuButtonContainer>
   );
 }
+
+MenuButton.propTypes = {
+  onClick: PropTypes.func
+};
