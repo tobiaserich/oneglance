@@ -8,6 +8,7 @@ import finished from "../assets/icons/doneIcon.svg";
 const PollEntry = styled(InfoEntry)`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const StatusImage = styled.img`

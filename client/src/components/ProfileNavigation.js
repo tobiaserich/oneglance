@@ -8,8 +8,9 @@ export const InfoNav = styled.ul`
   flex-direction: column;
 `;
 
-
 export const InfoEntry = styled.li`
+  display: flex;
+  align-items: center;
   height: 40px;
   width: 100%;
   list-style: none;
@@ -26,7 +27,6 @@ export default function ProfileNavigation() {
     </InfoNav>
   );
 }
-
 
 InfoEntry.propTypes = {
   item: PropTypes.number
