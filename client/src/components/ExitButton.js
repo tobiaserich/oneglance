@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const ExitButtonContainer = styled.div`
   height: 20px;
@@ -27,11 +28,19 @@ const ExitButtonLine = styled.div`
   }};
 `;
 
-export default function ExitButton() {
+export default function ExitButton({ onClick }) {
   return (
-    <ExitButtonContainer>
+    <ExitButtonContainer
+      onClick={() => {
+        onClick(false);
+      }}
+    >
       <ExitButtonLine direction="left"></ExitButtonLine>
       <ExitButtonLine direction="right"></ExitButtonLine>
     </ExitButtonContainer>
   );
 }
+
+ExitButton.propTypes = {
+  onClick: PropTypes.func
+};
