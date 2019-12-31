@@ -17,10 +17,6 @@ function GlobalStyles() {
           width: 100vw;
           font-family: "roboto", "sans-serif";
         }
-        #root {
-          height: 100%;
-          width: 100%;
-        }
       `}
     />
   );
