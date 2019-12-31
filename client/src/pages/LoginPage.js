@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import { Container } from "../components/PagesContainer";
 import Button from "../components/Button";
 
