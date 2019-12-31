@@ -40,8 +40,7 @@ export default function Card({ imgsrc, eventDatas }) {
 
 Card.propTypes = {
   imgsrc: PropTypes.string,
-  eventDatas: PropTypes.object,
-  menuOn: PropTypes.bool
+  eventDatas: PropTypes.object
 };
 
 //eventDatas : title, date, descripiton
