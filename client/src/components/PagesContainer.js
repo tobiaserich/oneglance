@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 
+
 export const PagesContainer = styled.div`
   height: 90%;
   width: 100%;

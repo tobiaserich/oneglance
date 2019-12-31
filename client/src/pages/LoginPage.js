@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
 
+
 import { Link } from "react-router-dom";
 import { PagesContainer } from "../components/PagesContainer";
+
 import Button from "../components/Button";
 
 const HelperContainer = styled.div`
@@ -21,7 +23,9 @@ const CustomLink = styled(Link)`
 `;
 export default function LoginPage(props) {
   return (
+
       <PagesContainer>
+
         <HelperContainer />
         <h3>OneGlance</h3>
         <Welcome>Welcome</Welcome>

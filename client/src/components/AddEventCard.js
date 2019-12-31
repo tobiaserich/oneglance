@@ -2,6 +2,10 @@ import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
 export const AddButton = styled.div`
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 60px;
   color: ${({ theme }) => theme.colors.font};
