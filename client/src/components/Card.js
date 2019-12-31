@@ -17,16 +17,23 @@ const CardContainer = styled.article`
   position: relative;
   z-index: 8001;
   overflow: hidden;
+  margin: auto;
+  margin-top: 20px;
 `;
 
-export default function Card({ imgsrc, eventDatas, menuOn }) {
+export default function Card({ imgsrc, eventDatas }) {
+  const [menuVisibility, setMenuVisibility] = React.useState(false);
   return (
     <CardContainer imgsrc={imgsrc}>
       <DarkFilter />
       <Headline>{eventDatas.title ? eventDatas.title : "Event"}</Headline>
       <DateOutput>{eventDatas.date}</DateOutput>
       <DescriptionOutput>{eventDatas.description}</DescriptionOutput>
-      {menuOn ? <CardMenu /> : <MenuButton />}
+      {menuVisibility ? (
+        <CardMenu onClick={setMenuVisibility} />
+      ) : (
+        <MenuButton onClick={setMenuVisibility} />
+      )}
     </CardContainer>
   );
 }
@@ -36,3 +43,5 @@ Card.propTypes = {
   eventDatas: PropTypes.object,
   menuOn: PropTypes.bool
 };
+
+//eventDatas : title, date, descripiton

@@ -7,8 +7,7 @@ const placeholder = "/images/userPlaceholder.png";
 const ImageWrapper = styled.div`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
-  margin-left: 10px;
-  margin-top: 10px;
+  margin: 5px;
   position: relative;
 `;
 const ProfileImage = styled.img`

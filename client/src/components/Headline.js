@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import PropTypes from "prop-types";
 
 export const Headline = styled.h2`
   font-weight: normal;
@@ -16,7 +15,3 @@ export const Headline = styled.h2`
   text-shadow: 0px 0px 10px #262626;
   white-space: nowrap;
 `;
-
-Headline.propTypes = {
-  eventName: PropTypes.string.isRequired
-};
