@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ThemeProvider } from "emotion-theming";
+import UserContext from "./hooks/UserContext";
 import normal from "./themes/normal";
 import GlobalStyles from "./GlobalStyles";
 import LoginPage from "./pages/LoginPage";
@@ -20,29 +21,31 @@ function Header() {
 }
 
 function App() {
-  const [auth, setAuth] = React.useState(false);
+  const [username, setUsername] = React.useState("TobiasErich");
 
   function handleLogin(value) {
-    setAuth(value);
+    setUsername(value);
   }
   return (
-    <ThemeProvider theme={normal}>
-      <Header />
-      <Router>
-        <GlobalStyles />
-        <Switch>
-          <Route exact path="/">
-            <LoginPage auth={handleLogin} status={auth} />
-          </Route>
-          <Route exact path="/overview">
-            <Main />
-          </Route>
-          <Route exact path="/addEvent">
-            <AddEvent />
-          </Route>
-        </Switch>
-      </Router>
-    </ThemeProvider>
+    <UserContext.Provider value={username}>
+      <ThemeProvider theme={normal}>
+        <Header />
+        <Router>
+          <GlobalStyles />
+          <Switch>
+            <Route exact path="/">
+              <LoginPage auth={handleLogin} />
+            </Route>
+            <Route exact path="/overview">
+              <Main />
+            </Route>
+            <Route exact path="/addEvent">
+              <AddEvent />
+            </Route>
+          </Switch>
+        </Router>
+      </ThemeProvider>
+    </UserContext.Provider>
   );
 }
 
