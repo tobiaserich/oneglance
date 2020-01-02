@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-
 import { Link } from "react-router-dom";
 import { PagesContainer } from "../components/PagesContainer";
 
@@ -23,20 +22,18 @@ const CustomLink = styled(Link)`
 `;
 export default function LoginPage(props) {
   return (
+    <PagesContainer>
+      <HelperContainer />
+      <h3>OneGlance</h3>
+      <Welcome>Welcome</Welcome>
+      <Welcome>User</Welcome>
+      <HelperContainer />
 
-      <PagesContainer>
+      <CustomLink to="/overview">
+        <Button onClick={() => props.auth("TobiasErich")}>Login as event manager</Button>
+      </CustomLink>
 
-        <HelperContainer />
-        <h3>OneGlance</h3>
-        <Welcome>Welcome</Welcome>
-        <Welcome>User</Welcome>
-        <HelperContainer />
-
-        <CustomLink to="/overview">
-          <Button onClick={() => props.auth(true)}>Login as event manager</Button>
-        </CustomLink>
-
-        <Button>Login as User</Button>
-      </PagesContainer>
+      <Button>Login as User</Button>
+    </PagesContainer>
   );
 }
