@@ -8,6 +8,7 @@ app.use(express.json({ extended: false }));
 
 app.get("/api/addEvent", (req, res) => res.send("geht"));
 
+
 app.get("/api/events/:username", async (req, res) => {
   try {
     const result = await getOwnEvents(req.params.username);
