@@ -2,9 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const { dbInit } = require("./lib/db");
 const app = express();
-
 const { setEvent, getOwnEvents } = require("./lib/events");
-
 
 app.use(express.json({ extended: false }));
 
