@@ -2,7 +2,9 @@ import styled from "@emotion/styled";
 
 export const DescriptionInput = styled.textarea`
   height: 150px;
-  width: 250px;
+  width: 80%;
+  display: block;
+  margin: auto;
   margin-top: 10px;
   border-radius: 10px;
   border: none;
