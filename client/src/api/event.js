@@ -1,11 +1,11 @@
 export function setEvent(title, date, descr, background, user) {
-  const data = { title, date, descr, background, owner: user };
+  const bundledInfo = { title, date, descr, background, owner: user };
   return fetch("/api/event", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(bundledInfo)
   });
 }
 
@@ -18,6 +18,6 @@ export function deleteEvent(eventID) {
 
 export async function getOwnEvents(userName) {
   const response = await fetch(`/api/event/${userName}`);
-  const data = await response.json();
-  return data;
+  const events = await response.json();
+  return events;
 }
