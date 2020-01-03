@@ -8,8 +8,7 @@ app.use(express.json({ extended: false }));
 
 app.get("/api/addEvent", (req, res) => res.send("geht"));
 
-
-app.get("/api/events/:username", async (req, res) => {
+app.get("/api/event/:username", async (req, res) => {
   try {
     const result = await getOwnEvents(req.params.username);
     res.send(result);
@@ -19,7 +18,7 @@ app.get("/api/events/:username", async (req, res) => {
   }
 });
 
-app.post("/api/addEvent", (req, res) => {
+app.post("/api/event", (req, res) => {
   const eventDatas = req.body;
   setEvent(eventDatas);
   res.end();
