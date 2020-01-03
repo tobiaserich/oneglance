@@ -2,6 +2,14 @@ import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
+const ClickContainer = styled.div`
+  height: 18px;
+  width: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9005;
+`;
 const MenuButtonContainer = styled.div`
   width: 18px;
   height: 4px;
@@ -23,15 +31,17 @@ const MenuDots = styled.span`
 
 export default function MenuButton({ onClick }) {
   return (
-    <MenuButtonContainer
+    <ClickContainer
       onClick={() => {
         onClick(true);
       }}
     >
-      <MenuDots></MenuDots>
-      <MenuDots></MenuDots>
-      <MenuDots></MenuDots>
-    </MenuButtonContainer>
+      <MenuButtonContainer>
+        <MenuDots></MenuDots>
+        <MenuDots></MenuDots>
+        <MenuDots></MenuDots>
+      </MenuButtonContainer>
+    </ClickContainer>
   );
 }
 

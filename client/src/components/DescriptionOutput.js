@@ -14,5 +14,5 @@ export const DescriptionOutput = styled.div`
 `;
 
 DescriptionOutput.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node
 };

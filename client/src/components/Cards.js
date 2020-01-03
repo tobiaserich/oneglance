@@ -25,7 +25,7 @@ export default function Cards() {
     <CardsContainer>
       {events.map(event => {
         const eventDatas = { title: event.title, date: event.date, descrition: event.description };
-        return <Card key="" imgsrc={event.background} eventDatas={eventDatas}></Card>;
+        return <Card key={event._id} imgsrc={event.background} eventDatas={eventDatas}></Card>;
       })}
     </CardsContainer>
   );
