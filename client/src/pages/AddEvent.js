@@ -9,7 +9,7 @@ import { DateInput } from "../components/DateInput";
 import { DescriptionInput } from "../components/DescriptionInput";
 import Button from "../components/Button";
 import BackgroundSelect from "../components/BackgroundSelect";
-import { setEvent } from "../api/addEvent";
+import { setEvent } from "../api/event";
 const CardButton = styled(Button)`
   width: 100px;
 `;
