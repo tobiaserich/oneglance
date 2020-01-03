@@ -2,11 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const { dbInit } = require("./lib/db");
 const app = express();
-const { setEvent, getOwnEvents } = require("./lib/events");
+const { setEvent, getOwnEvents, deleteEvent } = require("./lib/events");
 
 app.use(express.json({ extended: false }));
-
-app.get("/api/addEvent", (req, res) => res.send("geht"));
 
 app.get("/api/event/:username", async (req, res) => {
   try {
@@ -21,6 +19,11 @@ app.get("/api/event/:username", async (req, res) => {
 app.post("/api/event", (req, res) => {
   const eventDatas = req.body;
   setEvent(eventDatas);
+  res.end();
+});
+
+app.delete("/api/event/del/:eventID", (req, res) => {
+  deleteEvent(req.params.eventID);
   res.end();
 });
 
