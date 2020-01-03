@@ -20,12 +20,29 @@ const SideMenu = styled.div`
 `;
 
 export default function Cardmenu({ onClick }) {
+  const [subMenu, setSubmenu] = React.useState("main");
+
+  const menuContent = {
+    main: (
+      <>
+        <MenuItem spacer={30}>Add users</MenuItem>
+        <MenuItem spacer={0}>Delete user</MenuItem>
+        <MenuItem spacer={40} target="settings" onClick={setSubmenu}>
+          Settings
+        </MenuItem>
+      </>
+    ),
+    settings: (
+      <>
+        <MenuItem spacer={40}>Delete event</MenuItem>
+      </>
+    )
+  };
+
   return (
     <SideMenu>
       <ExitButton onClick={onClick} />
-      <MenuItem spacer={30}>Add users</MenuItem>
-      <MenuItem spacer={0}>Delete user</MenuItem>
-      <MenuItem spacer={40}>Settings</MenuItem>
+      {menuContent[subMenu]}
     </SideMenu>
   );
 }
