@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import ExitButton from "./ExitButton";
 import MenuItem from "./MenuItem";
 import PropTypes from "prop-types";
+import { deleteEvent } from "../api/event";
 
 const SideMenu = styled.div`
   background-size: 100% 100%;
@@ -19,22 +20,31 @@ const SideMenu = styled.div`
   z-index: 9010;
 `;
 
-export default function Cardmenu({ onClick }) {
-  const [subMenu, setSubmenu] = React.useState("main");
+export default function Cardmenu({ onClick, eventID, events }) {
+  const [subMenu, setSubMenu] = React.useState("main");
 
   const menuContent = {
     main: (
       <>
         <MenuItem spacer={30}>Add users</MenuItem>
         <MenuItem spacer={0}>Delete user</MenuItem>
-        <MenuItem spacer={40} target="settings" onClick={setSubmenu}>
+        <MenuItem spacer={40} target="settings" onClick={setSubMenu}>
           Settings
         </MenuItem>
       </>
     ),
     settings: (
       <>
-        <MenuItem spacer={40}>Delete event</MenuItem>
+        <MenuItem
+          spacer={40}
+          onClick={() => {
+            deleteEvent(eventID);
+            setSubMenu("main");
+            events([]);
+          }}
+        >
+          Delete event
+        </MenuItem>
       </>
     )
   };

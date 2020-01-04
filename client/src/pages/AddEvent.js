@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import UserContext from "../hooks/UserContext";
 import { PagesContainer } from "../components/PagesContainer";
 import { Label } from "../components/Label";
@@ -33,6 +33,8 @@ export default function AddEvent() {
   const [date, setDate] = React.useState();
   const [descr, setDescr] = React.useState("");
   const [background, setBackground] = React.useState("./images/partyBG.png");
+
+  const history = useHistory();
 
   function changeHandler(typeOf, event) {
     const content = event.target.value;
@@ -76,6 +78,7 @@ export default function AddEvent() {
         <CardButton
           onClick={() => {
             setEvent(title, date, descr, background, user);
+            history.push("/overview");
           }}
         >
           Submit
