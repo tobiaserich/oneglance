@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Card from "../components/Card";
-import getOwnEvents from "../api/getOwnEvents";
+import { getOwnEvents } from "../api/event";
 
 const CardsContainer = styled.div`
   margin-top: 10px;
@@ -15,11 +15,12 @@ export default function Cards() {
 
   React.useEffect(() => {
     async function fetcher() {
-      const results = await getOwnEvents();
+      const results = await getOwnEvents("TobiasErich");
       setEvents(results);
+      console.log(results);
     }
     fetcher();
-  }, []);
+  }, [events]);
 
   return (
     <CardsContainer>
