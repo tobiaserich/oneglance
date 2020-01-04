@@ -13,6 +13,7 @@ const CardsContainer = styled.div`
 
 export default function Cards() {
   const [events, setEvents] = React.useState([]);
+  const [reloadEvents, setReloadEvents] = React.useState(null);
   const userName = React.useContext(UserContext);
 
   React.useEffect(() => {
@@ -21,7 +22,8 @@ export default function Cards() {
       setEvents(results);
     }
     fetcher();
-  }, [events]);
+    setReloadEvents("");
+  }, [reloadEvents]);
 
   return (
     <CardsContainer>
@@ -33,7 +35,7 @@ export default function Cards() {
             eventID={event._id}
             imgsrc={event.background}
             eventDatas={eventDatas}
-            events={setEvents}
+            reload={setReloadEvents}
           ></Card>
         );
       })}

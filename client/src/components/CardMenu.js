@@ -1,4 +1,5 @@
 import React from "react";
+
 import styled from "@emotion/styled";
 import ExitButton from "./ExitButton";
 import MenuItem from "./MenuItem";
@@ -20,9 +21,8 @@ const SideMenu = styled.div`
   z-index: 9010;
 `;
 
-export default function Cardmenu({ onClick, eventID, events }) {
+export default function Cardmenu({ onClick, eventID, reload }) {
   const [subMenu, setSubMenu] = React.useState("main");
-
   const menuContent = {
     main: (
       <>
@@ -40,7 +40,7 @@ export default function Cardmenu({ onClick, eventID, events }) {
           onClick={() => {
             deleteEvent(eventID);
             setSubMenu("main");
-            events([]);
+            reload(eventID);
           }}
         >
           Delete event
