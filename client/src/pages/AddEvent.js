@@ -7,7 +7,7 @@ import { Label } from "../components/Label";
 import { Input } from "../components/Input";
 import { DateInput } from "../components/DateInput";
 import { DescriptionInput } from "../components/DescriptionInput";
-import Button from "../components/Button";
+import { Button } from "../components/Button";
 import BackgroundSelect from "../components/BackgroundSelect";
 import { setEvent } from "../api/event";
 const CardButton = styled(Button)`

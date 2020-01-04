@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
-
 import { Link } from "react-router-dom";
 import { PagesContainer } from "../components/PagesContainer";
-
-import Button from "../components/Button";
+import { Button } from "../components/Button";
 
 const HelperContainer = styled.div`
   height: 15%;

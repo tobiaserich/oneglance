@@ -1,6 +1,19 @@
 import styled from "@emotion/styled";
 
-const Button = styled.button`
+export const AddButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  color: ${({ theme }) => theme.colors.font};
+  background-color: ${({ theme }) => theme.colors.secondBackgroundTransparent};
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 1px;
+`;
+
+export const Button = styled.button`
   height: 40px;
   width: 80%;
   background: ${({ theme }) => theme.colors.active};
@@ -10,5 +23,3 @@ const Button = styled.button`
   font-size: 18px;
   margin-top: 30px;
 `;
-
-export default Button;
