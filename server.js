@@ -27,9 +27,9 @@ app.post("/api/event", (req, res) => {
   }
 });
 
-app.delete("/api/event/del/:eventID", (req, res) => {
+app.delete("/api/event/del/:eventID", async (req, res) => {
   try {
-    deleteEvent(req.params.eventID);
+    await deleteEvent(req.params.eventID);
     res.end();
   } catch (error) {
     console.error(error);
