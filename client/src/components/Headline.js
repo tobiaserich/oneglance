@@ -4,14 +4,13 @@ export const Headline = styled.h2`
   font-weight: normal;
   color: ${({ theme }) => theme.colors.font};
   position: relative;
-  z-index: 8003;
+  z-index: 8001;
   margin: 0px;
   margin-left: 10px;
   margin-top: 10px;
-  padding: 0;
-  width: 98%;
+  width: 90%;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
   text-shadow: 0px 0px 10px #262626;
-  white-space: nowrap;
 `;

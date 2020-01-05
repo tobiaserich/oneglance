@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
-
-export const PagesContainer = styled.div`
+export const PagesContainer = styled.main`
   height: 90%;
   width: 100%;
   display: flex;
