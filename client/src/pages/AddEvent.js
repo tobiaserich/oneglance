@@ -32,7 +32,7 @@ export default function AddEvent() {
   const [title, setTitle] = React.useState("Event");
   const [date, setDate] = React.useState();
   const [descr, setDescr] = React.useState("");
-  const [background, setBackground] = React.useState("./images/partyBG.png");
+  const [background, setBackground] = React.useState("./images/partyBG.webp");
 
   const history = useHistory();
 

@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import { deleteEvent } from "../api/event";
 
 const SideMenu = styled.div`
+  cursor: default;
   background-size: 100% 100%;
   transform: translateZ(50%);
   height: 100%;

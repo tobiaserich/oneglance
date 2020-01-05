@@ -7,6 +7,9 @@ const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.font};
+  font-family: "Great Vibes";
+  font-size: 35px;
+  letter-spacing: 1px;
 `;
 
 export default HeaderContainer;

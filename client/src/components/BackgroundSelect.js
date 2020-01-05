@@ -16,11 +16,11 @@ export default function BackgroundSelect({ onChange }) {
         onChange("bg", event);
       }}
     >
-      <option value="./images/partyBG.png">Party</option>
-      <option value="./images/birthdayBG.png">Birthday</option>
-      <option value="./images/sportBG.png">Sport</option>
-      <option value="./images/greenBG.png">green</option>
-      <option value="./images/yellowBG.png">Yellow</option>
+      <option value="./images/partyBG.webp">Party</option>
+      <option value="./images/birthdayBG.webp">Birthday</option>
+      <option value="./images/sportBG.webp">Sport</option>
+      <option value="./images/greenBG.webp">green</option>
+      <option value="./images/yellowBG.webp">Yellow</option>
     </Select>
   );
 }
