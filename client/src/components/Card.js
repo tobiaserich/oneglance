@@ -15,13 +15,12 @@ const CardContainer = styled.article`
   background-size: 100% 100%;
   border-radius: 10px;
   position: relative;
-  /* z-index: 8001; */
   overflow: hidden;
   margin: auto;
   margin-top: 20px;
 `;
 
-export default function Card({ imgsrc, eventDatas, eventID, events }) {
+export default function Card({ imgsrc, eventDatas, eventID, onDelete }) {
   const [menuVisibility, setMenuVisibility] = React.useState(false);
   return (
     <CardContainer imgsrc={imgsrc}>
@@ -30,7 +29,7 @@ export default function Card({ imgsrc, eventDatas, eventID, events }) {
       <DateOutput>{eventDatas.date}</DateOutput>
       <DescriptionOutput>{eventDatas.description}</DescriptionOutput>
       {menuVisibility ? (
-        <CardMenu onClick={setMenuVisibility} eventID={eventID} events={events} />
+        <CardMenu onClick={setMenuVisibility} eventID={eventID} onDelete={onDelete} />
       ) : (
         <MenuButton onClick={setMenuVisibility} />
       )}
@@ -40,7 +39,9 @@ export default function Card({ imgsrc, eventDatas, eventID, events }) {
 
 Card.propTypes = {
   imgsrc: PropTypes.string,
-  eventDatas: PropTypes.object
+  eventDatas: PropTypes.object,
+  eventID: PropTypes.string,
+  onDelete: PropTypes.func
 };
 
 //eventDatas : title, date, descripiton

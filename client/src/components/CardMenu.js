@@ -1,4 +1,5 @@
 import React from "react";
+
 import styled from "@emotion/styled";
 import ExitButton from "./ExitButton";
 import MenuItem from "./MenuItem";
@@ -20,8 +21,15 @@ const SideMenu = styled.div`
   z-index: 9010;
 `;
 
-export default function Cardmenu({ onClick, eventID, events }) {
+export default function Cardmenu({ onClick, eventID, onDelete }) {
   const [subMenu, setSubMenu] = React.useState("main");
+
+  async function clickHandler() {
+    await deleteEvent(eventID);
+    setTimeout(() => {
+      onDelete();
+    }, 100);
+  }
 
   const menuContent = {
     main: (
@@ -38,9 +46,8 @@ export default function Cardmenu({ onClick, eventID, events }) {
         <MenuItem
           spacer={40}
           onClick={() => {
-            deleteEvent(eventID);
+            clickHandler();
             setSubMenu("main");
-            events([]);
           }}
         >
           Delete event
