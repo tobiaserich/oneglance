@@ -15,7 +15,7 @@ const CardContainer = styled.article`
   background-size: 100% 100%;
   border-radius: 10px;
   position: relative;
-  z-index: 8001;
+  /* z-index: 8001; */
   overflow: hidden;
   margin: auto;
   margin-top: 20px;
