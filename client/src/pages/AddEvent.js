@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Link, useHistory } from "react-router-dom";
 import UserContext from "../hooks/UserContext";
-import { PagesContainer } from "../components/PagesContainer";
+import { AddContainer } from "../components/AddEventContainer";
 import { Label } from "../components/Label";
 import { Input } from "../components/Input";
 import { DateInput } from "../components/DateInput";
@@ -50,7 +50,7 @@ export default function AddEvent() {
   }
 
   return (
-    <PagesContainer>
+    <AddContainer>
       <Label>
         Title
         <Input name="title" value={title} onChange={event => changeHandler("title", event)} />
@@ -84,6 +84,6 @@ export default function AddEvent() {
           Submit
         </CardButton>
       </ButtonContainer>
-    </PagesContainer>
+    </AddContainer>
   );
 }
