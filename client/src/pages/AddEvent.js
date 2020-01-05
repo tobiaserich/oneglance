@@ -78,7 +78,7 @@ export default function AddEvent() {
         <CardButton
           onClick={() => {
             setEvent(title, date, descr, background, user);
-            history.push("/overview");
+            // history.push("/overview");
           }}
         >
           Submit
