@@ -15,13 +15,15 @@ export default function Cards() {
   const [events, setEvents] = React.useState([]);
   const userName = React.useContext(UserContext);
 
+  async function fetchEvents() {
+    const result = await getOwnEvents(userName);
+    setEvents(result);
+    return;
+  }
+
   React.useEffect(() => {
-    async function fetcher() {
-      const results = await getOwnEvents(userName);
-      setEvents(results);
-    }
-    fetcher();
-  }, [events]);
+    fetchEvents();
+  });
 
   return (
     <CardsContainer>
@@ -33,7 +35,7 @@ export default function Cards() {
             eventID={event._id}
             imgsrc={event.background}
             eventDatas={eventDatas}
-            events={setEvents}
+            onDelete={fetchEvents}
           ></Card>
         );
       })}

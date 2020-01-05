@@ -17,14 +17,24 @@ app.get("/api/event/:username", async (req, res) => {
 });
 
 app.post("/api/event", (req, res) => {
-  const eventDatas = req.body;
-  setEvent(eventDatas);
-  res.end();
+  try {
+    const eventDatas = req.body;
+    setEvent(eventDatas);
+    res.end();
+  } catch (error) {
+    console.error(error);
+    res.send(error);
+  }
 });
 
-app.delete("/api/event/del/:eventID", (req, res) => {
-  deleteEvent(req.params.eventID);
-  res.end();
+app.delete("/api/event/del/:eventID", async (req, res) => {
+  try {
+    await deleteEvent(req.params.eventID);
+    res.end();
+  } catch (error) {
+    console.error(error);
+    res.send(error);
+  }
 });
 
 dbInit(process.env.DB_URL, process.env.DB_NAME).then(async () => {

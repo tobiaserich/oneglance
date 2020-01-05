@@ -21,7 +21,7 @@ const CardContainer = styled.article`
   margin-top: 20px;
 `;
 
-export default function Card({ imgsrc, eventDatas, eventID, events }) {
+export default function Card({ imgsrc, eventDatas, eventID, onDelete }) {
   const [menuVisibility, setMenuVisibility] = React.useState(false);
   return (
     <CardContainer imgsrc={imgsrc}>
@@ -30,7 +30,7 @@ export default function Card({ imgsrc, eventDatas, eventID, events }) {
       <DateOutput>{eventDatas.date}</DateOutput>
       <DescriptionOutput>{eventDatas.description}</DescriptionOutput>
       {menuVisibility ? (
-        <CardMenu onClick={setMenuVisibility} eventID={eventID} events={events} />
+        <CardMenu onClick={setMenuVisibility} eventID={eventID} onDelete={onDelete} />
       ) : (
         <MenuButton onClick={setMenuVisibility} />
       )}
