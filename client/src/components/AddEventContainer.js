@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
-export const PagesContainer = styled.main`
+export const AddContainer = styled.form`
   height: 90%;
   width: 100%;
   display: flex;
@@ -8,3 +9,7 @@ export const PagesContainer = styled.main`
   flex-direction: column;
   align-items: center;
 `;
+
+AddContainer.propTypes = {
+  children: PropTypes.node
+};

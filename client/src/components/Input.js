@@ -7,7 +7,7 @@ export const Input = styled.input`
   width: 80%;
   background-color: ${({ theme }) => theme.colors.active};
   border: none;
-  border-radius: 1px;
+  border-radius: 5px;
   font-size: 18px;
   margin: auto;
   margin-top: 10px;

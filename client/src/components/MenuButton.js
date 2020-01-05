@@ -3,21 +3,20 @@ import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
 const ClickContainer = styled.div`
-  height: 18px;
-  width: 30px;
+  height: 25px;
+  width: 35px;
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: 0;
   right: 0;
-  z-index: 9005;
+  z-index: 8001;
 `;
 const MenuButtonContainer = styled.div`
   width: 18px;
-  height: 4px;
   display: flex;
   justify-content: space-around;
-  position: absolute;
-  top: 10px;
-  right: 10px;
 `;
 
 const MenuDots = styled.span`
@@ -25,7 +24,6 @@ const MenuDots = styled.span`
   width: 4px;
   border-radius: 50%;
   background-color: white;
-  z-index: 9004;
   border: 0.2px solid black;
 `;
 

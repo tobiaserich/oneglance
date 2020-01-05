@@ -18,12 +18,11 @@ export default function Cards() {
   async function fetchEvents() {
     const result = await getOwnEvents(userName);
     setEvents(result);
-    return;
   }
 
   React.useEffect(() => {
     fetchEvents();
-  });
+  }, []);
 
   return (
     <CardsContainer>
