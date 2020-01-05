@@ -17,7 +17,7 @@ const ExitButtonLine = styled.div`
   width: 80%;
   height: 2px;
   background: ${({ theme }) => theme.colors.darkfont};
-  z-index: 9995;
+  z-index: 8001;
   border-radius: 10px;
   ${({ direction }) => {
     if (direction === "left") {

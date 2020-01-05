@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
-const placeholder = "/images/userPlaceholder.png";
+const placeholder = "/images/userPlaceholder.webp";
 
 const ImageWrapper = styled.div`
   width: ${({ size }) => size};

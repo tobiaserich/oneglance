@@ -2,10 +2,10 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Input } from "../../components/Input";
 import { Label } from "../../components/Label";
-import { AddCard } from "../../components/AddEventCard";
+
 import { DateInput } from "../../components/DateInput";
 import { Headline } from "../../components/Headline";
-import Button from "../../components/Button";
+import { Button } from "../../components/Button";
 export default {
   title: "Main Page| Add Pages"
 };
@@ -22,7 +22,7 @@ const CardButton = styled(Button)`
 
 export function AddPollDetails() {
   return (
-    <AddCard>
+    <>
       <CardTitle>Add Poll</CardTitle>
       <Label>
         Title:
@@ -34,6 +34,6 @@ export function AddPollDetails() {
         <CardButton>Cancel</CardButton>
         <CardButton type="submit">Continue</CardButton>
       </Label>
-    </AddCard>
+    </>
   );
 }

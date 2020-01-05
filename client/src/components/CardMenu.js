@@ -7,13 +7,12 @@ import PropTypes from "prop-types";
 import { deleteEvent } from "../api/event";
 
 const SideMenu = styled.div`
+  cursor: default;
   background-size: 100% 100%;
   transform: translateZ(50%);
   height: 100%;
   width: 100px;
-
   background: ${({ theme }) => theme.colors.backgroundTransparent};
-
   position: absolute;
   top: 0;
   right: 0px;
@@ -23,13 +22,6 @@ const SideMenu = styled.div`
 
 export default function Cardmenu({ onClick, eventID, onDelete }) {
   const [subMenu, setSubMenu] = React.useState("main");
-
-  async function clickHandler() {
-    await deleteEvent(eventID);
-    setTimeout(() => {
-      onDelete();
-    }, 100);
-  }
 
   const menuContent = {
     main: (
@@ -56,6 +48,13 @@ export default function Cardmenu({ onClick, eventID, onDelete }) {
     )
   };
 
+  async function clickHandler() {
+    await deleteEvent(eventID);
+    setTimeout(() => {
+      onDelete();
+    }, 100);
+  }
+
   return (
     <SideMenu>
       <ExitButton onClick={onClick} />
@@ -65,5 +64,7 @@ export default function Cardmenu({ onClick, eventID, onDelete }) {
 }
 
 Cardmenu.propTypes = {
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  onDelete: PropTypes.func,
+  eventID: PropTypes.string
 };

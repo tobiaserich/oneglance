@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { PagesContainer } from "../components/PagesContainer";
 import { Button } from "../components/Button";
@@ -18,7 +19,7 @@ const CustomLink = styled(Link)`
   width: 100%;
   text-align: center;
 `;
-export default function LoginPage(props) {
+export default function LoginPage({ auth }) {
   return (
     <PagesContainer>
       <HelperContainer />
@@ -28,10 +29,14 @@ export default function LoginPage(props) {
       <HelperContainer />
 
       <CustomLink to="/overview">
-        <Button onClick={() => props.auth("TobiasErich")}>Login as event manager</Button>
+        <Button onClick={() => auth("TobiasErich")}>Login as event manager</Button>
       </CustomLink>
 
       <Button>Login as User</Button>
     </PagesContainer>
   );
 }
+
+LoginPage.propTypes = {
+  auth: PropTypes.func
+};

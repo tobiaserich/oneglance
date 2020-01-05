@@ -15,7 +15,6 @@ const CardContainer = styled.article`
   background-size: 100% 100%;
   border-radius: 10px;
   position: relative;
-  z-index: 8001;
   overflow: hidden;
   margin: auto;
   margin-top: 20px;
@@ -40,7 +39,9 @@ export default function Card({ imgsrc, eventDatas, eventID, onDelete }) {
 
 Card.propTypes = {
   imgsrc: PropTypes.string,
-  eventDatas: PropTypes.object
+  eventDatas: PropTypes.object,
+  eventID: PropTypes.string,
+  onDelete: PropTypes.func
 };
 
 //eventDatas : title, date, descripiton
