@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import { PagesContainer } from "../components/PagesContainer";
 import Cards from "../components/Cards";
-import { AddButton } from "../components/AddEventCard";
+import { AddButton } from "../components/Button";
 
 const CustomLink = styled(Link)`
   width: 100%;
