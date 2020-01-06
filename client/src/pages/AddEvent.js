@@ -10,7 +10,9 @@ import { DescriptionInput } from "../components/DescriptionInput";
 import { Button } from "../components/Button";
 import BackgroundSelect from "../components/BackgroundSelect";
 import { setEvent } from "../api/event";
+
 const CardButton = styled(Button)`
+  margin: 0;
   width: 100px;
 `;
 
@@ -22,8 +24,6 @@ const ButtonContainer = styled.div`
 `;
 
 const CustomLink = styled(Link)`
-  width: 100%;
-  height: 100%;
   text-decoration: none;
 `;
 
@@ -72,10 +72,11 @@ export default function AddEvent() {
         <BackgroundSelect value={background} onChange={changeHandler} />
       </Label>
       <ButtonContainer>
-        <CardButton>
-          <CustomLink to="/overview">Cancel</CustomLink>
-        </CardButton>
+        <CustomLink to="/overview">
+          <CardButton>Cancel</CardButton>
+        </CustomLink>
         <CardButton
+          type="submit"
           onClick={() => {
             setEvent(title, date, descr, background, user);
             history.push("/overview");
