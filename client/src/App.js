@@ -4,17 +4,18 @@ import { ThemeProvider } from "emotion-theming";
 import UserContext from "./hooks/UserContext";
 import normal from "./themes/normal";
 import GlobalStyles from "./GlobalStyles";
+import HeaderContainer from "../src/components/Header";
+import UserImg from "../src/components/UserImg";
 import LoginPage from "./pages/LoginPage";
 import Main from "./pages/Main";
 import AddEvent from "./pages/AddEvent";
-import HeaderContainer from "../src/components/Header";
-import UserImg from "../src/components/UserImg";
+import EventDetails from "./pages/EventDetails";
 
 function Header() {
   return (
     <HeaderContainer>
       <UserImg thread="header" username="Tobias" />
-      <div>Logo</div>
+      <div>oneGlance</div>
       <div></div>
     </HeaderContainer>
   );
@@ -41,6 +42,9 @@ function App() {
             </Route>
             <Route exact path="/addEvent">
               <AddEvent />
+            </Route>
+            <Route exact path="/eventDetails">
+              <EventDetails />
             </Route>
           </Switch>
         </Router>
