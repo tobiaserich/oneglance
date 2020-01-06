@@ -28,9 +28,10 @@ const CardContainer = styled.article`
 
 export default function Card({ imgsrc, eventDatas, eventID, onDelete }) {
   const [menuVisibility, setMenuVisibility] = React.useState(false);
+
   return (
-    <CardContainer imgsrc={imgsrc} color={menuVisibility}>
-      <CustomLink to="/eventDetails">
+    <CardContainer imgsrc={imgsrc}>
+      <CustomLink to={`/eventDetails/?ID=${eventID}`}>
         <DarkFilter />
         <Headline>{eventDatas.title ? eventDatas.title : "Event"}</Headline>
         <DateOutput>{eventDatas.date}</DateOutput>
