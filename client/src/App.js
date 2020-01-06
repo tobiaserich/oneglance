@@ -10,17 +10,7 @@ import LoginPage from "./pages/LoginPage";
 import Main from "./pages/Main";
 import AddEvent from "./pages/AddEvent";
 import EventDetails from "./pages/EventDetails";
-
-function Header() {
-  return (
-    <HeaderContainer>
-      <UserImg thread="header" username="Tobias" />
-      <div>oneGlance</div>
-      <div></div>
-    </HeaderContainer>
-  );
-}
-
+import Header from "./components/Header";
 function App() {
   const [username, setUsername] = React.useState("TobiasErich");
 
@@ -30,9 +20,9 @@ function App() {
   return (
     <UserContext.Provider value={username}>
       <ThemeProvider theme={normal}>
-        <Header />
         <Router>
           <GlobalStyles />
+          <Header />
           <Switch>
             <Route exact path="/">
               <LoginPage auth={handleLogin} />
@@ -43,7 +33,7 @@ function App() {
             <Route exact path="/addEvent">
               <AddEvent />
             </Route>
-            <Route exact path="/eventDetails">
+            <Route path="/eventDetails">
               <EventDetails />
             </Route>
           </Switch>
