@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage";
 import Main from "./pages/Main";
 import AddEvent from "./pages/AddEvent";
 import EventDetails from "./pages/EventDetails";
+<<<<<<< HEAD
 
 function Header() {
   return (
@@ -21,6 +22,9 @@ function Header() {
   );
 }
 
+=======
+import Header from "./components/Header";
+>>>>>>> 781bc92cae92c126816c5559319b5252f8b2249d
 function App() {
   const [username, setUsername] = React.useState("TobiasErich");
 
@@ -30,9 +34,9 @@ function App() {
   return (
     <UserContext.Provider value={username}>
       <ThemeProvider theme={normal}>
-        <Header />
         <Router>
           <GlobalStyles />
+          <Header />
           <Switch>
             <Route exact path="/">
               <LoginPage auth={handleLogin} />
@@ -43,7 +47,7 @@ function App() {
             <Route exact path="/addEvent">
               <AddEvent />
             </Route>
-            <Route exact path="/eventDetails">
+            <Route path="/eventDetails">
               <EventDetails />
             </Route>
           </Switch>
