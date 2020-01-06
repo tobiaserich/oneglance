@@ -17,3 +17,13 @@ export const DescriptionOutput = styled.div`
 DescriptionOutput.propTypes = {
   children: PropTypes.node
 };
+
+export const DetailDescriptionOutput = styled.div`
+  width: 95%;
+  height: 90%;
+  margin-top: 20px;
+  margin-left: 10px;
+  color: ${({ theme }) => theme.colors.darkfont};
+  font-size: 22px;
+  overflow: scroll;
+`;

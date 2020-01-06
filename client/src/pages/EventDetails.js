@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { DetailEventContainer } from "../components/DetailContainer";
-import { PagesContainer } from "../components/Container";
 import { getOneEvent } from "../api/event";
+import { PagesContainer } from "../components/Container";
+import { DetailEventContainer } from "../components/DetailContainer";
+import { HeadlineDark } from "../components/Headline";
+import { DetailDateOutput } from "../components/DateOutput";
+import { DetailDescriptionOutput } from "../components/DescriptionOutput";
 
 const PageWrapper = styled(PagesContainer)`
   background-image: url(${({ img }) => `.${img}`});
@@ -27,7 +30,14 @@ export default function EventDetails() {
 
   return (
     <PageWrapper img={eventData.background}>
-      <DetailEventContainer>{eventData.title}</DetailEventContainer>
+      <DetailEventContainer>
+        <HeadlineDark>{eventData.title}</HeadlineDark>
+        <DetailDateOutput>
+          <span>Event begin:</span>
+          <span>{eventData.date}</span>
+        </DetailDateOutput>
+        <DetailDescriptionOutput>{eventData.descr}</DetailDescriptionOutput>
+      </DetailEventContainer>
     </PageWrapper>
   );
 }

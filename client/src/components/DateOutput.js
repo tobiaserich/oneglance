@@ -9,3 +9,13 @@ export const DateOutput = styled.time`
   z-index: 8001;
   text-shadow: 0px 0px 10px #262626;
 `;
+
+export const DetailDateOutput = styled.time`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  color: ${({ theme }) => theme.colors.darkfont};
+  font-size: 20px;
+
+  margin-top: 10px;
+`;

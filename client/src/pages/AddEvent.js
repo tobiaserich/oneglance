@@ -48,7 +48,13 @@ export default function AddEvent() {
       setBackground(content);
     }
   }
-
+  function handleSubmit(event) {
+    event.preventDefault();
+    setEvent(title, date, descr, background, user);
+    setTimeout(() => {
+      history.push("/overview");
+    }, 20);
+  }
   return (
     <AddContainer>
       <Label>
@@ -73,17 +79,9 @@ export default function AddEvent() {
       </Label>
       <ButtonContainer>
         <CustomLink to="/overview">
-          <CardButton>Cancel</CardButton>
+          <CardButton type="button">Cancel</CardButton>
         </CustomLink>
-        <CardButton
-          type="submit"
-          onClick={() => {
-            setEvent(title, date, descr, background, user);
-            history.push("/overview");
-          }}
-        >
-          Submit
-        </CardButton>
+        <CardButton onClick={event => handleSubmit(event)}>Submit</CardButton>
       </ButtonContainer>
     </AddContainer>
   );
