@@ -4,8 +4,6 @@ import { ThemeProvider } from "emotion-theming";
 import UserContext from "./hooks/UserContext";
 import normal from "./themes/normal";
 import GlobalStyles from "./GlobalStyles";
-import HeaderContainer from "../src/components/Header";
-import UserImg from "../src/components/UserImg";
 import LoginPage from "./pages/LoginPage";
 import Main from "./pages/Main";
 import AddEvent from "./pages/AddEvent";
