@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Link, useHistory } from "react-router-dom";
 import UserContext from "../hooks/UserContext";
-import { AddContainer } from "../components/AddEventContainer";
+import { AddContainer } from "../components/Container";
 import { Label } from "../components/Label";
 import { Input } from "../components/Input";
 import { DateInput } from "../components/DateInput";
