@@ -18,17 +18,3 @@ export const InfoEntry = styled.li`
   background: ${({ item, theme }) => (item % 2 === 0 ? theme.colors.active : "")};
   color: ${({ theme }) => theme.colors.darkfont};
 `;
-
-export default function ProfileNavigation() {
-  return (
-    <InfoNav>
-      <InfoEntry item={1}>Personal Information</InfoEntry>
-      <InfoEntry item={2}>Polls</InfoEntry>
-      <InfoEntry item={3}>Tasks</InfoEntry>
-    </InfoNav>
-  );
-}
-
-InfoEntry.propTypes = {
-  item: PropTypes.number
-};

@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Card from "../components/Card";
 import { getOwnEvents } from "../api/event";
 import UserContext from "../hooks/UserContext";
+import { CardsOverviewContainer } from "../components/Container";
 
 const CardsContainer = styled.div`
   margin-top: 10px;
@@ -25,7 +26,7 @@ export default function Cards() {
   }, []);
 
   return (
-    <CardsContainer>
+    <CardsOverviewContainer>
       {events.map(event => {
         const eventDatas = { title: event.title, date: event.date, description: event.descr };
         return (
@@ -38,6 +39,6 @@ export default function Cards() {
           ></Card>
         );
       })}
-    </CardsContainer>
+    </CardsOverviewContainer>
   );
 }

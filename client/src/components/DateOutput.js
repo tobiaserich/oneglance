@@ -16,6 +16,5 @@ export const DetailDateOutput = styled.time`
   justify-content: space-around;
   color: ${({ theme }) => theme.colors.darkfont};
   font-size: 20px;
-
   margin-top: 10px;
 `;

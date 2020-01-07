@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../../components/Card";
 import { text, select } from "@storybook/addon-knobs";
-import { DarkFilter } from "../../components/DarkFilter";
+import DarkFilter from "../../components/DarkFilter";
 import { Headline } from "../../components/Headline";
 import { DateOutput } from "../../components/DateOutput";
 import { DescriptionOutput } from "../../components/DescriptionOutput";
