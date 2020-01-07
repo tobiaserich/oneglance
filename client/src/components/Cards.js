@@ -5,13 +5,6 @@ import { getOwnEvents } from "../api/event";
 import UserContext from "../hooks/UserContext";
 import { CardsOverviewContainer } from "../components/Container";
 
-const CardsContainer = styled.div`
-  margin-top: 10px;
-  height: 100%;
-  width: 100%;
-  overflow: scroll;
-`;
-
 export default function Cards() {
   const [events, setEvents] = React.useState([]);
   const userName = React.useContext(UserContext);

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Input } from "../../components/Input";
-import { Label } from "../../components/Label";
+import Input from "../../components/Input";
+import Label from "../../components/Label";
 
 import DateInput from "../../components/DateInput";
 import { Headline } from "../../components/Headline";
