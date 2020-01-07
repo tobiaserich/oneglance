@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Link, useHistory } from "react-router-dom";
 import UserContext from "../hooks/UserContext";
-import { AddContainer } from "../components/AddEventContainer";
+import { AddContainer } from "../components/Container";
 import { Label } from "../components/Label";
 import { Input } from "../components/Input";
 import { DateInput } from "../components/DateInput";
@@ -10,7 +10,9 @@ import { DescriptionInput } from "../components/DescriptionInput";
 import { Button } from "../components/Button";
 import BackgroundSelect from "../components/BackgroundSelect";
 import { setEvent } from "../api/event";
+
 const CardButton = styled(Button)`
+  margin: 0;
   width: 100px;
 `;
 
@@ -22,8 +24,6 @@ const ButtonContainer = styled.div`
 `;
 
 const CustomLink = styled(Link)`
-  width: 100%;
-  height: 100%;
   text-decoration: none;
 `;
 
@@ -48,7 +48,13 @@ export default function AddEvent() {
       setBackground(content);
     }
   }
-
+  function handleSubmit(event) {
+    event.preventDefault();
+    setEvent(title, date, descr, background, user);
+    setTimeout(() => {
+      history.push("/overview");
+    }, 20);
+  }
   return (
     <AddContainer>
       <Label>
@@ -72,17 +78,10 @@ export default function AddEvent() {
         <BackgroundSelect value={background} onChange={changeHandler} />
       </Label>
       <ButtonContainer>
-        <CardButton>
-          <CustomLink to="/overview">Cancel</CustomLink>
-        </CardButton>
-        <CardButton
-          onClick={() => {
-            setEvent(title, date, descr, background, user);
-            history.push("/overview");
-          }}
-        >
-          Submit
-        </CardButton>
+        <CustomLink to="/overview">
+          <CardButton type="button">Cancel</CardButton>
+        </CustomLink>
+        <CardButton onClick={event => handleSubmit(event)}>Submit</CardButton>
       </ButtonContainer>
     </AddContainer>
   );
