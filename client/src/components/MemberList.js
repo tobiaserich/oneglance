@@ -2,7 +2,6 @@ import React from "react";
 import styled from "@emotion/styled";
 import { getAllMember } from "../api/member";
 import { InfoEntry, InfoNav } from "../components/ProfileNavigation";
-import UserImg from "../components/UserImg";
 
 const Nav = styled(InfoNav)`
   width: 100%;
@@ -12,7 +11,7 @@ export default function Memberlist() {
   const [memberList, setMemberList] = React.useState([]);
   const eventID = new URLSearchParams(window.location.search).get("ID");
 
-  async function fetchMember(ID) {
+  async function fetchMember() {
     const members = await getAllMember(eventID);
     setMemberList(members);
   }
