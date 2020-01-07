@@ -6,7 +6,7 @@ export const DetailContainer = styled.article`
   margin-top: 10px;
 `;
 
-export const DetailEventContainer = styled.article`
+export const EventContainer = styled.article`
   height: 90%;
   width: 90%;
   display: flex;
@@ -17,6 +17,60 @@ export const DetailEventContainer = styled.article`
   border-radius: 10px;
   padding: 5px 10px;
   color: ${({ theme }) => theme.colors.darkfont};
+`;
+
+export const FakeEvent = styled.article`
+  height: 90%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: ${({ theme }) => theme.colors.secondBackgroundTransparent};
+  margin: auto;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: ${({ theme }) => theme.colors.darkfont};
+  animation-duration: 0.5s;
+  animation-name: ${({ direction }) => direction};
+  @keyframes right {
+    from {
+      transform: translate(0%);
+    }
+
+    45% {
+      transform: translate(100%);
+    }
+    50% {
+      opacity: -1;
+      transform: translate(-200%);
+    }
+    55% {
+      opacity: 1;
+    }
+    to {
+      transform: translate(0%);
+    }
+  }
+
+  @keyframes left {
+    from {
+      transform: translate(0%);
+    }
+
+    45% {
+      transform: translate(-100%);
+    }
+    50% {
+      opacity: -1;
+      transform: translate(200%);
+    }
+    55% {
+      opacity: 1;
+    }
+    to {
+      transform: translate(0%);
+    }
+  }
 `;
 
 DetailContainer.propTypes = {
