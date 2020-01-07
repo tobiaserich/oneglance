@@ -71,9 +71,6 @@ export default function EventDetails() {
           onTouchStart={event => {
             handleSwipe(event, "begin");
           }}
-          // onTouchMove={event => {
-          //   handleSwipe(event, "move");
-          // }}
           onTouchEnd={event => {
             handleSwipe(event, "end");
           }}
