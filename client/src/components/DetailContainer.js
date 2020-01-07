@@ -9,13 +9,14 @@ export const DetailContainer = styled.article`
 export const EventContainer = styled.article`
   height: 90%;
   width: 90%;
+  position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.secondBackgroundTransparent};
   margin: auto;
   border-radius: 10px;
-  padding: 5px 10px;
+  padding: 15px 0px;
   color: ${({ theme }) => theme.colors.darkfont};
 `;
 
