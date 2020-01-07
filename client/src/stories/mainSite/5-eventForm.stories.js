@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Label } from "../../components/Label";
+import Label from "../../components/Label";
 import Input from "../../components/Input";
 import DateInput from "../../components/DateInput";
 import { DescriptionInput } from "../../components/DescriptionInput";

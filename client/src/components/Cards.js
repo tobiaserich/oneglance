@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+
 import Card from "../components/Card";
 import { getOwnEvents } from "../api/event";
 import UserContext from "../hooks/UserContext";
