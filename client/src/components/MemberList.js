@@ -17,7 +17,7 @@ export default function Memberlist() {
   }
 
   React.useEffect(() => {
-    fetchMember(eventID);
+    fetchMember();
   }, []);
 
   return (
