@@ -1,0 +1,35 @@
+import React from "react";
+import styled from "@emotion/styled";
+import { getAllMember } from "../api/member";
+import { InfoEntry, InfoNav } from "../components/ProfileNavigation";
+import UserImg from "../components/UserImg";
+
+const Nav = styled(InfoNav)`
+  width: 100%;
+  padding: 0;
+`;
+export default function Memberlist() {
+  const [memberList, setMemberList] = React.useState([]);
+  const eventID = new URLSearchParams(window.location.search).get("ID");
+
+  async function fetchMember(ID) {
+    const members = await getAllMember(eventID);
+    setMemberList(members);
+  }
+
+  React.useEffect(() => {
+    fetchMember(eventID);
+  }, []);
+
+  return (
+    <Nav>
+      {memberList.map((member, index) => {
+        return (
+          <InfoEntry key={member.id} item={index}>
+            {member.userName}
+          </InfoEntry>
+        );
+      })}
+    </Nav>
+  );
+}

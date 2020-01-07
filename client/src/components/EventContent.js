@@ -1,13 +1,14 @@
 import React from "react";
-
 import { HeadlineDark } from "./Headline";
 import { DetailDateOutput } from "./DateOutput";
 import { DetailDescriptionOutput } from "./DescriptionOutput";
+import MemberList from "./MemberList";
 
 export default function EventContent(props) {
   const siteContent = [
     <>
-      <h1> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, suscipit. </h1>
+      <HeadlineDark> Member </HeadlineDark>
+      <MemberList eventID={props.eventData._id} />
     </>,
     <>
       <HeadlineDark>{props.eventData.title}</HeadlineDark>
@@ -16,6 +17,12 @@ export default function EventContent(props) {
         <span>{props.eventData.date}</span>
       </DetailDateOutput>
       <DetailDescriptionOutput>{props.eventData.descr}</DetailDescriptionOutput>
+    </>,
+    <>
+      <HeadlineDark>Polls</HeadlineDark>
+    </>,
+    <>
+      <HeadlineDark>Tasks</HeadlineDark>
     </>
   ];
 
