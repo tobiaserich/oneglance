@@ -2,9 +2,19 @@ require("dotenv").config();
 const express = require("express");
 const { dbInit } = require("./lib/db");
 const app = express();
-const { getOwnEvents, getOneEvent, setEvent, deleteEvent } = require("./lib/events");
+const {
+  getOwnEvents,
+  getOneEvent,
+  setEvent,
+  deleteEvent,
+  addUserToEvent,
+  getUserList
+} = require("./lib/events");
+const { setUser } = require("./lib/user");
 
 app.use(express.json({ extended: false }));
+
+// get routes
 
 app.get("/api/event/user/:username", async (req, res) => {
   try {
@@ -26,10 +36,22 @@ app.get("/api/event/:eventID", async (req, res) => {
   }
 });
 
+app.get("/api/user/event/:ID", async (req, res) => {
+  try {
+    const userList = await getUserList(req.params.ID);
+    res.send(userList);
+  } catch (error) {
+    console.error(error);
+    res.send(error);
+  }
+});
+
+//post routes
+
 app.post("/api/event/", (req, res) => {
   try {
-    const eventDatas = req.body;
-    setEvent(eventDatas);
+    const eventData = req.body;
+    setEvent(eventData);
     res.end();
   } catch (error) {
     console.error(error);
@@ -37,9 +59,34 @@ app.post("/api/event/", (req, res) => {
   }
 });
 
+// delete routes
+
 app.delete("/api/event/del/:eventID", async (req, res) => {
   try {
     await deleteEvent(req.params.eventID);
+    res.end();
+  } catch (error) {
+    console.error(error);
+    res.send(error);
+  }
+});
+
+// routes for postman
+app.post("/api/user", (req, res) => {
+  try {
+    const userData = req.body;
+    setUser(userData);
+    res.end();
+  } catch (error) {
+    console.error(error);
+    res.send(error);
+  }
+});
+
+app.post("/api/event/user/:eventID", async (req, res) => {
+  try {
+    const user = req.body;
+    addUserToEvent(user.id, req.params.eventID);
     res.end();
   } catch (error) {
     console.error(error);

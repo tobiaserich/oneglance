@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
-
+import { useHistory } from "react-router-dom";
 const ExitButtonContainer = styled.div`
   height: 20px;
   width: 20px;
@@ -29,12 +29,9 @@ const ExitButtonLine = styled.div`
 `;
 
 export default function ExitButton({ onClick }) {
+  const history = useHistory();
   return (
-    <ExitButtonContainer
-      onClick={() => {
-        onClick(false);
-      }}
-    >
+    <ExitButtonContainer onClick={() => (onClick ? onClick(false) : history.push("/overview"))}>
       <ExitButtonLine direction="left"></ExitButtonLine>
       <ExitButtonLine direction="right"></ExitButtonLine>
     </ExitButtonContainer>

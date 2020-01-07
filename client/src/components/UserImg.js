@@ -22,6 +22,7 @@ export default function UserImg({ src, username, thread, children }) {
   const imagesize = {
     header: "50px",
     detail: "40px",
+    memberList: "30px",
     test: "20px"
   };
   return (

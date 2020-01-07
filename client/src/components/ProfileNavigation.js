@@ -13,6 +13,7 @@ export const InfoEntry = styled.li`
   align-items: center;
   height: 40px;
   width: 100%;
+  padding-left: 10px;
   list-style: none;
   background: ${({ item, theme }) => (item % 2 === 0 ? theme.colors.active : "")};
   color: ${({ theme }) => theme.colors.darkfont};
