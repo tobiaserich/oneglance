@@ -1,9 +1,19 @@
 import React from "react";
+import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 import { HeadlineDark } from "./Headline";
 import { DetailDateOutput } from "./DateOutput";
 import { DetailDescriptionOutput } from "./DescriptionOutput";
 import MemberList from "./MemberList";
+import { AddDetailButton } from "./Button";
 
+const CustomLink = styled(Link)`
+  width: 100%;
+  text-decoration: none;
+
+  position: absolute;
+  bottom: 0;
+`;
 export default function EventContent(props) {
   const siteContent = [
     <>
@@ -20,6 +30,10 @@ export default function EventContent(props) {
     </>,
     <>
       <HeadlineDark>Polls</HeadlineDark>
+
+      <CustomLink to="/poll">
+        <AddDetailButton>New Poll</AddDetailButton>
+      </CustomLink>
     </>,
     <>
       <HeadlineDark>Tasks</HeadlineDark>
