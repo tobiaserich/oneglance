@@ -2,40 +2,28 @@ import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { CardContainer } from "../components/Container";
 import { Headline } from "../components/Headline";
 import { DateOutput } from "../components/DateOutput";
 import { DescriptionOutput } from "../components/DescriptionOutput";
 import MenuButton from "./MenuButton";
 import CardMenu from "./CardMenu";
-import { DarkFilter } from "../components/DarkFilter";
+import DarkFilter from "../components/DarkFilter";
 
 const CustomLink = styled(Link)`
-  width: 100%;
-  height: 100%;
   text-decoration: none;
 `;
-const CardContainer = styled.article`
-  height: 140px;
-  width: 280px;
-  background-image: url(${({ imgsrc }) => imgsrc});
-  background-size: 100% 100%;
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
-  margin: auto;
-  margin-top: 20px;
-`;
 
-export default function Card({ imgsrc, eventDatas, eventID, onDelete }) {
+export default function Card({ imgsrc, eventData, eventID, onDelete }) {
   const [menuVisibility, setMenuVisibility] = React.useState(false);
 
   return (
     <CardContainer imgsrc={imgsrc}>
       <CustomLink to={`/eventDetails/?ID=${eventID}`}>
         <DarkFilter />
-        <Headline>{eventDatas.title ? eventDatas.title : "Event"}</Headline>
-        <DateOutput>{eventDatas.date}</DateOutput>
-        <DescriptionOutput>{eventDatas.description}</DescriptionOutput>
+        <Headline>{eventData.title || "Event"}</Headline>
+        <DateOutput>{eventData.date}</DateOutput>
+        <DescriptionOutput>{eventData.description}</DescriptionOutput>
       </CustomLink>
       {menuVisibility ? (
         <CardMenu onClick={setMenuVisibility} eventID={eventID} onDelete={onDelete} />
@@ -48,9 +36,7 @@ export default function Card({ imgsrc, eventDatas, eventID, onDelete }) {
 
 Card.propTypes = {
   imgsrc: PropTypes.string,
-  eventDatas: PropTypes.object,
+  eventData: PropTypes.object,
   eventID: PropTypes.string,
   onDelete: PropTypes.func
 };
-
-//eventDatas : title, date, descripiton

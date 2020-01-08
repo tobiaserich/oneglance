@@ -1,13 +1,13 @@
 import React from "react";
 import { HeadlineDark } from "./Headline";
 import { DetailDateOutput } from "./DateOutput";
-import { DetailDescriptionOutput } from "./DescriptionOutput";
+import { OutputWithOverflow } from "./DescriptionOutput";
 import MemberList from "./MemberList";
 
 export default function EventContent(props) {
   const siteContent = [
     <>
-      <HeadlineDark> Member </HeadlineDark>
+      <HeadlineDark>Member</HeadlineDark>
       <MemberList eventID={props.eventData._id} />
     </>,
     <>
@@ -16,7 +16,7 @@ export default function EventContent(props) {
         <span>Event begin:</span>
         <span>{props.eventData.date}</span>
       </DetailDateOutput>
-      <DetailDescriptionOutput>{props.eventData.descr}</DetailDescriptionOutput>
+      <OutputWithOverflow>{props.eventData.descr}</OutputWithOverflow>
     </>,
     <>
       <HeadlineDark>Polls</HeadlineDark>

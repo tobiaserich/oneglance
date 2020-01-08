@@ -18,7 +18,7 @@ DescriptionOutput.propTypes = {
   children: PropTypes.node
 };
 
-export const DetailDescriptionOutput = styled.div`
+export const OutputWithOverflow = styled.div`
   width: 95%;
   height: 90%;
   margin-top: 20px;
