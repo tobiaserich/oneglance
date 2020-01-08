@@ -5,9 +5,7 @@ import UserImg from "../components/UserImg";
 const HeaderContainer = styled.header`
   height: 10%;
   width: 100%;
-  position: ${({ pos }) => pos};
-  top: 0;
-  z-index: 9999;
+
   background-color: ${({ theme }) => theme.colors.backgroundTransparent};
   display: flex;
   align-items: center;
@@ -18,9 +16,9 @@ const HeaderContainer = styled.header`
   letter-spacing: 1px;
 `;
 
-export default function Header({ pos }) {
+export default function Header() {
   return (
-    <HeaderContainer pos={pos}>
+    <HeaderContainer>
       <UserImg thread="header" username="Tobias" />
       <div>oneGlance</div>
       <div></div>

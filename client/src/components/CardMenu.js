@@ -17,7 +17,7 @@ const SideMenu = styled.div`
   top: 0;
   right: 0px;
   border-radius: 0px 10px 10px 0px;
-  z-index: 9010;
+  z-index: 8001;
 `;
 
 export default function Cardmenu({ onClick, eventID, onDelete }) {

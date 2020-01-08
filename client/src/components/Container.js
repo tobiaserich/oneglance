@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import PropTypes from "prop-types";
 
 export const PagesContainer = styled.div`
   height: 90%;
@@ -19,6 +18,33 @@ export const AddContainer = styled.form`
   align-items: center;
 `;
 
-AddContainer.propTypes = {
-  children: PropTypes.node
-};
+export const CardContainer = styled.article`
+  height: 140px;
+  width: 280px;
+  background-image: url(${({ imgsrc }) => imgsrc});
+  background-size: 100% 100%;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 20px;
+`;
+
+export const CardsOverviewContainer = styled.div`
+  margin-top: 10px;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+`;
+
+export const ClickContainer = styled.div`
+  height: 25px;
+  width: 35px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  z-index: 8001;
+`;

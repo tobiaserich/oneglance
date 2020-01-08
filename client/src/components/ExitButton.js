@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
+
 const ExitButtonContainer = styled.div`
   height: 20px;
   width: 20px;
