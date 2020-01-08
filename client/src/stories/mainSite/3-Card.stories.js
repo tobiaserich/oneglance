@@ -11,7 +11,7 @@ export default {
 };
 
 export function fullCard() {
-  const eventDatas = {
+  const eventData = {
     title: text("EventName:", "EventName"),
     date: text("Date:", "12.12.12"),
     description: text(
@@ -27,19 +27,19 @@ export function fullCard() {
         "ImgSrc:",
         "http://ellomedia.de/galleries/AmoreMioParty/AMLindenbrauerei181014/IMG_9075141018B.jpg"
       )}
-      eventDatas={eventDatas}
+      eventData={eventData}
       menuOn={select("MenuOn?", menuSelect, false)}
     />
   );
 }
 
 export function cardContainerAndMenuButton() {
-  const emptyEventDatas = {
+  const emptyEventData = {
     title: " ",
     date: " ",
     description: " "
   };
-  return <Card imgsrc="" eventDatas={emptyEventDatas} />;
+  return <Card imgsrc="" eventData={emptyEventData} />;
 }
 
 export function cardDarkFilter() {

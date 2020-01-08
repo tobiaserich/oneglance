@@ -21,13 +21,13 @@ export default function Cards() {
   return (
     <CardsOverviewContainer>
       {events.map(event => {
-        const eventDatas = { title: event.title, date: event.date, description: event.descr };
+        const eventData = { title: event.title, date: event.date, description: event.descr };
         return (
           <Card
             key={event._id}
             eventID={event._id}
             imgsrc={event.background}
-            eventDatas={eventDatas}
+            eventData={eventData}
             onDelete={fetchEvents}
           ></Card>
         );

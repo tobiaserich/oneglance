@@ -14,16 +14,16 @@ const CustomLink = styled(Link)`
   text-decoration: none;
 `;
 
-export default function Card({ imgsrc, eventDatas, eventID, onDelete }) {
+export default function Card({ imgsrc, eventData, eventID, onDelete }) {
   const [menuVisibility, setMenuVisibility] = React.useState(false);
 
   return (
     <CardContainer imgsrc={imgsrc}>
       <CustomLink to={`/eventDetails/?ID=${eventID}`}>
         <DarkFilter />
-        <Headline>{eventDatas.title || "Event"}</Headline>
-        <DateOutput>{eventDatas.date}</DateOutput>
-        <DescriptionOutput>{eventDatas.description}</DescriptionOutput>
+        <Headline>{eventData.title || "Event"}</Headline>
+        <DateOutput>{eventData.date}</DateOutput>
+        <DescriptionOutput>{eventData.description}</DescriptionOutput>
       </CustomLink>
       {menuVisibility ? (
         <CardMenu onClick={setMenuVisibility} eventID={eventID} onDelete={onDelete} />
@@ -36,9 +36,7 @@ export default function Card({ imgsrc, eventDatas, eventID, onDelete }) {
 
 Card.propTypes = {
   imgsrc: PropTypes.string,
-  eventDatas: PropTypes.object,
+  eventData: PropTypes.object,
   eventID: PropTypes.string,
   onDelete: PropTypes.func
 };
-
-//eventDatas : title, date, descripiton
