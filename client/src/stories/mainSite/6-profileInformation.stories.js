@@ -2,7 +2,7 @@ import React from "react";
 import { text, select } from "@storybook/addon-knobs";
 import ProfileNavigation from "../../components/ProfileNavigation";
 import PersonalInformation from "../../components/PersonalInformation";
-import { DetailCard } from "../../components/DetailCard";
+import DetailCard from "../../components/DetailCard";
 import PollInfo from "../../components/PollInfo";
 import { InfoNav } from "../../components/ProfileNavigation";
 

@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
-import PropTypes from "prop-types";
 
-export const Input = styled.input`
+const Input = styled.input`
   display: block;
   height: 40px;
   width: 80%;
@@ -14,6 +13,4 @@ export const Input = styled.input`
   padding-left: 5px;
 `;
 
-Input.propTypes = {
-  name: PropTypes.string.isRequired
-};
+export default Input;

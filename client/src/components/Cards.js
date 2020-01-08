@@ -1,15 +1,9 @@
 import React from "react";
-import styled from "@emotion/styled";
+
 import Card from "../components/Card";
 import { getOwnEvents } from "../api/event";
 import UserContext from "../hooks/UserContext";
-
-const CardsContainer = styled.div`
-  margin-top: 10px;
-  height: 100%;
-  width: 100%;
-  overflow: scroll;
-`;
+import { CardsOverviewContainer } from "../components/Container";
 
 export default function Cards() {
   const [events, setEvents] = React.useState([]);
@@ -25,19 +19,19 @@ export default function Cards() {
   }, []);
 
   return (
-    <CardsContainer>
+    <CardsOverviewContainer>
       {events.map(event => {
-        const eventDatas = { title: event.title, date: event.date, description: event.descr };
+        const eventData = { title: event.title, date: event.date, description: event.descr };
         return (
           <Card
             key={event._id}
             eventID={event._id}
             imgsrc={event.background}
-            eventDatas={eventDatas}
+            eventData={eventData}
             onDelete={fetchEvents}
           ></Card>
         );
       })}
-    </CardsContainer>
+    </CardsOverviewContainer>
   );
 }
