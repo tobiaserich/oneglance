@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 const Input = styled.input`
   display: block;
-  height: 40px;
+  height: ${({ height }) => height || "40px"};
   width: 80%;
   background-color: ${({ theme }) => theme.colors.active};
   border: none;
@@ -11,6 +11,7 @@ const Input = styled.input`
   margin: auto;
   margin-top: 10px;
   padding-left: 5px;
+  text-align: ${({ align }) => align};
 `;
 
 export default Input;

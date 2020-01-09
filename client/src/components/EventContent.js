@@ -30,8 +30,8 @@ export default function EventContent(props) {
     </>,
     <>
       <HeadlineDark>Polls</HeadlineDark>
-
-      <CustomLink to="/poll">
+      {console.log(props.eventData._id)}
+      <CustomLink to={`/poll/?ID=${props.eventData._id}`}>
         <AddDetailButton>New Poll</AddDetailButton>
       </CustomLink>
     </>,

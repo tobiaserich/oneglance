@@ -16,8 +16,8 @@ const PageWrapper = styled(PagesContainer)`
 export default function EventDetails() {
   const eventID = new URLSearchParams(window.location.search).get("ID");
   const [eventData, setEventData] = React.useState([]);
+  const [siteNumber, setSiteNumber] = React.useState(2);
   const [swipeDirection, setSwipeDirection] = React.useState(null);
-  const [siteNumber, setSiteNumber] = React.useState(0);
   const [animationBegin, setAnimationBegin] = React.useState(false);
 
   let swipeBegin = null;
