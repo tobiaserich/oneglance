@@ -52,7 +52,6 @@ app.get("/api/user/event/:ID", async (req, res) => {
 app.post("/api/event/", (req, res) => {
   try {
     const eventData = req.body;
-    console.log(req.body);
     setEvent(eventData);
     res.end();
   } catch (error) {
