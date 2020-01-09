@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+
 const { dbInit } = require("./lib/db");
 const app = express();
 const {
@@ -11,7 +12,7 @@ const {
   getUserList
 } = require("./lib/events");
 const { setUser } = require("./lib/user");
-
+const { setPoll } = require("./lib/polls");
 app.use(express.json({ extended: false }));
 
 // get routes
@@ -51,6 +52,7 @@ app.get("/api/user/event/:ID", async (req, res) => {
 app.post("/api/event/", (req, res) => {
   try {
     const eventData = req.body;
+    console.log(req.body);
     setEvent(eventData);
     res.end();
   } catch (error) {
@@ -59,6 +61,17 @@ app.post("/api/event/", (req, res) => {
   }
 });
 
+app.post("/api/poll/:ID", (req, res) => {
+  try {
+    const ID = req.params.ID;
+    const poll = req.body;
+    setPoll(poll, ID);
+    res.end();
+  } catch (error) {
+    console.error(error);
+    res.send(error);
+  }
+});
 // delete routes
 
 app.delete("/api/event/del/:eventID", async (req, res) => {
