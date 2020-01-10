@@ -14,8 +14,6 @@ const {
 const { setUser } = require("./lib/user");
 const { setPoll, getPolls, getPoll } = require("./lib/polls");
 const { setTask, getTasks, getTask } = require("./lib/tasks");
-
-
 app.use(express.json({ extended: false }));
 
 // get routes
@@ -107,8 +105,6 @@ app.post("/api/event/", (req, res) => {
   }
 });
 
-
-
 app.post("/api/poll/:ID", async (req, res) => {
   try {
     const ID = req.params.ID;
@@ -120,7 +116,6 @@ app.post("/api/poll/:ID", async (req, res) => {
     res.send(error);
   }
 });
-
 
 
 app.post("/api/task/:ID", async (req, res) => {
