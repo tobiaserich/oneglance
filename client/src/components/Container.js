@@ -10,9 +10,10 @@ export const PagesContainer = styled.div`
 `;
 
 export const AddContainer = styled.form`
-  height: 100%;
+  height: 90%;
   width: 100%;
   display: flex;
+  overflow: scroll;
   background-color: ${({ theme }) => theme.colors.background};
   flex-direction: column;
   align-items: center;
@@ -47,4 +48,10 @@ export const ClickContainer = styled.div`
   top: 0;
   right: 0;
   z-index: 8001;
+`;
+
+export const FlexContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 `;
