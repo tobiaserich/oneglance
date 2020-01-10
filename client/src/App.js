@@ -10,7 +10,9 @@ import Main from "./pages/Main";
 import AddEvent from "./pages/AddEvent";
 import EventDetails from "./pages/EventDetails";
 import Poll from "./pages/Poll";
+
 import Task from "./pages/Task";
+
 import Header from "./components/Header";
 function App() {
   const [username, setUsername] = React.useState("TobiasErich");
@@ -45,6 +47,7 @@ function App() {
             <Route path="/poll">
               <Poll />
             </Route>
+
             <Route path="/task">
               <Task />
             </Route>
