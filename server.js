@@ -108,8 +108,6 @@ app.post("/api/event/", (req, res) => {
   }
 });
 
-<<<<<<< Updated upstream
-=======
 app.post("/api/poll/:ID", async (req, res) => {
   try {
     const ID = req.params.ID;
@@ -128,7 +126,6 @@ app.post("/api/task/:ID", async (req, res) => {
   await setTask(task, ID);
   res.end();
 });
->>>>>>> Stashed changes
 // delete routes
 
 app.delete("/api/event/del/:eventID", async (req, res) => {
