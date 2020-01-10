@@ -11,11 +11,8 @@ const {
   getUserList
 } = require("./lib/events");
 const { setUser } = require("./lib/user");
-<<<<<<< Updated upstream
-=======
 const { setPoll, getPolls, getPoll } = require("./lib/polls");
 const { setTask, getTasks, getTask } = require("./lib/tasks");
->>>>>>> Stashed changes
 
 app.use(express.json({ extended: false }));
 
