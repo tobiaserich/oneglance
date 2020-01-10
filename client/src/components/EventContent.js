@@ -6,6 +6,8 @@ import { DetailDateOutput } from "./DateOutput";
 import { OutputWithOverflow } from "./DescriptionOutput";
 import MemberList from "./MemberList";
 import { AddDetailButton } from "./Button";
+import PollOverview from "./PollOverview";
+import TaskOverview from "./TaskOverview";
 
 const CustomLink = styled(Link)`
   width: 100%;
@@ -30,12 +32,17 @@ export default function EventContent(props) {
     </>,
     <>
       <HeadlineDark>Polls</HeadlineDark>
-      <CustomLink to={`/poll/?ID=${props.eventData._id}`}>
+      <PollOverview />
+      <CustomLink to={`/poll/?ID=${props.eventData._id}&poll=0`}>
         <AddDetailButton>New Poll</AddDetailButton>
       </CustomLink>
     </>,
     <>
       <HeadlineDark>Tasks</HeadlineDark>
+      <TaskOverview />
+      <CustomLink to={`/task/?ID=${props.eventData._id}&task=0`}>
+        <AddDetailButton>New Task</AddDetailButton>
+      </CustomLink>
     </>
   ];
 
