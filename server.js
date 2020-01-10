@@ -14,7 +14,6 @@ const {
 const { setUser } = require("./lib/user");
 const { setPoll, getPolls, getPoll } = require("./lib/polls");
 const { setTask, getTasks, getTask } = require("./lib/tasks");
-
 app.use(express.json({ extended: false }));
 
 // get routes
@@ -118,12 +117,14 @@ app.post("/api/poll/:ID", async (req, res) => {
   }
 });
 
+
 app.post("/api/task/:ID", async (req, res) => {
   const ID = req.params.ID;
   const task = req.body;
   await setTask(task, ID);
   res.end();
 });
+
 // delete routes
 
 app.delete("/api/event/del/:eventID", async (req, res) => {
