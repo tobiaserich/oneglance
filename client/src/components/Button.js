@@ -35,3 +35,21 @@ export const AddDetailButton = styled.div`
   font-size: 22px;
   letter-spacing: 1px;
 `;
+
+export const NewEntryButton = styled(Button)`
+  min-height: 30px;
+  height: 30px;
+  font-size: 16px;
+  border: 0;
+  box-shadow: 0px 3px 10px #0000004d;
+  margin-bottom: 5px;
+`;
+
+export const FlexButton = styled(Button)`
+  max-width: 25%;
+  opacity: ${({ hide }) => (hide ? "0" : "1")};
+  height: 25px;
+  font-size: 16px;
+  border: none;
+  box-shadow: 0px 3px 10px #0000004d;
+`;

@@ -14,4 +14,10 @@ const Input = styled.input`
   text-align: ${({ align }) => align};
 `;
 
+export const EntryInput = styled(Input)`
+  margin: auto;
+  margin-top: 10px;
+  height: 30px;
+`;
+
 export default Input;

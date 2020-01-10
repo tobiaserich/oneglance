@@ -2,41 +2,29 @@ import React from "react";
 import styled from "@emotion/styled";
 import { useHistory } from "react-router-dom";
 import { addPoll } from "../api/poll";
+import { getPoll } from "../api/poll";
 import { AddContainer, FlexContainer } from "../components/Container";
 import Label from "../components/Label";
-import Input from "../components/Input";
-import { Button } from "../components/Button";
+import Input, { EntryInput } from "../components/Input";
+import { NewEntryButton, Button, FlexButton } from "../components/Button";
 import { Headline } from "../components/Headline";
-
-const FlexButton = styled(Button)`
-  max-width: 25%;
-  opacity: ${({ hide }) => (hide ? "0" : "1")};
-  height: 25px;
-  font-size: 16px;
-  border: none;
-  box-shadow: 0px 3px 10px #0000004d;
-`;
-
-const NewAnswerButton = styled(Button)`
-  min-height: 30px;
-  height: 30px;
-  font-size: 16px;
-  border: 0;
-  box-shadow: 0px 3px 10px #0000004d;
-  margin-bottom: 5px;
-`;
-
-const AnswerInput = styled(Input)`
-  margin: auto;
-  margin-top: 10px;
-  height: 30px;
-`;
 
 export default function Poll() {
   const eventID = new URLSearchParams(window.location.search).get("ID");
+  const pollID = new URLSearchParams(window.location.search).get("poll");
+  const [title, setTitle] = React.useState();
   const [totalPoll, setTotalPoll] = React.useState([{ question: "", answers: [] }]);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const history = useHistory();
+
+  React.useEffect(() => {
+    async function fetchPoll() {
+      const result = await getPoll(pollID);
+      setTitle(result.title);
+      setTotalPoll(result.poll);
+    }
+    fetchPoll();
+  }, []);
 
   function setQuestion(value) {
     const poll = [...totalPoll];
@@ -70,18 +58,22 @@ export default function Poll() {
   }
 
   function handleSubmit() {
-    addPoll(totalPoll, eventID);
+    addPoll(totalPoll, eventID, title, pollID);
     history.push(`../eventDetails/?ID=${eventID}`);
   }
   return (
     <AddContainer>
       <Label>
         {currentQuestion > 0 ? (
-          <Headline>Title</Headline>
+          <Headline>{title}</Headline>
         ) : (
           <>
             Title
-            <Input align="center"></Input>
+            <Input
+              align="center"
+              value={title}
+              onChange={event => setTitle(event.target.value)}
+            ></Input>
           </>
         )}
       </Label>
@@ -117,24 +109,24 @@ export default function Poll() {
       <Label>
         Answers
         {totalPoll[currentQuestion].answers.map((answer, index) => (
-          <AnswerInput
+          <EntryInput
             key={index}
             value={totalPoll[currentQuestion].answers[index]}
             onChange={event => {
               setAnswer(event.target.value, index);
             }}
-          ></AnswerInput>
+          ></EntryInput>
         ))}
       </Label>
 
-      <NewAnswerButton
+      <NewEntryButton
         type="button"
         onClick={() => {
           addAnswer();
         }}
       >
         New answer
-      </NewAnswerButton>
+      </NewEntryButton>
       <FlexContainer>
         <FlexButton type="button" onClick={() => history.push(`../eventDetails/?ID=${eventID}`)}>
           Discard
