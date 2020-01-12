@@ -13,7 +13,6 @@ export default function Cards() {
     const result = await getOwnEvents(userName);
     setEvents(result);
   }
-
   React.useEffect(() => {
     fetchEvents();
   }, []);

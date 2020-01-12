@@ -14,10 +14,6 @@ export const DescriptionOutput = styled.div`
   text-overflow: ellipsis;
 `;
 
-DescriptionOutput.propTypes = {
-  children: PropTypes.node
-};
-
 export const OutputWithOverflow = styled.div`
   width: 95%;
   height: 90%;
@@ -27,3 +23,7 @@ export const OutputWithOverflow = styled.div`
   font-size: 22px;
   overflow: scroll;
 `;
+
+DescriptionOutput.propTypes = {
+  children: PropTypes.node
+};

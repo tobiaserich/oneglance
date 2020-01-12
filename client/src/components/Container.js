@@ -1,14 +1,5 @@
 import styled from "@emotion/styled";
 
-export const PagesContainer = styled.div`
-  height: 90%;
-  width: 100%;
-  display: flex;
-  background-color: ${({ theme }) => theme.colors.background};
-  flex-direction: column;
-  align-items: center;
-`;
-
 export const AddContainer = styled.form`
   height: 90%;
   width: 100%;
@@ -31,10 +22,18 @@ export const CardContainer = styled.article`
   margin-top: 20px;
 `;
 
+export const PagesContainer = styled.div`
+  height: 90%;
+  width: 100%;
+  display: flex;
+  background-color: ${({ theme }) => theme.colors.background};
+  flex-direction: column;
+  align-items: center;
+`;
 export const CardsOverviewContainer = styled.div`
-  margin-top: 10px;
   height: 100%;
   width: 100%;
+  margin-top: 10px;
   overflow: scroll;
 `;
 

@@ -117,12 +117,16 @@ app.post("/api/poll/:ID", async (req, res) => {
   }
 });
 
-
 app.post("/api/task/:ID", async (req, res) => {
-  const ID = req.params.ID;
-  const task = req.body;
-  await setTask(task, ID);
-  res.end();
+  try {
+    const ID = req.params.ID;
+    const task = req.body;
+    await setTask(task, ID);
+    res.end();
+  } catch (error) {
+    console.error(error);
+    res.send(error);
+  }
 });
 
 // delete routes

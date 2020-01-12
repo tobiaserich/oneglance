@@ -6,9 +6,11 @@ export async function getOwnEvents(userName) {
 }
 
 export async function getOneEvent(eventID) {
-  const response = await fetch(`/api/event/${eventID}`);
-  const event = await response.json();
-  return event;
+  if (eventID) {
+    const response = await fetch(`/api/event/${eventID}`);
+    const event = await response.json();
+    return event;
+  }
 }
 
 // set functions

@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "@emotion/styled";
 import UserImg from "../components/UserImg";
+import UserContext from "../hooks/UserContext";
 
 const HeaderContainer = styled.header`
   height: 10%;
   width: 100%;
-
   background-color: ${({ theme }) => theme.colors.backgroundTransparent};
   display: flex;
   align-items: center;
@@ -17,9 +17,10 @@ const HeaderContainer = styled.header`
 `;
 
 export default function Header() {
+  const userName = React.useContext(UserContext);
   return (
     <HeaderContainer>
-      <UserImg thread="header" username="Tobias" />
+      <UserImg thread="header" username={userName} />
       <div>oneGlance</div>
       <div></div>
     </HeaderContainer>

@@ -1,12 +1,12 @@
 import React from "react";
-import styled from "@emotion/styled";
+
 import { useHistory } from "react-router-dom";
 import { addPoll } from "../api/poll";
 import { getPoll } from "../api/poll";
 import { AddContainer, FlexContainer } from "../components/Container";
 import Label from "../components/Label";
 import Input, { EntryInput } from "../components/Input";
-import { NewEntryButton, Button, FlexButton } from "../components/Button";
+import { NewEntryButton, FlexButton } from "../components/Button";
 import { Headline } from "../components/Headline";
 
 export default function Poll() {

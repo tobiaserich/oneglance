@@ -18,7 +18,6 @@ export default function EventDetails() {
   const [eventData, setEventData] = React.useState([]);
   const [siteNumber, setSiteNumber] = React.useState(2);
   const [swipeDirection, setSwipeDirection] = React.useState(null);
-  const [animationBegin, setAnimationBegin] = React.useState(false);
 
   let swipeBegin = null;
   let swipeEnd = null;
@@ -29,9 +28,8 @@ export default function EventDetails() {
   }
 
   function startAnimation() {
-    setAnimationBegin(true);
     setTimeout(() => {
-      setAnimationBegin(false);
+      setSwipeDirection("none");
     }, 500);
   }
   function handleSwipe(event, task) {
@@ -64,21 +62,18 @@ export default function EventDetails() {
 
   return (
     <PageWrapper img={eventData.background}>
-      {animationBegin ? (
-        <FakeEvent direction={swipeDirection} />
-      ) : (
-        <EventContainer
-          onTouchStart={event => {
-            handleSwipe(event, "begin");
-          }}
-          onTouchEnd={event => {
-            handleSwipe(event, "end");
-          }}
-        >
-          <ExitButton />
-          <EventContent eventData={eventData} site={siteNumber} handleSwipe={handleSwipe} />
-        </EventContainer>
-      )}
+      <EventContainer
+        onTouchStart={event => {
+          handleSwipe(event, "begin");
+        }}
+        onTouchEnd={event => {
+          handleSwipe(event, "end");
+        }}
+        direction={swipeDirection}
+      >
+        <ExitButton />
+        <EventContent eventData={eventData} site={siteNumber} handleSwipe={handleSwipe} />
+      </EventContainer>
     </PageWrapper>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ThemeProvider } from "emotion-theming";
 import UserContext from "./hooks/UserContext";
 import normal from "./themes/normal";
@@ -11,6 +11,7 @@ import AddEvent from "./pages/AddEvent";
 import EventDetails from "./pages/EventDetails";
 import Poll from "./pages/Poll";
 import Task from "./pages/Task";
+import LinkNoDeco from "./components/LinkNoDeco";
 
 import Header from "./components/Header";
 function App() {
@@ -19,28 +20,23 @@ function App() {
   function handleLogin(value) {
     setUsername(value);
   }
-  const CustomLink = styled(Link)`
-    text-decoration: none;
-  `;
+
   return (
     <UserContext.Provider value={username}>
       <ThemeProvider theme={normal}>
         <Router>
           <GlobalStyles />
-          <CustomLink to="/">
+          <LinkNoDeco to="/">
             <Header />
-          </CustomLink>
+          </LinkNoDeco>
           <Switch>
             <Route exact path="/">
               <LoginPage auth={handleLogin} />
             </Route>
-            <Route exact path="/overview">
-              <Main />
-            </Route>
-            <Route exact path="/addEvent">
-              <AddEvent />
-            </Route>
-            <Route path="/eventDetails">
+            <Route exact path="/overview" component={Main} />
+            <Route exact path="/addEvent" component={AddEvent} />
+            {/* <Route exact path="/eventDetails/:EventID" component={SearchPage} /> */}
+            <Route path="/eventDetails/">
               <EventDetails />
             </Route>
             <Route path="/poll">

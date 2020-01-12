@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import { getPolls } from "../api/poll";
 import { InfoNav, InfoEntry } from "../components/ProfileNavigation";
+import LinkNoDeco from "../components/LinkNoDeco";
 
 const Nav = styled(InfoNav)`
   width: 100%;
@@ -11,9 +12,6 @@ const Nav = styled(InfoNav)`
   overflow: scroll;
 `;
 
-const CustomLink = styled(Link)`
-  text-decoration: none;
-`;
 export default function PollOverview() {
   const [polls, setPolls] = React.useState();
 
@@ -31,11 +29,11 @@ export default function PollOverview() {
       {polls &&
         polls.map((poll, index) => {
           return (
-            <CustomLink key={poll._id} to={`/poll/?ID=${poll.event}&poll=${poll._id}`}>
+            <LinkNoDeco key={poll._id} to={`/poll/?ID=${poll.event}&poll=${poll._id}`}>
               <InfoEntry key={poll._id} item={index}>
                 {poll.title}
               </InfoEntry>
-            </CustomLink>
+            </LinkNoDeco>
           );
         })}
     </Nav>
