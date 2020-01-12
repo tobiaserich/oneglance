@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { getOneEvent } from "../api/event";
 import { PagesContainer } from "../components/Container";
 import EventContent from "../components/EventContent";
-import { EventContainer, FakeEvent } from "../components/DetailContainer";
+import { EventContainer } from "../components/DetailContainer";
 import ExitButton from "../components/ExitButton";
 
 const PageWrapper = styled(PagesContainer)`

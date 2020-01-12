@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useHistory } from "react-router-dom";
 import { addPoll } from "../api/poll";
 import { getPoll } from "../api/poll";

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
 import { getPolls } from "../api/poll";
 import { InfoNav, InfoEntry } from "../components/ProfileNavigation";
 import LinkNoDeco from "../components/LinkNoDeco";

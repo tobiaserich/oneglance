@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 import { CardContainer } from "../components/Container";
 import { Headline } from "../components/Headline";
