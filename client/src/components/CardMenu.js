@@ -18,17 +18,81 @@ const SideMenu = styled.div`
   right: 0px;
   border-radius: 0px 10px 10px 0px;
   z-index: 8001;
+  animation-duration: 0.5s;
+  animation-name: ${({ animation }) => animation};
+
+  @keyframes ease-in {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes ease-out {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  div {
+    animation-duration: ${({ secondAnimation }) => {
+      if (secondAnimation === "fading") {
+        return "0.5s";
+      } else {
+        return "0.8s";
+      }
+    }};
+    animation-name: ${({ secondAnimation }) => secondAnimation};
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes fade-out {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes fading {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
 `;
 
-export default function Cardmenu({ onClick, eventID, onDelete }) {
+export default function Cardmenu({ onClick, eventID, onDelete, animationName, secondAnimation }) {
   const [subMenu, setSubMenu] = React.useState("main");
 
+  async function clickHandler() {
+    await deleteEvent(eventID);
+    setTimeout(() => {
+      onDelete();
+    }, 100);
+  }
   const menuContent = {
     main: (
       <>
         <MenuItem spacer={30}>Add users</MenuItem>
         <MenuItem spacer={0}>Delete user</MenuItem>
-        <MenuItem spacer={40} target="settings" onClick={setSubMenu}>
+        <MenuItem spacer={40} target="settings" onClick={setSubMenu} animation={onClick}>
           Settings
         </MenuItem>
       </>
@@ -48,15 +112,8 @@ export default function Cardmenu({ onClick, eventID, onDelete }) {
     )
   };
 
-  async function clickHandler() {
-    await deleteEvent(eventID);
-    setTimeout(() => {
-      onDelete();
-    }, 100);
-  }
-
   return (
-    <SideMenu>
+    <SideMenu animation={animationName} secondAnimation={secondAnimation}>
       <ExitButton onClick={onClick} />
       {menuContent[subMenu]}
     </SideMenu>
@@ -66,5 +123,6 @@ export default function Cardmenu({ onClick, eventID, onDelete }) {
 Cardmenu.propTypes = {
   onClick: PropTypes.func,
   onDelete: PropTypes.func,
-  eventID: PropTypes.string
+  eventID: PropTypes.string,
+  animationName: PropTypes.string
 };

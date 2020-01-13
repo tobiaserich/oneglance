@@ -8,6 +8,18 @@ export const AddContainer = styled.form`
   background-color: ${({ theme }) => theme.colors.background};
   flex-direction: column;
   align-items: center;
+  animation-duration: 0.9s;
+  animation-name: on-load;
+  @keyframes on-load {
+    from {
+      width: 100%;
+      height: 0%;
+    }
+    to {
+      width: 100%;
+      height: 100%;
+    }
+  }
 `;
 
 export const CardContainer = styled.article`

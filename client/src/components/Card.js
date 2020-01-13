@@ -11,6 +11,16 @@ import DarkFilter from "../components/DarkFilter";
 
 export default function Card({ imgsrc, eventData, eventID, onDelete }) {
   const [menuVisibility, setMenuVisibility] = React.useState(false);
+  const [firstAnimation, setFirstAnimation] = React.useState("none");
+  const [secondAnimation, setSecondAnimation] = React.useState("none");
+
+  function clickHandler(stateValue, firstAnimation, secondAnimation) {
+    stateValue
+      ? setMenuVisibility(stateValue)
+      : setTimeout(() => setMenuVisibility(stateValue), 500);
+    setFirstAnimation(firstAnimation);
+    setSecondAnimation(secondAnimation);
+  }
 
   return (
     <CardContainer imgsrc={imgsrc}>
@@ -21,9 +31,15 @@ export default function Card({ imgsrc, eventData, eventID, onDelete }) {
         <DescriptionOutput>{eventData.description}</DescriptionOutput>
       </LinkNoDeco>
       {menuVisibility ? (
-        <CardMenu onClick={setMenuVisibility} eventID={eventID} onDelete={onDelete} />
+        <CardMenu
+          onClick={clickHandler}
+          eventID={eventID}
+          onDelete={onDelete}
+          animationName={firstAnimation}
+          secondAnimation={secondAnimation}
+        />
       ) : (
-        <MenuButton onClick={setMenuVisibility} />
+        <MenuButton onClick={clickHandler} />
       )}
     </CardContainer>
   );

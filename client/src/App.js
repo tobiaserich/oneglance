@@ -34,7 +34,6 @@ function App() {
             </Route>
             <Route exact path="/overview" component={Main} />
             <Route exact path="/addEvent" component={AddEvent} />
-            {/* <Route exact path="/eventDetails/:EventID" component={SearchPage} /> */}
             <Route path="/eventDetails/">
               <EventDetails />
             </Route>

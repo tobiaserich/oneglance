@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { getOneEvent } from "../api/event";
 import { PagesContainer } from "../components/Container";
 import EventContent from "../components/EventContent";
-import { EventContainer } from "../components/DetailContainer";
+import { EventContainer, FakeContainer } from "../components/DetailContainer";
 import ExitButton from "../components/ExitButton";
 
 const PageWrapper = styled(PagesContainer)`
@@ -11,13 +11,23 @@ const PageWrapper = styled(PagesContainer)`
   background-size: auto 100%;
   position: relative;
   overflow: hidden;
+  animation-duration: 0.45s;
+  animation-name: ease-in;
+  @keyframes ease-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 export default function EventDetails() {
   const eventID = new URLSearchParams(window.location.search).get("ID");
   const [eventData, setEventData] = React.useState([]);
   const [siteNumber, setSiteNumber] = React.useState(2);
-  const [swipeDirection, setSwipeDirection] = React.useState(null);
+  const [swipeDirection, setSwipeDirection] = React.useState("first-call");
 
   let swipeBegin = null;
   let swipeEnd = null;
@@ -30,7 +40,7 @@ export default function EventDetails() {
   function startAnimation() {
     setTimeout(() => {
       setSwipeDirection("none");
-    }, 500);
+    }, 475);
   }
   function handleSwipe(event, task) {
     const swipeX = event.changedTouches[0].screenX;
@@ -62,18 +72,22 @@ export default function EventDetails() {
 
   return (
     <PageWrapper img={eventData.background}>
-      <EventContainer
-        onTouchStart={event => {
-          handleSwipe(event, "begin");
-        }}
-        onTouchEnd={event => {
-          handleSwipe(event, "end");
-        }}
-        direction={swipeDirection}
-      >
-        <ExitButton />
-        <EventContent eventData={eventData} site={siteNumber} handleSwipe={handleSwipe} />
-      </EventContainer>
+      {swipeDirection === "left" || swipeDirection === "right" ? (
+        <FakeContainer direction={swipeDirection} />
+      ) : (
+        <EventContainer
+          onTouchStart={event => {
+            handleSwipe(event, "begin");
+          }}
+          onTouchEnd={event => {
+            handleSwipe(event, "end");
+          }}
+          direction={swipeDirection}
+        >
+          <ExitButton />
+          <EventContent eventData={eventData} site={siteNumber} handleSwipe={handleSwipe} />
+        </EventContainer>
+      )}
     </PageWrapper>
   );
 }

@@ -11,7 +11,7 @@ import { Headline } from "../components/Headline";
 export default function Poll() {
   const eventID = new URLSearchParams(window.location.search).get("ID");
   const pollID = new URLSearchParams(window.location.search).get("poll");
-  const [title, setTitle] = React.useState();
+  const [title, setTitle] = React.useState("");
   const [totalPoll, setTotalPoll] = React.useState([{ question: "", answers: [] }]);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const history = useHistory();

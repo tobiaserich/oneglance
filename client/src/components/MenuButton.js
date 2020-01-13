@@ -21,7 +21,7 @@ export default function MenuButton({ onClick }) {
   return (
     <ClickContainer
       onClick={() => {
-        onClick(true);
+        onClick(true, "ease-in", "fade-in");
       }}
     >
       <MenuButtonContainer>
