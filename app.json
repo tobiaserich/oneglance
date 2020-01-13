@@ -2,7 +2,7 @@
   "name": "oneGlance",
   "scripts": {},
   "env": {
-    "MONGO_URL": {
+    "DB_URL": {
       "required": true
     },
     "DB_NAME": {
