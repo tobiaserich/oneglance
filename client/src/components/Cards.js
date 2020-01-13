@@ -1,5 +1,4 @@
 import React from "react";
-
 import Card from "../components/Card";
 import { getOwnEvents } from "../api/event";
 import UserContext from "../hooks/UserContext";
@@ -13,7 +12,6 @@ export default function Cards() {
     const result = await getOwnEvents(userName);
     setEvents(result);
   }
-
   React.useEffect(() => {
     fetchEvents();
   }, []);

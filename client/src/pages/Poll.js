@@ -1,18 +1,17 @@
 import React from "react";
-import styled from "@emotion/styled";
 import { useHistory } from "react-router-dom";
 import { addPoll } from "../api/poll";
 import { getPoll } from "../api/poll";
 import { AddContainer, FlexContainer } from "../components/Container";
 import Label from "../components/Label";
 import Input, { EntryInput } from "../components/Input";
-import { NewEntryButton, Button, FlexButton } from "../components/Button";
+import { NewEntryButton, FlexButton } from "../components/Button";
 import { Headline } from "../components/Headline";
 
 export default function Poll() {
   const eventID = new URLSearchParams(window.location.search).get("ID");
   const pollID = new URLSearchParams(window.location.search).get("poll");
-  const [title, setTitle] = React.useState();
+  const [title, setTitle] = React.useState("");
   const [totalPoll, setTotalPoll] = React.useState([{ question: "", answers: [] }]);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const history = useHistory();

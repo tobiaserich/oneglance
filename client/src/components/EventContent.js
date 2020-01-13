@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
 import { HeadlineDark } from "./Headline";
 import { DetailDateOutput } from "./DateOutput";
 import { OutputWithOverflow } from "./DescriptionOutput";
@@ -8,11 +7,10 @@ import MemberList from "./MemberList";
 import { AddDetailButton } from "./Button";
 import PollOverview from "./PollOverview";
 import TaskOverview from "./TaskOverview";
+import LinkNoDeco from "./LinkNoDeco";
 
-const CustomLink = styled(Link)`
+const CustomLink = styled(LinkNoDeco)`
   width: 100%;
-  text-decoration: none;
-
   position: absolute;
   bottom: 0;
 `;

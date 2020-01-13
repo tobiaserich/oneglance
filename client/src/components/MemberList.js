@@ -24,7 +24,7 @@ export default function Memberlist() {
     <Nav>
       {memberList.map((member, index) => {
         return (
-          <InfoEntry key={member.id} item={index}>
+          <InfoEntry key={member.userID} item={index}>
             {member.userName}
           </InfoEntry>
         );

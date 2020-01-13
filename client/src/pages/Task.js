@@ -1,6 +1,5 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import styled from "@emotion/styled";
 import { setTask, getTask } from "../api/task";
 import { AddContainer, FlexContainer } from "../components/Container";
 import Label from "../components/Label";

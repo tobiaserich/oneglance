@@ -1,14 +1,5 @@
 import styled from "@emotion/styled";
 
-export const PagesContainer = styled.div`
-  height: 90%;
-  width: 100%;
-  display: flex;
-  background-color: ${({ theme }) => theme.colors.background};
-  flex-direction: column;
-  align-items: center;
-`;
-
 export const AddContainer = styled.form`
   height: 90%;
   width: 100%;
@@ -17,6 +8,18 @@ export const AddContainer = styled.form`
   background-color: ${({ theme }) => theme.colors.background};
   flex-direction: column;
   align-items: center;
+  animation-duration: 0.9s;
+  animation-name: on-load;
+  @keyframes on-load {
+    from {
+      width: 100%;
+      height: 0%;
+    }
+    to {
+      width: 100%;
+      height: 100%;
+    }
+  }
 `;
 
 export const CardContainer = styled.article`
@@ -31,10 +34,18 @@ export const CardContainer = styled.article`
   margin-top: 20px;
 `;
 
+export const PagesContainer = styled.div`
+  height: 90%;
+  width: 100%;
+  display: flex;
+  background-color: ${({ theme }) => theme.colors.background};
+  flex-direction: column;
+  align-items: center;
+`;
 export const CardsOverviewContainer = styled.div`
-  margin-top: 10px;
   height: 100%;
   width: 100%;
+  margin-top: 10px;
   overflow: scroll;
 `;
 

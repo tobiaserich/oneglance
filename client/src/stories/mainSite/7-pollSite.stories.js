@@ -1,7 +1,6 @@
 import React from "react";
 import { text, select } from "@storybook/addon-knobs";
 import DetailInformation, { PollDetailContainer } from "../../components/DetailInformation";
-import UserDetailImg from "../../components/UserDetailImg";
 
 export default {
   title: "Main Page|Poll Site"
@@ -26,5 +25,6 @@ const status = {
 };
 
 export function userDetail() {
-  return <UserDetailImg status={select("status", status, "finished")} username="Tobias" />;
+  // <UserDetailImg status={select("status", status, "finished")} username="Tobias" />
+  return <></>;
 }

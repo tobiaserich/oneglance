@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { getOneEvent } from "../api/event";
 import { PagesContainer } from "../components/Container";
 import EventContent from "../components/EventContent";
-import { EventContainer, FakeEvent } from "../components/DetailContainer";
+import { EventContainer, FakeContainer } from "../components/DetailContainer";
 import ExitButton from "../components/ExitButton";
 
 const PageWrapper = styled(PagesContainer)`
@@ -11,14 +11,23 @@ const PageWrapper = styled(PagesContainer)`
   background-size: auto 100%;
   position: relative;
   overflow: hidden;
+  animation-duration: 0.45s;
+  animation-name: ease-in;
+  @keyframes ease-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 export default function EventDetails() {
   const eventID = new URLSearchParams(window.location.search).get("ID");
   const [eventData, setEventData] = React.useState([]);
   const [siteNumber, setSiteNumber] = React.useState(2);
-  const [swipeDirection, setSwipeDirection] = React.useState(null);
-  const [animationBegin, setAnimationBegin] = React.useState(false);
+  const [swipeDirection, setSwipeDirection] = React.useState("first-call");
 
   let swipeBegin = null;
   let swipeEnd = null;
@@ -29,10 +38,9 @@ export default function EventDetails() {
   }
 
   function startAnimation() {
-    setAnimationBegin(true);
     setTimeout(() => {
-      setAnimationBegin(false);
-    }, 500);
+      setSwipeDirection("none");
+    }, 475);
   }
   function handleSwipe(event, task) {
     const swipeX = event.changedTouches[0].screenX;
@@ -64,8 +72,8 @@ export default function EventDetails() {
 
   return (
     <PageWrapper img={eventData.background}>
-      {animationBegin ? (
-        <FakeEvent direction={swipeDirection} />
+      {swipeDirection === "left" || swipeDirection === "right" ? (
+        <FakeContainer direction={swipeDirection} />
       ) : (
         <EventContainer
           onTouchStart={event => {
@@ -74,6 +82,7 @@ export default function EventDetails() {
           onTouchEnd={event => {
             handleSwipe(event, "end");
           }}
+          direction={swipeDirection}
         >
           <ExitButton />
           <EventContent eventData={eventData} site={siteNumber} handleSwipe={handleSwipe} />

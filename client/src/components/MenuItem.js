@@ -11,13 +11,14 @@ const Item = styled.div`
   color: ${({ theme }) => theme.colors.font};
 `;
 
-export default function menuItem({ children, spacer, onClick, target }) {
+export default function menuItem({ children, spacer, onClick, target, animation }) {
   if (onClick) {
     return (
       <Item
         spacer={spacer}
         onClick={() => {
-          onClick(target);
+          setTimeout(() => onClick(target), 250);
+          animation(true, "ease-in", "fading");
         }}
       >
         {children}

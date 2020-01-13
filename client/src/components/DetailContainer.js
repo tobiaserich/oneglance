@@ -18,21 +18,34 @@ export const EventContainer = styled.article`
   border-radius: 10px;
   padding: 15px 0px;
   color: ${({ theme }) => theme.colors.darkfont};
+  animation-duration: 0.6s;
+  animation-name: ${({ direction }) => direction};
+
+  @keyframes first-call {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
-export const FakeEvent = styled.article`
+export const FakeContainer = styled.article`
   height: 90%;
   width: 90%;
+  position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.secondBackgroundTransparent};
   margin: auto;
   border-radius: 10px;
-  padding: 5px 10px;
+  padding: 15px 0px;
   color: ${({ theme }) => theme.colors.darkfont};
   animation-duration: 0.5s;
   animation-name: ${({ direction }) => direction};
+
   @keyframes right {
     from {
       transform: translate(0%);
