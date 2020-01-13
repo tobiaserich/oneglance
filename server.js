@@ -4,7 +4,7 @@ const { dbInit } = require("./lib/db");
 const path = require("path");
 const app = express();
 
-const PORT = process.env.POR || 8080;
+const PORT = process.env.PORT || 8080;
 const {
   getOwnEvents,
   getOneEvent,
@@ -180,6 +180,6 @@ dbInit(process.env.DB_URL, process.env.DB_NAME).then(async () => {
   console.log(`Database ${process.env.DB_NAME} is ready`);
 
   app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${process.env.PORT}`);
+    console.log(`Server is running on http://localhost:${process.env.PORT || "8080"}`);
   });
 });
