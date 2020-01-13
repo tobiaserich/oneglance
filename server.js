@@ -1,8 +1,10 @@
 require("dotenv").config();
 const express = require("express");
-
 const { dbInit } = require("./lib/db");
+const path = require("path");
 const app = express();
+
+const PORT = process.env.POR || 8080;
 const {
   getOwnEvents,
   getOneEvent,
@@ -14,6 +16,8 @@ const {
 const { setUser } = require("./lib/user");
 const { setPoll, getPolls, getPoll } = require("./lib/polls");
 const { setTask, getTasks, getTask } = require("./lib/tasks");
+
+//middleware
 app.use(express.json({ extended: false }));
 
 // get routes
@@ -164,10 +168,18 @@ app.post("/api/event/user/:eventID", async (req, res) => {
   }
 });
 
+// Serve any static files
+app.use(express.static(path.join(__dirname, "client/build")));
+
+// Handle React routing, return all requests to React app
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
+
 dbInit(process.env.DB_URL, process.env.DB_NAME).then(async () => {
   console.log(`Database ${process.env.DB_NAME} is ready`);
 
-  app.listen(process.env.PORT, () => {
+  app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${process.env.PORT}`);
   });
 });
