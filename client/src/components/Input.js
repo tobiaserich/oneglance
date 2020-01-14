@@ -9,8 +9,8 @@ const Input = styled.input`
   border-radius: 5px;
   font-size: 18px;
   margin: auto;
-  margin-top: 10px;
-  padding-left: 5px;
+  margin-top: "10px";
+  padding-left: 10px;
   text-align: ${({ align }) => align};
 `;
 

@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build-client": "cd client && npm run build",
+
     "build": " npm run build-client",
     "client": "cd client && npm start",
     "server": "npx nodemon server.js",

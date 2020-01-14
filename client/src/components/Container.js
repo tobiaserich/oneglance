@@ -25,7 +25,7 @@ export const AddContainer = styled.form`
 export const CardContainer = styled.article`
   height: 140px;
   width: 280px;
-  background-image: url(${({ imgsrc }) => imgsrc});
+  background-image: url(${({ background }) => background || "./images/default.webp"});
   background-size: 100% 100%;
   border-radius: 10px;
   position: relative;
@@ -41,6 +41,17 @@ export const PagesContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
   flex-direction: column;
   align-items: center;
+
+  animation-duration: 0.7s;
+  animation-name: ${({ animation }) => (animation ? animation : "none")};
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      oppacity: 1;
+    }
+  }
 `;
 export const CardsOverviewContainer = styled.div`
   height: 100%;
@@ -62,7 +73,9 @@ export const ClickContainer = styled.div`
 `;
 
 export const FlexContainer = styled.div`
-  width: 100%;
+  width: ${({ width }) => (width ? width : "100%")};
   display: flex;
-  justify-content: space-around;
+  margin: auto;
+  justify-content: ${({ justify }) => (justify ? justify : "space-around")};
+  align-items: ${({ align }) => (align ? align : "")};
 `;
