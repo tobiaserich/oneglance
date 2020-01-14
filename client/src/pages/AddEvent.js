@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { useHistory } from "react-router-dom";
 import UserContext from "../hooks/UserContext";
-import { AddContainer } from "../components/Container";
+import { AddContainer, FlexContainer } from "../components/Container";
 import Label from "../components/Label";
 import Input from "../components/Input";
 import DateInput from "../components/DateInput";
@@ -24,6 +24,11 @@ const ButtonContainer = styled.div`
   justify-content: space-around;
 `;
 
+const Preview = styled.img`
+  height: 80px;
+  margin-top: 10px;
+  border-radius: 10px;
+`;
 export default function AddEvent() {
   const user = React.useContext(UserContext);
   const [title, setTitle] = React.useState("Event");
@@ -33,7 +38,7 @@ export default function AddEvent() {
 
   const history = useHistory();
 
-  function changeHandler(typeOf, event) {
+  function handleChange(typeOf, event) {
     const content = event.target.value;
     if (typeOf === "title") {
       setTitle(content);
@@ -48,7 +53,7 @@ export default function AddEvent() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    setEvent(title, date, descr, background, user);
+    setEvent({ title, date, descr, background, owner: user });
     setTimeout(() => {
       history.push("/overview");
     }, 20);
@@ -57,29 +62,32 @@ export default function AddEvent() {
     <AddContainer>
       <Label>
         Title
-        <Input name="title" value={title} onChange={event => changeHandler("title", event)} />
+        <Input name="title" value={title} onChange={event => handleChange("title", event)} />
       </Label>
       <Label>
         Date
-        <DateInput name="date" type="date" onChange={event => changeHandler("date", event)} />
+        <DateInput name="date" type="date" onChange={event => handleChange("date", event)} />
       </Label>
       <Label>
         Description
         <DescriptionInput
           name="description"
           value={descr}
-          onChange={event => changeHandler("descr", event)}
+          onChange={event => handleChange("descr", event)}
         />
       </Label>
       <Label>
         Background image:
-        <BackgroundSelect value={background} onChange={changeHandler} />
+        <FlexContainer align="center" width="80%">
+          <BackgroundSelect value={background} onChange={handleChange} />
+          <Preview src={background} />
+        </FlexContainer>
       </Label>
       <ButtonContainer>
         <LinkNoDeco to="/overview">
           <CardButton type="button">Cancel</CardButton>
         </LinkNoDeco>
-        <CardButton onClick={event => handleSubmit(event)}>Submit</CardButton>
+        <CardButton onClick={handleSubmit}>Submit</CardButton>
       </ButtonContainer>
     </AddContainer>
   );
