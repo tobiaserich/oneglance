@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
 const Item = styled.div`
+  cursor: pointer;
   margin-top: ${({ spacer }) => {
     return spacer + "px";
   }};
@@ -11,22 +12,23 @@ const Item = styled.div`
   color: ${({ theme }) => theme.colors.font};
 `;
 
-export default function menuItem({ children, spacer, onClick, target, animation }) {
-  if (onClick) {
-    return (
-      <Item
-        spacer={spacer}
-        onClick={() => {
-          setTimeout(() => onClick(target), 250);
+export default function menuItem({ children, spacer, onClick, target, animation, onPress }) {
+  return (
+    <Item
+      spacer={spacer}
+      onClick={() => {
+        setTimeout(() => onClick(target), 250);
+        if (animation) {
           animation(true, "ease-in", "fading");
-        }}
-      >
-        {children}
-      </Item>
-    );
-  } else {
-    return <Item spacer={spacer}>{children}</Item>;
-  }
+        }
+        if (onPress) {
+          onPress();
+        }
+      }}
+    >
+      {children}
+    </Item>
+  );
 }
 
 menuItem.propTypes = {

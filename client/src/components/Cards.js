@@ -12,6 +12,7 @@ export default function Cards() {
     const result = await getOwnEvents(userName);
     setEvents(result);
   }
+
   React.useEffect(() => {
     fetchEvents();
   }, []);
@@ -19,16 +20,7 @@ export default function Cards() {
   return (
     <CardsOverviewContainer>
       {events.map(event => {
-        const eventData = { title: event.title, date: event.date, description: event.descr };
-        return (
-          <Card
-            key={event._id}
-            eventID={event._id}
-            imgsrc={event.background}
-            eventData={eventData}
-            onDelete={fetchEvents}
-          ></Card>
-        );
+        return <Card key={event._id} event={event} onDelete={fetchEvents}></Card>;
       })}
     </CardsOverviewContainer>
   );

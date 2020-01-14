@@ -5,7 +5,7 @@ import UserContext from "./hooks/UserContext";
 import normal from "./themes/normal";
 import GlobalStyles from "./GlobalStyles";
 import LoginPage from "./pages/LoginPage";
-import Main from "./pages/Main";
+import Overview from "./pages/Overview";
 import AddEvent from "./pages/AddEvent";
 import EventDetails from "./pages/EventDetails";
 import Poll from "./pages/Poll";
@@ -25,23 +25,26 @@ function App() {
       <ThemeProvider theme={normal}>
         <Router>
           <GlobalStyles />
-          <LinkNoDeco to="/">
-            <Header />
-          </LinkNoDeco>
+
           <Switch>
             <Route exact path="/">
               <LoginPage auth={handleLogin} />
             </Route>
-            <Route exact path="/overview" component={Main} />
-            <Route exact path="/addEvent" component={AddEvent} />
-            <Route path="/eventDetails/">
-              <EventDetails />
-            </Route>
-            <Route path="/poll">
-              <Poll />
-            </Route>
-            <Route path="/task">
-              <Task />
+            <Route>
+              <LinkNoDeco to="/">
+                <Header />
+              </LinkNoDeco>
+              <Route exact path="/overview" component={Overview} />
+              <Route exact path="/addEvent" component={AddEvent} />
+              <Route path="/eventDetails/">
+                <EventDetails />
+              </Route>
+              <Route path="/poll">
+                <Poll />
+              </Route>
+              <Route path="/task">
+                <Task />
+              </Route>
             </Route>
           </Switch>
         </Router>
