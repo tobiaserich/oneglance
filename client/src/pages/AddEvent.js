@@ -24,11 +24,13 @@ const ButtonContainer = styled.div`
   justify-content: space-around;
 `;
 
+
 const Preview = styled.img`
   height: 80px;
   margin-top: 10px;
   border-radius: 10px;
 `;
+
 export default function AddEvent() {
   const user = React.useContext(UserContext);
   const [title, setTitle] = React.useState("Event");

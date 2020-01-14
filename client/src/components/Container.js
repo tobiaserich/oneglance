@@ -41,6 +41,7 @@ export const PagesContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
   flex-direction: column;
   align-items: center;
+
   animation-duration: 0.7s;
   animation-name: ${({ animation }) => (animation ? animation : "none")};
   @keyframes fade-in {

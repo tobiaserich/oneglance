@@ -17,11 +17,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run build-app && npm run build-storybook",
+    "build": "npm run build-app",
+    "build-app": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "storybook": "start-storybook -p 9009 -s public"
   },
   "browserslist": {
     "production": [
@@ -40,6 +40,5 @@
     "@storybook/addon-viewport": "^5.2.8",
     "@storybook/addons": "^5.2.8",
     "@storybook/react": "^5.2.8"
-  },
-  "proxy": "http://localhost:8080"
+  }
 }
