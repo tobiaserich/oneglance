@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { PagesContainer } from "../components/Container";
 import { Button } from "../components/Button";
+import PopOver from "../components/PopOver";
 
 const HelperContainer = styled.div`
   height: 15%;
@@ -21,11 +22,25 @@ const AppTitle = styled.h3`
   color: ${({ theme }) => theme.colors.font};
   margin: 5px;
 `;
+
 const CustomLink = styled(Link)`
   width: 100%;
   text-align: center;
 `;
+
 export default function LoginPage({ auth }) {
+  const [popOver, setPopOver] = React.useState(false);
+  const [buttonState, setButtonState] = React.useState("enable");
+
+  function togglePopOver() {
+    if (!popOver) {
+      setPopOver(true);
+      setButtonState("disable");
+      setTimeout(() => {
+        setPopOver(false);
+      }, 2000);
+    }
+  }
   return (
     <PagesContainer>
       <HelperContainer />
@@ -38,7 +53,8 @@ export default function LoginPage({ auth }) {
         <Button onClick={() => auth("TobiasErich")}>Login as event manager</Button>
       </CustomLink>
 
-      <Button>Login as User</Button>
+      <Button onClick={togglePopOver}>Login as User</Button>
+      {popOver && <PopOver size="medium">coming soon</PopOver>}
     </PagesContainer>
   );
 }
