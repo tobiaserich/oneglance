@@ -14,14 +14,13 @@ export async function getOneEvent(eventID) {
 }
 
 // set functions
-export function setEvent(title, date, descr, background, user) {
-  const bundledInfo = { title, date, descr, background, owner: user };
+export function setEvent(eventData) {
   return fetch("/api/event", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(bundledInfo)
+    body: JSON.stringify(eventData)
   });
 }
 

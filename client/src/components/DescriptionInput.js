@@ -5,10 +5,29 @@ export const DescriptionInput = styled.textarea`
   width: 80%;
   display: block;
   margin: auto;
-  margin-top: 10px;
   border-radius: 10px;
   border: none;
   padding: 5px 10px 0px 10px;
   font-size: 16px;
   background-color: ${({ theme }) => theme.colors.active};
+  animation-name: ${({ animation, value }) =>
+    animation === "start" && !value ? "validation-fail" : ""};
+  animation-duration: 1s;
+  @keyframes validation-fail {
+    from,
+    to {
+      transform: translate3d(0, 0, 0);
+      background-color: #ff7063;
+    }
+
+    40%,
+    80% {
+      transform: translate3d(-10px, 0, 0);
+    }
+
+    20%,
+    60% {
+      transform: translate3d(10px, 0, 0);
+    }
+  }
 `;
