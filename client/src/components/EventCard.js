@@ -28,7 +28,7 @@ export default function Card({ event, onDelete }) {
         <DarkFilter />
         <Headline>{event.title || "Event"}</Headline>
         <DateOutput>{event.date}</DateOutput>
-        <DescriptionOutput>{event.description}</DescriptionOutput>
+        <DescriptionOutput>{event.descr}</DescriptionOutput>
       </LinkNoDeco>
       {menuVisibility ? (
         <CardMenu

@@ -11,7 +11,7 @@ const ExitButtonContainer = styled.div`
   top: 5px;
   right: 5px;
   border: 1px solid ${({ theme }) => theme.colors.darkfont};
-  background: ${({ theme }) => theme.colors.font};
+  background: ${({ theme }) => theme.colors.lightfont};
 `;
 
 const ExitButtonLine = styled.div`

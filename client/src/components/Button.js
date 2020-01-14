@@ -15,10 +15,11 @@ export const AddButton = styled.div`
   width: 100%;
   height: 60px;
   color: ${({ theme }) => theme.colors.font};
-  background-color: ${({ theme }) => theme.colors.secondBackgroundTransparent};
+  background-color: ${({ theme }) => theme.colors.action};
   font-weight: 600;
   font-size: 22px;
   letter-spacing: 1px;
+  box-shadow: 0px -2px 5px ${({ theme }) => theme.colors.darkfont};
 `;
 
 export const AddDetailButton = styled(AddButton)`

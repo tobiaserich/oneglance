@@ -89,9 +89,9 @@ export default function Cardmenu({ onClick, eventID, onDelete, animationName, se
   const menuContent = {
     main: (
       <>
-        <MenuItem spacer={30}>Add users</MenuItem>
-        <MenuItem spacer={0}>Delete user</MenuItem>
-        <MenuItem spacer={40} target="settings" onClick={setSubMenu} animation={onClick}>
+        <MenuItem spacer={50}>Add users</MenuItem>
+        <MenuItem spacer={5}>Delete user</MenuItem>
+        <MenuItem spacer={5} target="settings" onClick={setSubMenu} animation={onClick}>
           Settings
         </MenuItem>
       </>

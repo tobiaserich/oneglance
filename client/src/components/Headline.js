@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Headline = styled.h2`
   font-weight: normal;
-  color: ${({ theme }) => theme.colors.font};
+  color: ${({ theme }) => theme.colors.lightfont};
   position: relative;
   z-index: 8001;
   margin: 5px 0px 0px 10px;
