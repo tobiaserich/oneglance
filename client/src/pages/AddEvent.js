@@ -24,51 +24,62 @@ const ButtonContainer = styled.div`
   justify-content: space-around;
 `;
 
-
-const Preview = styled.img`
-  height: 80px;
-  margin-top: 10px;
-  border-radius: 10px;
-`;
-
 export default function AddEvent() {
   const user = React.useContext(UserContext);
-  const [title, setTitle] = React.useState("Event");
+  const [title, setTitle] = React.useState("");
   const [date, setDate] = React.useState();
   const [descr, setDescr] = React.useState("");
   const [background, setBackground] = React.useState("./images/partyBG.webp");
-
+  const [animation, setAnimation] = React.useState(null);
   const history = useHistory();
 
-  function handleChange(typeOf, event) {
-    const content = event.target.value;
-    if (typeOf === "title") {
-      setTitle(content);
-    } else if (typeOf === "date") {
-      setDate(content);
-    } else if (typeOf === "descr") {
-      setDescr(content);
+  function handleChange(typeOf, event, src) {
+    if (event) {
+      const content = event.target.value;
+      if (typeOf === "title") {
+        setTitle(content);
+      } else if (typeOf === "date") {
+        setDate(content);
+      } else if (typeOf === "descr") {
+        setDescr(content);
+      }
     } else if (typeOf === "bg") {
-      setBackground(content);
+      setBackground(src);
     }
   }
-
   function handleSubmit(event) {
-    event.preventDefault();
-    setEvent({ title, date, descr, background, owner: user });
-    setTimeout(() => {
-      history.push("/overview");
-    }, 20);
+    if (title && date && descr) {
+      event.preventDefault();
+      const eventData = { title, date, descr, background, owner: user };
+      setEvent(eventData);
+      setTimeout(() => {
+        history.push("/overview");
+      }, 20);
+    } else {
+      event.preventDefault();
+      setAnimation("start");
+      setTimeout(() => setAnimation(false), 1000);
+    }
   }
   return (
     <AddContainer>
       <Label>
         Title
-        <Input name="title" value={title} onChange={event => handleChange("title", event)} />
+        <Input
+          name="title"
+          value={title}
+          onChange={event => handleChange("title", event)}
+          animation={animation}
+        />
       </Label>
       <Label>
         Date
-        <DateInput name="date" type="date" onChange={event => handleChange("date", event)} />
+        <DateInput
+          name="date"
+          type="date"
+          onChange={event => handleChange("date", event)}
+          animation={animation}
+        />
       </Label>
       <Label>
         Description
@@ -76,13 +87,13 @@ export default function AddEvent() {
           name="description"
           value={descr}
           onChange={event => handleChange("descr", event)}
+          animation={animation}
         />
       </Label>
       <Label>
         Background image:
         <FlexContainer align="center" width="80%">
           <BackgroundSelect value={background} onChange={handleChange} />
-          <Preview src={background} />
         </FlexContainer>
       </Label>
       <ButtonContainer>

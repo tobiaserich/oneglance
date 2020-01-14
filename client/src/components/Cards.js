@@ -20,7 +20,9 @@ export default function Cards() {
   return (
     <CardsOverviewContainer>
       {events.map(event => {
+
         return <EventCard key={event._id} event={event} onDelete={fetchEvents}></EventCard>;
+
       })}
     </CardsOverviewContainer>
   );
