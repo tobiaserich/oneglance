@@ -27,7 +27,7 @@ const ButtonContainer = styled.div`
 export default function AddEvent() {
   const user = React.useContext(UserContext);
   const [title, setTitle] = React.useState("");
-  const [date, setDate] = React.useState();
+  const [date, setDate] = React.useState("");
   const [descr, setDescr] = React.useState("");
   const [background, setBackground] = React.useState("./images/partyBG.webp");
   const [animation, setAnimation] = React.useState(null);
@@ -40,6 +40,7 @@ export default function AddEvent() {
         setTitle(content);
       } else if (typeOf === "date") {
         setDate(content);
+        console.log(date);
       } else if (typeOf === "descr") {
         setDescr(content);
       }
@@ -77,6 +78,7 @@ export default function AddEvent() {
         <DateInput
           name="date"
           type="date"
+          value={date}
           onChange={event => handleChange("date", event)}
           animation={animation}
         />

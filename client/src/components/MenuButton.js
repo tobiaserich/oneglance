@@ -14,7 +14,7 @@ const MenuDots = styled.span`
   height: 4px;
   width: 4px;
   border-radius: 50%;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.active};
   border: 0.2px solid black;
 `;
 

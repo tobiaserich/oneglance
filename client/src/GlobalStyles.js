@@ -16,7 +16,7 @@ function GlobalStyles() {
           height: 100vh;
           width: 100vw;
           font-family: "roboto", "sans-serif";
-          background-color: #254b74;
+          background-color: ${({ theme }) => theme.colors.background};
         }
         #root {
           height: 100%;

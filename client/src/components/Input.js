@@ -12,6 +12,31 @@ const Input = styled.input`
   margin-top: "10px";
   padding-left: 10px;
   text-align: ${({ align }) => align};
+  animation-name: ${({ animation, value }) =>
+    animation === "start" && !value ? "validation-fail" : ""};
+  animation-duration: 1s;
+  @keyframes validation-fail {
+    from,
+    to {
+      transform: translate3d(0, 0, 0);
+      background-color: ${({ theme }) => theme.colors.alert};
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translate3d(-10px, 0, 0);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translate3d(10px, 0, 0);
+    }
+  }
 `;
 
 export const EntryInput = styled(Input)`

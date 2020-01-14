@@ -32,13 +32,14 @@ const Arrow = styled.div`
   height: 0;
   border-left: ${({ border }) => (border ? border : "8px")} solid transparent;
   border-right: ${({ border }) => (border ? border : "8px")} solid transparent;
-  border-bottom: ${({ arrow }) => (arrow ? arrow : "15px")} solid #ffffffcc;
+  border-bottom: ${({ arrow }) => (arrow ? arrow : "15px")} solid
+    ${({ theme }) => theme.colors.active};
 `;
 
 const ContentBox = styled.div`
   width: 40%;
   height: 20px;
-  background-color: #ffffffcc;
+  background-color: ${({ theme }) => theme.colors.active};
   border-radius: 3px;
   color: ${({ theme }) => theme.colors.darkfont};
   text-align: center;

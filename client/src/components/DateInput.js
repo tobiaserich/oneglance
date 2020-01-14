@@ -20,7 +20,7 @@ const DateInput = styled.input`
     from,
     to {
       transform: translate3d(0, 0, 0);
-      background-color: #ff7063;
+      background-color: ${({ theme }) => theme.colors.alert};
     }
 
     10%,
