@@ -31,7 +31,8 @@ export const CardContainer = styled.article`
   position: relative;
   overflow: hidden;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 `;
 
 export const PagesContainer = styled.div`
@@ -49,7 +50,7 @@ export const PagesContainer = styled.div`
       opacity: 0;
     }
     to {
-      oppacity: 1;
+      opacity: 1;
     }
   }
 `;

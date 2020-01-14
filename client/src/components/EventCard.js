@@ -9,7 +9,7 @@ import CardMenu from "./CardMenu";
 import LinkNoDeco from "./LinkNoDeco";
 import DarkFilter from "../components/DarkFilter";
 
-export default function Card({ imgsrc, eventData, eventID, onDelete }) {
+export default function Card({ event, onDelete }) {
   const [menuVisibility, setMenuVisibility] = React.useState(false);
   const [firstAnimation, setFirstAnimation] = React.useState("none");
   const [secondAnimation, setSecondAnimation] = React.useState("none");
@@ -23,17 +23,17 @@ export default function Card({ imgsrc, eventData, eventID, onDelete }) {
   }
 
   return (
-    <CardContainer imgsrc={imgsrc}>
-      <LinkNoDeco to={`/eventDetails/?ID=${eventID}`}>
+    <CardContainer background={event.background}>
+      <LinkNoDeco to={`/eventDetails/?ID=${event._id}`}>
         <DarkFilter />
-        <Headline>{eventData.title || "Event"}</Headline>
-        <DateOutput>{eventData.date}</DateOutput>
-        <DescriptionOutput>{eventData.description}</DescriptionOutput>
+        <Headline>{event.title || "Event"}</Headline>
+        <DateOutput>{event.date}</DateOutput>
+        <DescriptionOutput>{event.description}</DescriptionOutput>
       </LinkNoDeco>
       {menuVisibility ? (
         <CardMenu
           onClick={clickHandler}
-          eventID={eventID}
+          eventID={event._id}
           onDelete={onDelete}
           animationName={firstAnimation}
           secondAnimation={secondAnimation}
@@ -46,8 +46,6 @@ export default function Card({ imgsrc, eventData, eventID, onDelete }) {
 }
 
 Card.propTypes = {
-  imgsrc: PropTypes.string,
-  eventData: PropTypes.object,
-  eventID: PropTypes.string,
+  event: PropTypes.object,
   onDelete: PropTypes.func
 };

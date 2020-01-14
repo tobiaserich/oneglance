@@ -1,5 +1,4 @@
 import React from "react";
-
 import styled from "@emotion/styled";
 import ExitButton from "./ExitButton";
 import MenuItem from "./MenuItem";
@@ -8,11 +7,10 @@ import { deleteEvent } from "../api/event";
 
 const SideMenu = styled.div`
   cursor: default;
-  background-size: 100% 100%;
-  transform: translateZ(50%);
   height: 100%;
   width: 100px;
   background: ${({ theme }) => theme.colors.backgroundTransparent};
+  padding-left: 3px;
   position: absolute;
   top: 0;
   right: 0px;
@@ -87,6 +85,7 @@ export default function Cardmenu({ onClick, eventID, onDelete, animationName, se
       onDelete();
     }, 100);
   }
+
   const menuContent = {
     main: (
       <>

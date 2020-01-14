@@ -7,6 +7,7 @@ const MenuButtonContainer = styled.div`
   width: 18px;
   display: flex;
   justify-content: space-around;
+  cursor: pointer;
 `;
 
 const MenuDots = styled.span`
