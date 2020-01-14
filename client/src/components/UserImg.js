@@ -8,7 +8,7 @@ const ImageWrapper = styled.div`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
   margin: 5px;
-  position: relative;
+  position: ${({ position }) => (position ? position : "relative")};
 `;
 const ProfileImage = styled.img`
   width: 100%;
@@ -16,7 +16,7 @@ const ProfileImage = styled.img`
   border-radius: 50%;
 `;
 
-export default function UserImg({ src, username, thread, children }) {
+export default function UserImg({ src, username, thread, children, position }) {
   const imgLink = src ? src : placeholder;
   const user = `Profile picture from ${username}`;
   const imagesize = {
@@ -26,7 +26,7 @@ export default function UserImg({ src, username, thread, children }) {
     test: "20px"
   };
   return (
-    <ImageWrapper size={imagesize[thread]}>
+    <ImageWrapper size={imagesize[thread]} position="absolute">
       <ProfileImage src={imgLink} alt={user} />
       {children}
     </ImageWrapper>
