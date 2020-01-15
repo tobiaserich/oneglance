@@ -19,5 +19,5 @@ export const HeadlineDark = styled.h1`
   font-size: 28px;
   font-weight: normal;
   color: ${({ theme }) => theme.colors.darkfont};
-  margin: 5px 0px 0px 10px;
+  margin: 5px 0px 0px 15px;
 `;

@@ -53,6 +53,7 @@ export const ArrowLeft = styled.div`
   width: 0;
   margin-top: ${({ marginTop }) => (marginTop ? marginTop : "10px")};
   margin-left: ${({ marginLeft }) => (marginLeft ? marginLeft : "5px")};
+  margin-right: 5px;
   padding: 1px;
   border-right: 15px solid white;
   border-top: 10px solid transparent;

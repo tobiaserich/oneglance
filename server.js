@@ -145,7 +145,7 @@ app.delete("/api/event/del/:eventID", async (req, res) => {
   }
 });
 
-// routes for postman
+// dev routes
 app.post("/api/user", (req, res) => {
   try {
     const userData = req.body;

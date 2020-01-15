@@ -6,6 +6,7 @@ import { InfoEntry, InfoNav } from "../components/ProfileNavigation";
 const Nav = styled(InfoNav)`
   width: 100%;
   padding: 0;
+  overflow: scroll;
 `;
 export default function Memberlist() {
   const [memberList, setMemberList] = React.useState([]);

@@ -13,6 +13,7 @@ export const DateOutput = styled.time`
 export const DetailDateOutput = styled.time`
   width: 100%;
   display: flex;
+  margin-left: -10px;
   justify-content: space-around;
   color: ${({ theme }) => theme.colors.darkfont};
   font-size: 20px;

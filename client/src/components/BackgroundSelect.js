@@ -24,14 +24,15 @@ export default function BackgroundSelect({ value, onChange }) {
     "./images/birthdayBG.webp",
     "./images/sportBG.webp",
     "./images/greenBG.webp",
-    "./images/yellowBG.webp"
+    "./images/yellowBG.webp",
+    "./images/fischeBG.webp"
   ];
 
   function handleClick(direction) {
     if (direction === "left") {
       if (counter === 0) {
-        setCounter(4);
-        setBackground(backgrounds[4]);
+        setCounter(5);
+        setBackground(backgrounds[5]);
       } else {
         const newCounter = counter - 1;
         setCounter(newCounter);
@@ -40,7 +41,7 @@ export default function BackgroundSelect({ value, onChange }) {
     }
 
     if (direction === "right") {
-      if (counter === 4) {
+      if (counter === 5) {
         setCounter(0);
         setBackground(backgrounds[0]);
       } else {
