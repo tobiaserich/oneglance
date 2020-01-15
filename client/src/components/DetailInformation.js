@@ -9,7 +9,6 @@ const Title = styled.summary`
   }
 `;
 
-≈
 export default function DetailInformation({ item, title, children }) {
   const expand = children ? true : false;
   return (
