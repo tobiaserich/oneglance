@@ -68,6 +68,7 @@ export default function AddEvent() {
         Title
         <Input
           name="title"
+          type="text"
           value={title}
           onChange={event => handleChange("title", event)}
           animation={animation}

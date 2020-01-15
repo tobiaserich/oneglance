@@ -5,6 +5,7 @@ export const Headline = styled.h2`
   color: ${({ theme }) => theme.colors.lightfont};
   position: relative;
   z-index: 8001;
+
   margin: 5px 0px 0px 10px;
 
   width: 90%;

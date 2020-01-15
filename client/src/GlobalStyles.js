@@ -19,8 +19,9 @@ function GlobalStyles() {
           background-color: ${theme.colors.background};
         }
         #root {
+          margin: auto;
           height: 100%;
-          width: 100%;
+          max-width: 400px;
         }
       `}
     />

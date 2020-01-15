@@ -46,3 +46,27 @@ export const FlexButton = styled(Button)`
   font-size: 16px;
   border: none;
 `;
+
+export const ArrowLeft = styled.div`
+  opacity: ${({ hide }) => (hide ? "0" : "1")};
+  height: 0;
+  width: 0;
+  margin-top: ${({ marginTop }) => (marginTop ? marginTop : "10px")};
+  margin-left: ${({ marginLeft }) => (marginLeft ? marginLeft : "5px")};
+  padding: 1px;
+  border-right: 15px solid white;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+`;
+
+export const ArrowRight = styled.div`
+  height: 0px;
+  width: 0px;
+  margin-top: ${({ marginTop }) => (marginTop ? marginTop : "10px")};
+  margin-left: ${({ marginLeft }) => (marginLeft ? marginLeft : "5px")};
+  margin-right: ${({ marginRight }) => (marginRight ? marginRight : "0px")};
+  padding: 1px;
+  border-left: 15px solid white;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+`;

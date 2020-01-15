@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 const Input = styled.input`
   display: block;
+
   height: ${({ height }) => height || "40px"};
   width: 80%;
   background-color: ${({ theme }) => theme.colors.active};
@@ -9,7 +10,7 @@ const Input = styled.input`
   border-radius: 5px;
   font-size: 18px;
   margin: auto;
-  margin-top: "10px";
+  margin-top: ${({ margin }) => (margin ? margin : "0px")};
   padding-left: 10px;
   text-align: ${({ align }) => align};
   animation-name: ${({ animation, value }) =>

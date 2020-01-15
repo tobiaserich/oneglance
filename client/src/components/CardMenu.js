@@ -99,7 +99,7 @@ export default function Cardmenu({ onClick, eventID, onDelete, animationName, se
     settings: (
       <>
         <MenuItem
-          spacer={40}
+          spacer={50}
           onClick={() => {
             clickHandler();
             setSubMenu("main");
