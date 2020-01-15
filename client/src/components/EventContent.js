@@ -17,7 +17,7 @@ const CustomLink = styled(LinkNoDeco)`
 export default function EventContent(props) {
   const siteContent = [
     <>
-      <HeadlineDark>Member</HeadlineDark>
+      <HeadlineDark>Kursteilnehmer</HeadlineDark>
       <MemberList eventID={props.eventData._id} />
     </>,
     <>

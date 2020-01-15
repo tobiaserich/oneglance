@@ -15,6 +15,7 @@ export const EventContainer = styled.article`
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.secondBackgroundTransparent};
   margin: auto;
+  margin-bottom: 0px;
   border-radius: 10px;
   padding: 15px 0px;
   color: ${({ theme }) => theme.colors.darkfont};
@@ -40,6 +41,7 @@ export const FakeContainer = styled.article`
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.secondBackgroundTransparent};
   margin: auto;
+  margin-bottom: 2px;
   border-radius: 10px;
   padding: 15px 0px;
   color: ${({ theme }) => theme.colors.darkfont};

@@ -4,6 +4,8 @@ export const AddContainer = styled.form`
   height: 90%;
   width: 100%;
   display: flex;
+  position: relative;
+  z-index: 0;
   overflow: scroll;
   background-color: ${({ theme }) => theme.colors.background};
   flex-direction: column;
@@ -17,7 +19,7 @@ export const AddContainer = styled.form`
     }
     to {
       width: 100%;
-      height: 100%;
+      height: 90%;
     }
   }
 `;
@@ -57,7 +59,6 @@ export const PagesContainer = styled.div`
 export const CardsOverviewContainer = styled.div`
   height: 100%;
   width: 100%;
-  margin-top: 10px;
   overflow: scroll;
 `;
 
@@ -76,7 +77,7 @@ export const ClickContainer = styled.div`
 export const FlexContainer = styled.div`
   width: ${({ width }) => (width ? width : "100%")};
   display: flex;
-  margin: auto;
+  margin: 0px auto;
   justify-content: ${({ justify }) => (justify ? justify : "space-around")};
   align-items: ${({ align }) => (align ? align : "")};
 `;

@@ -2,26 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 import { FlexContainer } from "../components/Container";
-
-const ArrowLeft = styled.div`
-  height: 0;
-  width: 0;
-  margin-top: 10px;
-  margin-right: 5px;
-  border-right: 15px solid white;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-`;
-
-const ArrowRight = styled.div`
-  height: 0px;
-  width: 0px;
-  margin-top: 10px;
-  margin-left: 5px;
-  border-left: 15px solid white;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-`;
+import { ArrowLeft, ArrowRight } from "../components/Button";
 
 const Preview = styled.img`
   height: 80px;
@@ -43,14 +24,15 @@ export default function BackgroundSelect({ value, onChange }) {
     "./images/birthdayBG.webp",
     "./images/sportBG.webp",
     "./images/greenBG.webp",
-    "./images/yellowBG.webp"
+    "./images/yellowBG.webp",
+    "./images/fischeBG.webp"
   ];
 
-  function handleClick(direction, event) {
+  function handleClick(direction) {
     if (direction === "left") {
       if (counter === 0) {
-        setCounter(4);
-        setBackground(backgrounds[4]);
+        setCounter(5);
+        setBackground(backgrounds[5]);
       } else {
         const newCounter = counter - 1;
         setCounter(newCounter);
@@ -59,7 +41,7 @@ export default function BackgroundSelect({ value, onChange }) {
     }
 
     if (direction === "right") {
-      if (counter === 4) {
+      if (counter === 5) {
         setCounter(0);
         setBackground(backgrounds[0]);
       } else {
@@ -72,9 +54,9 @@ export default function BackgroundSelect({ value, onChange }) {
 
   return (
     <FlexContainer justify="center" align="center">
-      <ArrowLeft onClick={event => handleClick("left", event)} />
+      <ArrowLeft onClick={() => handleClick("left")} />
       <Preview src={background} />
-      <ArrowRight onClick={event => handleClick("right", event)} />
+      <ArrowRight onClick={() => handleClick("right")} />
     </FlexContainer>
   );
 }

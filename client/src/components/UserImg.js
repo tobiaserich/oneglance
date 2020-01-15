@@ -8,6 +8,7 @@ const ImageWrapper = styled.div`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
   margin: 5px;
+  top: 5px;
   position: ${({ position }) => (position ? position : "relative")};
 `;
 const ProfileImage = styled.img`
@@ -20,7 +21,7 @@ export default function UserImg({ src, username, thread, children, position }) {
   const imgLink = src ? src : placeholder;
   const user = `Profile picture from ${username}`;
   const imagesize = {
-    header: "50px",
+    header: "40px",
     detail: "40px",
     memberList: "30px",
     test: "20px"

@@ -10,8 +10,6 @@ import AddEvent from "./pages/AddEvent";
 import EventDetails from "./pages/EventDetails";
 import Poll from "./pages/Poll";
 import Task from "./pages/Task";
-import LinkNoDeco from "./components/LinkNoDeco";
-
 import Header from "./components/Header";
 function App() {
   const [username, setUsername] = React.useState("TobiasErich");
@@ -31,9 +29,7 @@ function App() {
               <LoginPage auth={handleLogin} />
             </Route>
             <Route>
-              <LinkNoDeco to="/">
-                <Header />
-              </LinkNoDeco>
+              <Header />
               <Route exact path="/overview" component={Overview} />
               <Route exact path="/addEvent" component={AddEvent} />
               <Route path="/eventDetails/">

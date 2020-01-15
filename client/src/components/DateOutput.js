@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const DateOutput = styled.time`
-  color: ${({ theme }) => theme.colors.font};
+  color: ${({ theme }) => theme.colors.lightfont};
   font-size: 16px;
   margin-left: 10px;
   margin-top: 0px;
@@ -13,6 +13,7 @@ export const DateOutput = styled.time`
 export const DetailDateOutput = styled.time`
   width: 100%;
   display: flex;
+  margin-left: -10px;
   justify-content: space-around;
   color: ${({ theme }) => theme.colors.darkfont};
   font-size: 20px;
