@@ -7,13 +7,8 @@ const normal = {
     secondBackground: "#E1EAFA",
     backgroundTransparent: "#CFD8E6CC",
     secondBackgroundTransparent: "#dbdae6E6",
-    cardBackground: "#516F90",
     font: "#545454",
-    darkfont: "#383838",
-    lightfont: "#F7F9FC"
-  },
-  dollors: {
-    font: "#F7F9FC"
+    darkfont: "#383838"
   }
 };
 
