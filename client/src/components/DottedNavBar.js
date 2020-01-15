@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const DotContainer = styled.div`
   display: flex;
@@ -16,15 +17,20 @@ const Dot = styled.div`
   box-shadow: 2px 2px 4px ${({ theme }) => theme.colors.darkfont};
 `;
 
-export default function DottedNavBar({ contentNr }, props) {
+
+export default function DottedNavBar({ contentNr }) {
   const dots = new Array(4).fill("");
   return (
     <DotContainer>
       {dots.map((dot, index) => {
         const background = index === contentNr ? "#BDBDBD" : "white";
-        console.log(index, contentNr);
+
         return <Dot key={index} background={background} />;
       })}
     </DotContainer>
   );
 }
+
+DottedNavBar.propTypes = {
+  contentNr: PropTypes.number
+};

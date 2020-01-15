@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { setTask, getTask } from "../api/task";
 import { AddContainer, FlexContainer } from "../components/Container";
 import Label from "../components/Label";
@@ -10,8 +10,8 @@ export default function Task() {
   const [title, setTitle] = React.useState("");
   const [tasks, setTasks] = React.useState([]);
   const history = useHistory();
-  const eventID = new URLSearchParams(window.location.search).get("ID");
-  const taskID = new URLSearchParams(window.location.search).get("task");
+  const { eventID } = useParams();
+  const { taskID } = useParams();
 
   function addTask() {
     const task = [...tasks];
@@ -36,7 +36,7 @@ export default function Task() {
 
   function handleSubmit() {
     setTask(tasks, eventID, title, taskID);
-    history.push(`../eventDetails/?ID=${eventID}`);
+    history.push(`/eventDetails/${eventID}`);
   }
   return (
     <AddContainer>
@@ -64,7 +64,7 @@ export default function Task() {
         Add task
       </NewEntryButton>
       <FlexContainer>
-        <FlexButton type="button" onClick={() => history.push(`../eventDetails/?ID=${eventID}`)}>
+        <FlexButton type="button" onClick={() => history.push(`/eventDetails/${eventID}`)}>
           Discard
         </FlexButton>
         <FlexButton

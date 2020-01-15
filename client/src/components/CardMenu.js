@@ -123,5 +123,6 @@ Cardmenu.propTypes = {
   onClick: PropTypes.func,
   onDelete: PropTypes.func,
   eventID: PropTypes.string,
-  animationName: PropTypes.string
+  animationName: PropTypes.string,
+  secondAnimation: PropTypes.string
 };

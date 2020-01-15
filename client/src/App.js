@@ -32,15 +32,9 @@ function App() {
               <Header />
               <Route exact path="/overview" component={Overview} />
               <Route exact path="/addEvent" component={AddEvent} />
-              <Route path="/eventDetails/">
-                <EventDetails />
-              </Route>
-              <Route path="/poll">
-                <Poll />
-              </Route>
-              <Route path="/task">
-                <Task />
-              </Route>
+              <Route path="/eventDetails/:eventID" component={EventDetails} />
+              <Route path="/poll/:eventID/:pollID" component={Poll} />
+              <Route path="/task/:eventID/:taskID" component={Task} />
             </Route>
           </Switch>
         </Router>

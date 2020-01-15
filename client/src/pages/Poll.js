@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { useHistory } from "react-router-dom";
+
+import { useHistory, useParams } from "react-router-dom";
+
 import { addPoll } from "../api/poll";
 import { getPoll } from "../api/poll";
 import { AddContainer, FlexContainer } from "../components/Container";
@@ -15,8 +17,8 @@ const Spacer = styled.div`
 `;
 
 export default function Poll() {
-  const eventID = new URLSearchParams(window.location.search).get("ID");
-  const pollID = new URLSearchParams(window.location.search).get("poll");
+  const { eventID } = useParams();
+  const { pollID } = useParams();
   const [title, setTitle] = React.useState("");
   const [totalPoll, setTotalPoll] = React.useState([{ question: "", answers: [] }]);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
@@ -65,7 +67,7 @@ export default function Poll() {
 
   function handleSubmit() {
     addPoll(totalPoll, eventID, title, pollID);
-    history.push(`../eventDetails/?ID=${eventID}`);
+    history.push(`/eventDetails/${eventID}`);
   }
   return (
     <AddContainer>
@@ -134,7 +136,7 @@ export default function Poll() {
         New answer
       </NewEntryButton>
       <FlexContainer>
-        <FlexButton type="button" onClick={() => history.push(`../eventDetails/?ID=${eventID}`)}>
+        <FlexButton type="button" onClick={() => history.push(`/eventDetails/${eventID}`)}>
           Discard
         </FlexButton>
         <FlexButton
