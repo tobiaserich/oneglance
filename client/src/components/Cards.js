@@ -1,6 +1,6 @@
 import React from "react";
 import EventCard from "./EventCard";
-import { getOwnEvents } from "../api/event";
+import { getEvents } from "../api/event";
 import UserContext from "../hooks/UserContext";
 import { CardsOverviewContainer } from "../components/Container";
 
@@ -20,9 +20,7 @@ export default function Cards() {
   return (
     <CardsOverviewContainer>
       {events.map(event => {
-
         return <EventCard key={event._id} event={event} onDelete={fetchEvents}></EventCard>;
-
       })}
     </CardsOverviewContainer>
   );

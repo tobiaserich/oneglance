@@ -81,3 +81,20 @@ export const FlexContainer = styled.div`
   justify-content: ${({ justify }) => (justify ? justify : "space-around")};
   align-items: ${({ align }) => (align ? align : "")};
 `;
+
+export const PageWrapper = styled(PagesContainer)`
+  background-image: url(${({ img }) => `.${img}`});
+  background-size: auto 100%;
+  position: relative;
+  overflow: hidden;
+  animation-duration: 0.45s;
+  animation-name: ease-in;
+  @keyframes ease-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
