@@ -125,3 +125,20 @@ export const PollDetailContainer = styled.aside`
   font-size: 16px;
   justify-content: space-between;
 `;
+
+export const PageWrapper = styled(PagesContainer)`
+  background-image: url(${({ img }) => `.${img}`});
+  background-size: auto 100%;
+  position: relative;
+  overflow: hidden;
+  animation-duration: 0.45s;
+  animation-name: ease-in;
+  @keyframes ease-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;

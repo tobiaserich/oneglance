@@ -46,6 +46,7 @@ export default function Poll() {
   function handleQuestionClick(direction) {
     if (direction === "prev") {
       setCurrentQuestion(currentQuestion - 1);
+      console.log("fire");
     } else if (direction === "next") {
       const poll = [...totalPoll];
       const newQuestion = { question: "", answers: [] };

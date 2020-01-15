@@ -33,6 +33,7 @@ export default function AddEvent() {
         setTitle(content);
       } else if (typeOf === "date") {
         setDate(content);
+        console.log(date);
       } else if (typeOf === "descr") {
         setDescr(content);
       }
