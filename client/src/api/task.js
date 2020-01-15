@@ -1,12 +1,12 @@
 //get
 
 export async function getTasks(eventID) {
-  const response = await fetch(`/api/tasks/${eventID}`);
+  const response = await fetch(`/api/events/${eventID}/tasks`);
   const result = await response.json();
   return result;
 }
 export async function getTask(pollID) {
-  const response = await fetch(`/api/task/${pollID}`);
+  const response = await fetch(`/api/tasks/${pollID}`);
   const result = await response.json();
   return result;
 }
@@ -15,7 +15,7 @@ export async function getTask(pollID) {
 
 export function setTask(task, eventID, title, taskID) {
   const totalData = { taskID, title, task };
-  return fetch(`/api/task/${eventID}`, {
+  return fetch(`/api/events/${eventID}/tasks`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
