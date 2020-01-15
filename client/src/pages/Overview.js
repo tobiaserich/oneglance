@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { PagesContainer } from "../components/Container";
 import Cards from "../components/Cards";
 import { AddButton } from "../components/Button";
-import Header from "../components/Header";
 
 const CustomLink = styled(Link)`
   width: 100%;
