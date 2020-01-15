@@ -7,6 +7,7 @@ import { EventContainer, FakeContainer } from "../components/DetailContainer";
 import ExitButton from "../components/ExitButton";
 import DottedNavBar from "../components/DottedNavBar";
 
+
 export default function EventDetails() {
   const { eventID } = useParams();
   const [eventData, setEventData] = React.useState([]);

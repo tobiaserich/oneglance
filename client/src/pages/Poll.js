@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
+
 import { useHistory, useParams } from "react-router-dom";
+
 import { addPoll } from "../api/poll";
 import { getPoll } from "../api/poll";
 import { AddContainer, FlexContainer } from "../components/Container";
@@ -46,6 +48,7 @@ export default function Poll() {
   function handleQuestionClick(direction) {
     if (direction === "prev") {
       setCurrentQuestion(currentQuestion - 1);
+      console.log("fire");
     } else if (direction === "next") {
       const poll = [...totalPoll];
       const newQuestion = { question: "", answers: [] };
