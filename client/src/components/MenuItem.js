@@ -33,5 +33,5 @@ menuItem.propTypes = {
   spacer: PropTypes.number,
   onClick: PropTypes.func,
   target: PropTypes.string,
-  animation: PropTypes.string
+  animation: PropTypes.func
 };

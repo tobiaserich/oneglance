@@ -9,7 +9,7 @@ export default function Cards() {
   const userName = React.useContext(UserContext);
 
   async function fetchEvents() {
-    const result = await getOwnEvents(userName);
+    const result = await getEvents(userName);
     setEvents(result);
   }
 
