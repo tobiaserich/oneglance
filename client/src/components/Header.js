@@ -12,7 +12,6 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   background-color: ${({ theme }) => theme.colors.secondBackground};
   color: ${({ theme }) => theme.colors.font};
-
   font-family: "Great Vibes";
   font-size: 35px;
   letter-spacing: 1px;

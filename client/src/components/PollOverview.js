@@ -1,22 +1,15 @@
 import React from "react";
-import styled from "@emotion/styled";
+import { useParams } from "react-router-dom";
 import { getPolls } from "../api/poll";
-import { InfoNav, InfoEntry } from "../components/ProfileNavigation";
+import { InfoEntry, PollNav } from "../components/ProfileNavigation";
 import LinkNoDeco from "../components/LinkNoDeco";
-
-const Nav = styled(InfoNav)`
-  width: 100%;
-  margin-bottom: 45px;
-  padding: 0;
-  overflow: scroll;
-`;
 
 export default function PollOverview() {
   const [polls, setPolls] = React.useState();
+  const { eventID } = useParams();
 
   React.useEffect(() => {
     async function pollFetch() {
-      const eventID = new URLSearchParams(window.location.search).get("ID");
       const result = await getPolls(eventID);
       setPolls(result);
     }
@@ -24,17 +17,17 @@ export default function PollOverview() {
   }, []);
 
   return (
-    <Nav>
+    <PollNav>
       {polls &&
         polls.map((poll, index) => {
           return (
-            <LinkNoDeco key={poll._id} to={`/poll/?ID=${poll.event}&poll=${poll._id}`}>
+            <LinkNoDeco key={poll._id} to={`/poll/${poll.event}/${poll._id}`}>
               <InfoEntry key={poll._id} item={index}>
                 {poll.title}
               </InfoEntry>
             </LinkNoDeco>
           );
         })}
-    </Nav>
+    </PollNav>
   );
 }

@@ -17,7 +17,7 @@ const CustomLink = styled(LinkNoDeco)`
 export default function EventContent(props) {
   const siteContent = [
     <>
-      <HeadlineDark>Kursteilnehmer</HeadlineDark>
+      <HeadlineDark>User</HeadlineDark>
       <MemberList eventID={props.eventData._id} />
     </>,
     <>
@@ -31,14 +31,14 @@ export default function EventContent(props) {
     <>
       <HeadlineDark>Polls</HeadlineDark>
       <PollOverview />
-      <CustomLink to={`/poll/?ID=${props.eventData._id}&poll=0`}>
+      <CustomLink to={`/poll/${props.eventData._id}/0`}>
         <AddDetailButton>New Poll</AddDetailButton>
       </CustomLink>
     </>,
     <>
       <HeadlineDark>Tasks</HeadlineDark>
       <TaskOverview />
-      <CustomLink to={`/task/?ID=${props.eventData._id}&task=0`}>
+      <CustomLink to={`/task/${props.eventData._id}/0`}>
         <AddDetailButton>New Task</AddDetailButton>
       </CustomLink>
     </>
