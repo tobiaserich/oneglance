@@ -2,11 +2,11 @@ import React from "react";
 import styled from "@emotion/styled";
 import { useHistory } from "react-router-dom";
 import UserContext from "../hooks/UserContext";
-import { AddContainer, FlexContainer } from "../components/Container";
+import { AddContainer, FlexContainer, ButtonContainer } from "../components/Container";
 import Label from "../components/Label";
 import Input from "../components/Input";
 import DateInput from "../components/DateInput";
-import { DescriptionInput } from "../components/DescriptionInput";
+import { DescriptionInput } from "../components/Input";
 import { Button } from "../components/Button";
 import BackgroundSelect from "../components/BackgroundSelect";
 import LinkNoDeco from "../components/LinkNoDeco";
@@ -17,17 +17,10 @@ const CardButton = styled(Button)`
   width: 100px;
 `;
 
-const ButtonContainer = styled.div`
-  width: 100%;
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-around;
-`;
-
 export default function AddEvent() {
   const user = React.useContext(UserContext);
   const [title, setTitle] = React.useState("");
-  const [date, setDate] = React.useState();
+  const [date, setDate] = React.useState("");
   const [descr, setDescr] = React.useState("");
   const [background, setBackground] = React.useState("./images/partyBG.webp");
   const [animation, setAnimation] = React.useState(null);
@@ -67,6 +60,7 @@ export default function AddEvent() {
         Title
         <Input
           name="title"
+          type="text"
           value={title}
           onChange={event => handleChange("title", event)}
           animation={animation}
@@ -77,6 +71,7 @@ export default function AddEvent() {
         <DateInput
           name="date"
           type="date"
+          value={date}
           onChange={event => handleChange("date", event)}
           animation={animation}
         />

@@ -4,7 +4,7 @@ import { Global, css } from "@emotion/core";
 function GlobalStyles() {
   return (
     <Global
-      styles={css`
+      styles={theme => css`
         *,
         *:before,
         *:after {
@@ -16,11 +16,12 @@ function GlobalStyles() {
           height: 100vh;
           width: 100vw;
           font-family: "roboto", "sans-serif";
-          background-color: #254b74;
+          background-color: ${theme.colors.background};
         }
         #root {
+          margin: auto;
           height: 100%;
-          width: 100%;
+          max-width: 400px;
         }
       `}
     />

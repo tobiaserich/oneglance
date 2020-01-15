@@ -13,10 +13,11 @@ export const EventContainer = styled.article`
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.colors.secondBackgroundTransparent};
   margin: auto;
+  margin-bottom: 0px;
   border-radius: 10px;
   padding: 15px 0px;
+  background-color: ${({ theme }) => theme.colors.secondBackgroundTransparent};
   color: ${({ theme }) => theme.colors.darkfont};
   animation-duration: 0.6s;
   animation-name: ${({ direction }) => direction};
@@ -38,10 +39,11 @@ export const FakeContainer = styled.article`
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.colors.secondBackgroundTransparent};
   margin: auto;
+  margin-bottom: 2px;
   border-radius: 10px;
   padding: 15px 0px;
+  background-color: ${({ theme }) => theme.colors.secondBackgroundTransparent};
   color: ${({ theme }) => theme.colors.darkfont};
   animation-duration: 0.5s;
   animation-name: ${({ direction }) => direction};

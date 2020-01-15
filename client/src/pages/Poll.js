@@ -1,5 +1,6 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import styled from "@emotion/styled";
+import { useHistory, useParams } from "react-router-dom";
 import { addPoll } from "../api/poll";
 import { getPoll } from "../api/poll";
 import { AddContainer, FlexContainer } from "../components/Container";
@@ -7,10 +8,15 @@ import Label from "../components/Label";
 import Input, { EntryInput } from "../components/Input";
 import { NewEntryButton, FlexButton } from "../components/Button";
 import { Headline } from "../components/Headline";
+import { ArrowLeft, ArrowRight } from "../components/Button";
+
+const Spacer = styled.div`
+  height: ${({ height }) => height};
+`;
 
 export default function Poll() {
-  const eventID = new URLSearchParams(window.location.search).get("ID");
-  const pollID = new URLSearchParams(window.location.search).get("poll");
+  const { eventID } = useParams();
+  const { pollID } = useParams();
   const [title, setTitle] = React.useState("");
   const [totalPoll, setTotalPoll] = React.useState([{ question: "", answers: [] }]);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
@@ -58,7 +64,7 @@ export default function Poll() {
 
   function handleSubmit() {
     addPoll(totalPoll, eventID, title, pollID);
-    history.push(`../eventDetails/?ID=${eventID}`);
+    history.push(`/eventDetails/${eventID}`);
   }
   return (
     <AddContainer>
@@ -72,39 +78,40 @@ export default function Poll() {
               align="center"
               value={title}
               onChange={event => setTitle(event.target.value)}
+              margin="5px"
             ></Input>
           </>
         )}
       </Label>
-      <FlexContainer>
+      {currentQuestion !== 0 ? <Spacer height="29px" /> : ""}
+      <FlexContainer align="center">
         {currentQuestion !== 0 ? (
-          <FlexButton type="button" onClick={() => handleQuestionClick("prev")}>
-            prev.
-          </FlexButton>
+          <ArrowLeft
+            marginTop="35px"
+            marginLeft="15px"
+            onClick={() => handleQuestionClick("prev")}
+          />
         ) : (
-          <FlexButton hide="true" type="button">
-            x
-          </FlexButton>
+          <ArrowLeft hide="true" mmarginTop="35px" marginLeft="15px" />
         )}
-
-        <FlexButton
-          type="button"
-          disabled={totalPoll[currentQuestion].question ? false : true}
-          onClick={() => handleQuestionClick("next")}
-        >
-          next
-        </FlexButton>
+        <Label>
+          Question
+          <Input
+            height="30px"
+            value={totalPoll[currentQuestion].question}
+            onChange={event => {
+              setQuestion(event.target.value);
+            }}
+            margin="5px"
+          ></Input>
+        </Label>
+        <ArrowRight
+          onClick={() => (totalPoll[currentQuestion].question ? handleQuestionClick("next") : "")}
+          marginTop="35px"
+          marginRight="15px"
+          marginLeft="0px"
+        />
       </FlexContainer>
-      <Label>
-        Question
-        <Input
-          height="30px"
-          value={totalPoll[currentQuestion].question}
-          onChange={event => {
-            setQuestion(event.target.value);
-          }}
-        ></Input>
-      </Label>
       <Label>
         Answers
         {totalPoll[currentQuestion].answers.map((answer, index) => (
@@ -117,7 +124,6 @@ export default function Poll() {
           ></EntryInput>
         ))}
       </Label>
-
       <NewEntryButton
         type="button"
         onClick={() => {
@@ -127,7 +133,7 @@ export default function Poll() {
         New answer
       </NewEntryButton>
       <FlexContainer>
-        <FlexButton type="button" onClick={() => history.push(`../eventDetails/?ID=${eventID}`)}>
+        <FlexButton type="button" onClick={() => history.push(`/eventDetails/${eventID}`)}>
           Discard
         </FlexButton>
         <FlexButton

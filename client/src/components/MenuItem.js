@@ -12,7 +12,7 @@ const Item = styled.div`
   color: ${({ theme }) => theme.colors.font};
 `;
 
-export default function menuItem({ children, spacer, onClick, target, animation, onPress }) {
+export default function menuItem({ children, spacer, onClick, target, animation }) {
   return (
     <Item
       spacer={spacer}
@@ -20,9 +20,6 @@ export default function menuItem({ children, spacer, onClick, target, animation,
         setTimeout(() => onClick(target), 250);
         if (animation) {
           animation(true, "ease-in", "fading");
-        }
-        if (onPress) {
-          onPress();
         }
       }}
     >
@@ -33,5 +30,8 @@ export default function menuItem({ children, spacer, onClick, target, animation,
 
 menuItem.propTypes = {
   children: PropTypes.node.isRequired,
-  spacer: PropTypes.number
+  spacer: PropTypes.number,
+  onClick: PropTypes.func,
+  target: PropTypes.string,
+  animation: PropTypes.func
 };

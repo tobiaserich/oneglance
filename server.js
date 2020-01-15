@@ -6,8 +6,8 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 const {
-  getOwnEvents,
-  getOneEvent,
+  getEvents,
+  getEvent,
   setEvent,
   deleteEvent,
   addUserToEvent,
@@ -22,83 +22,83 @@ app.use(express.json({ extended: false }));
 
 // get routes
 
-app.get("/api/event/user/:username", async (req, res) => {
+app.get("/api/events/user/:username", async (req, res) => {
   try {
-    const result = await getOwnEvents(req.params.username);
+    const result = await getEvents(req.params.username);
     res.send(result);
   } catch (error) {
     console.error(error);
-    res.send(error);
+    res.status404.send("There are no events");
   }
 });
 
-app.get("/api/event/:eventID", async (req, res) => {
+app.get("/api/events/:eventID", async (req, res) => {
   try {
-    const result = await getOneEvent(req.params.eventID);
+    const result = await getEvent(req.params.eventID);
     res.send(result);
   } catch (error) {
     console.error(error);
-    res.send(error);
+    res.status404.send("The event you are looking for is not available ");
   }
 });
 
-app.get("/api/user/event/:ID", async (req, res) => {
+app.get("/api/events/:ID/users", async (req, res) => {
   try {
     const userList = await getUserList(req.params.ID);
     res.send(userList);
   } catch (error) {
     console.error(error);
-    res.send(error);
+    res.status404.send("No userlist found");
   }
 });
 
-app.get("/api/polls/:ID", async (req, res) => {
+app.get("/api/events/:ID/polls", async (req, res) => {
   try {
     const ID = req.params.ID;
     const polls = await getPolls(ID);
     res.send(polls);
   } catch (error) {
     console.error(error);
-    res.send(error);
+    res.status404.send("No polls found");
   }
 });
 
-app.get("/api/poll/:ID", async (req, res) => {
+app.get("/api/polls/:ID", async (req, res) => {
   try {
     const ID = req.params.ID;
     const poll = await getPoll(ID);
     res.send(poll);
   } catch (error) {
     console.error(error);
-    res.send(error);
+    res.status404.send("No poll found");
   }
 });
 
-app.get("/api/tasks/:ID", async (req, res) => {
+app.get("/api/events/:ID/tasks", async (req, res) => {
   try {
     const ID = req.params.ID;
     const tasks = await getTasks(ID);
     res.send(tasks);
   } catch (error) {
     console.error(error);
-    res.send(error);
+    res.status404.send("No tasks found");
   }
 });
 
-app.get("/api/task/:ID", async (req, res) => {
+app.get("/api/tasks/:ID", async (req, res) => {
   try {
     const ID = req.params.ID;
     const task = await getTask(ID);
     res.send(task);
   } catch (error) {
     console.error(error);
-    res.send(error);
+    res.status404.send("No task found");
   }
 });
 
 //post routes
 
-app.post("/api/event/", (req, res) => {
+app.post("/api/events/", (req, res) => {
   try {
     const eventData = req.body;
     setEvent(eventData);
@@ -109,9 +109,9 @@ app.post("/api/event/", (req, res) => {
   }
 });
 
-app.post("/api/poll/:ID", async (req, res) => {
+app.post("/api/polls/:eventID", async (req, res) => {
   try {
-    const ID = req.params.ID;
+    const ID = req.params.eventID;
     const poll = req.body;
     await setPoll(poll, ID);
     res.end();
@@ -121,9 +121,9 @@ app.post("/api/poll/:ID", async (req, res) => {
   }
 });
 
-app.post("/api/task/:ID", async (req, res) => {
+app.post("/api/events/:eventID/tasks", async (req, res) => {
   try {
-    const ID = req.params.ID;
+    const ID = req.params.eventID;
     const task = req.body;
     await setTask(task, ID);
     res.end();
@@ -135,7 +135,7 @@ app.post("/api/task/:ID", async (req, res) => {
 
 // delete routes
 
-app.delete("/api/event/del/:eventID", async (req, res) => {
+app.delete("/api/events/:eventID", async (req, res) => {
   try {
     await deleteEvent(req.params.eventID);
     res.end();
@@ -145,7 +145,8 @@ app.delete("/api/event/del/:eventID", async (req, res) => {
   }
 });
 
-// routes for postman
+// dev routes
+
 app.post("/api/user", (req, res) => {
   try {
     const userData = req.body;

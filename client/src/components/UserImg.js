@@ -7,8 +7,9 @@ const placeholder = "/images/userPlaceholder.webp";
 const ImageWrapper = styled.div`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
+  position: "absolute";
+  top: 5px;
   margin: 5px;
-  position: ${({ position }) => (position ? position : "relative")};
 `;
 const ProfileImage = styled.img`
   width: 100%;
@@ -16,17 +17,16 @@ const ProfileImage = styled.img`
   border-radius: 50%;
 `;
 
-export default function UserImg({ src, username, thread, children, position }) {
+export default function UserImg({ src, username, thread, children }) {
   const imgLink = src ? src : placeholder;
   const user = `Profile picture from ${username}`;
   const imagesize = {
-    header: "50px",
-    detail: "40px",
-    memberList: "30px",
-    test: "20px"
+    header: "40px",
+    detail: "20px",
+    memberList: "30px"
   };
   return (
-    <ImageWrapper size={imagesize[thread]} position="absolute">
+    <ImageWrapper size={imagesize[thread]}>
       <ProfileImage src={imgLink} alt={user} />
       {children}
     </ImageWrapper>

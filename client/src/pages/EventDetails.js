@@ -1,32 +1,16 @@
 import React from "react";
-import styled from "@emotion/styled";
+import { useParams } from "react-router-dom";
 import { getOneEvent } from "../api/event";
-import { PagesContainer } from "../components/Container";
+import { PageWrapper } from "../components/Container";
 import EventContent from "../components/EventContent";
 import { EventContainer, FakeContainer } from "../components/DetailContainer";
 import ExitButton from "../components/ExitButton";
-
-const PageWrapper = styled(PagesContainer)`
-  background-image: url(${({ img }) => `.${img}`});
-  background-size: auto 100%;
-  position: relative;
-  overflow: hidden;
-  animation-duration: 0.45s;
-  animation-name: ease-in;
-  @keyframes ease-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-`;
+import DottedNavBar from "../components/DottedNavBar";
 
 export default function EventDetails() {
-  const eventID = new URLSearchParams(window.location.search).get("ID");
+  const { eventID } = useParams();
   const [eventData, setEventData] = React.useState([]);
-  const [siteNumber, setSiteNumber] = React.useState(2);
+  const [siteNumber, setSiteNumber] = React.useState(0);
   const [swipeDirection, setSwipeDirection] = React.useState("first-call");
 
   let swipeBegin = null;
@@ -88,6 +72,7 @@ export default function EventDetails() {
           <EventContent eventData={eventData} site={siteNumber} handleSwipe={handleSwipe} />
         </EventContainer>
       )}
+      <DottedNavBar contentNr={siteNumber} />
     </PageWrapper>
   );
 }

@@ -9,7 +9,8 @@ const CustomLink = styled(Link)`
   width: 100%;
   height: 100%;
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.font};
+  color: ${({ theme }) => theme.colors.active};
+  text-shadow: 2px 2px 5px ${({ theme }) => theme.colors.darkfont};
   display: flex;
   align-items: center;
   justify-content: center;

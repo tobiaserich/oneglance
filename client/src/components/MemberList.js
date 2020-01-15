@@ -1,15 +1,11 @@
 import React from "react";
-import styled from "@emotion/styled";
+import { useParams } from "react-router-dom";
 import { getAllMember } from "../api/member";
-import { InfoEntry, InfoNav } from "../components/ProfileNavigation";
+import { InfoEntry, MemberNav } from "../components/ProfileNavigation";
 
-const Nav = styled(InfoNav)`
-  width: 100%;
-  padding: 0;
-`;
 export default function Memberlist() {
   const [memberList, setMemberList] = React.useState([]);
-  const eventID = new URLSearchParams(window.location.search).get("ID");
+  const { eventID } = useParams();
 
   async function fetchMember() {
     const members = await getAllMember(eventID);
@@ -21,7 +17,7 @@ export default function Memberlist() {
   }, []);
 
   return (
-    <Nav>
+    <MemberNav>
       {memberList.map((member, index) => {
         return (
           <InfoEntry key={member.userID} item={index}>
@@ -29,6 +25,6 @@ export default function Memberlist() {
           </InfoEntry>
         );
       })}
-    </Nav>
+    </MemberNav>
   );
 }

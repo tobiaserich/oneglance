@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { CardContainer } from "../components/Container";
-import { Headline } from "../components/Headline";
-import { DateOutput } from "../components/DateOutput";
-import { DescriptionOutput } from "../components/DescriptionOutput";
+import { CardContainer } from "./Container";
+import { Headline } from "./Headline";
+import { DateOutput } from "./DateOutput";
+import { DescriptionOutput } from "./DescriptionOutput";
 import MenuButton from "./MenuButton";
 import CardMenu from "./CardMenu";
 import LinkNoDeco from "./LinkNoDeco";
-import DarkFilter from "../components/DarkFilter";
+import DarkFilter from "./DarkFilter";
 
 export default function Card({ event, onDelete }) {
   const [menuVisibility, setMenuVisibility] = React.useState(false);
@@ -15,20 +15,22 @@ export default function Card({ event, onDelete }) {
   const [secondAnimation, setSecondAnimation] = React.useState("none");
 
   function clickHandler(stateValue, firstAnimation, secondAnimation) {
-    stateValue
-      ? setMenuVisibility(stateValue)
-      : setTimeout(() => setMenuVisibility(stateValue), 500);
-    setFirstAnimation(firstAnimation);
-    setSecondAnimation(secondAnimation);
+    if (stateValue) {
+      setMenuVisibility(stateValue);
+    } else {
+      setTimeout(() => setMenuVisibility(stateValue), 500);
+      setFirstAnimation(firstAnimation);
+      setSecondAnimation(secondAnimation);
+    }
   }
 
   return (
     <CardContainer background={event.background}>
-      <LinkNoDeco to={`/eventDetails/?ID=${event._id}`}>
+      <LinkNoDeco to={`/eventDetails/${event._id}`}>
         <DarkFilter />
-        <Headline>{event.title || "Event"}</Headline>
+        <Headline>{event.title}</Headline>
         <DateOutput>{event.date}</DateOutput>
-        <DescriptionOutput>{event.description}</DescriptionOutput>
+        <DescriptionOutput>{event.descr}</DescriptionOutput>
       </LinkNoDeco>
       {menuVisibility ? (
         <CardMenu

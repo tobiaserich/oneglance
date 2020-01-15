@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Label from "../../components/Label";
 import Input from "../../components/Input";
 import DateInput from "../../components/DateInput";
-import { DescriptionInput } from "../../components/DescriptionInput";
+import { DescriptionInput } from "../../components/Input";
 import { Button } from "../../components/Button";
 
 export default {

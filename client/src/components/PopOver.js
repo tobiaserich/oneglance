@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   width: 100%;
@@ -27,21 +28,22 @@ const Container = styled.div`
 `;
 
 const Arrow = styled.div`
-  margin-top: -5px;
-  width: 0;
   height: 0;
+  width: 0;
+  margin-top: -5px;
   border-left: ${({ border }) => (border ? border : "8px")} solid transparent;
   border-right: ${({ border }) => (border ? border : "8px")} solid transparent;
-  border-bottom: ${({ arrow }) => (arrow ? arrow : "15px")} solid #ffffffcc;
+  border-bottom: ${({ arrow }) => (arrow ? arrow : "15px")} solid
+    ${({ theme }) => theme.colors.active};
 `;
 
 const ContentBox = styled.div`
   width: 40%;
   height: 20px;
-  background-color: #ffffffcc;
   border-radius: 3px;
   color: ${({ theme }) => theme.colors.darkfont};
   text-align: center;
+  background-color: ${({ theme }) => theme.colors.active};
 `;
 export default function PopOver({ children, size }) {
   const arrow = { small: "10px", medium: "15px" };
@@ -53,3 +55,8 @@ export default function PopOver({ children, size }) {
     </Container>
   );
 }
+
+PopOver.propTypes = {
+  children: PropTypes.node,
+  size: PropTypes.string
+};
