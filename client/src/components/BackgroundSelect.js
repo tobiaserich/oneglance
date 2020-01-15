@@ -11,7 +11,7 @@ const Preview = styled.img`
   box-shadow: 3px 3px 5px #0000004d;
 `;
 
-export default function BackgroundSelect({ value, onChange }) {
+export default function BackgroundSelect({ onChange }) {
   const [counter, setCounter] = React.useState(1);
   const [background, setBackground] = React.useState("./images/partyBG.webp");
 
