@@ -14,6 +14,7 @@ export default function Memberlist() {
 
   React.useEffect(() => {
     fetchMember();
+    // eslint-disable-next-line
   }, []);
 
   return (

@@ -52,6 +52,7 @@ export default function EventDetails() {
 
   React.useEffect(() => {
     fetchEvents();
+    // eslint-disable-next-line
   }, []);
 
   return (

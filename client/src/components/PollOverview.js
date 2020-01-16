@@ -14,6 +14,7 @@ export default function PollOverview() {
       setPolls(result);
     }
     pollFetch();
+    // eslint-disable-next-line
   }, []);
 
   return (

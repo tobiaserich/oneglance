@@ -5,7 +5,7 @@ import { addPoll } from "../api/poll";
 import { getPoll } from "../api/poll";
 import { AddContainer, FlexContainer } from "../components/Container";
 import Label from "../components/Label";
-import Input, { EntryInput } from "../components/Input";
+import { Input, EntryInput } from "../components/Input";
 import { NewEntryButton, FlexButton } from "../components/Button";
 import { Headline } from "../components/Headline";
 import { ArrowLeft, ArrowRight } from "../components/Button";
@@ -29,6 +29,7 @@ export default function Poll() {
       setTotalPoll(result.poll);
     }
     fetchPoll();
+    // eslint-disable-next-line
   }, []);
 
   function setQuestion(value) {
@@ -46,7 +47,6 @@ export default function Poll() {
   function handleQuestionClick(direction) {
     if (direction === "prev") {
       setCurrentQuestion(currentQuestion - 1);
-      console.log("fire");
     } else if (direction === "next") {
       const poll = [...totalPoll];
       const newQuestion = { question: "", answers: [] };

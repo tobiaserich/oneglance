@@ -3,12 +3,13 @@ import { useHistory, useParams } from "react-router-dom";
 import { setTask, getTask } from "../api/task";
 import { AddContainer, FlexContainer } from "../components/Container";
 import Label from "../components/Label";
-import Input, { EntryInput } from "../components/Input";
+import { Input, EntryInput } from "../components/Input";
 import { NewEntryButton, FlexButton } from "../components/Button";
 
 export default function Task() {
   const [title, setTitle] = React.useState("");
   const [tasks, setTasks] = React.useState([]);
+  const [animation, setAnimation] = React.useState("none");
   const history = useHistory();
   const { eventID } = useParams();
   const { taskID } = useParams();
@@ -26,6 +27,7 @@ export default function Task() {
       setTasks(result.task);
     }
     fetchTask();
+    // eslint-disable-next-line
   }, []);
 
   function handleChange(event, index) {
@@ -35,14 +37,24 @@ export default function Task() {
   }
 
   function handleSubmit() {
-    setTask(tasks, eventID, title, taskID);
-    history.push(`/eventDetails/${eventID}`);
+    if (title && tasks) {
+      setTask(tasks, eventID, title, taskID);
+      history.push(`/eventDetails/${eventID}`);
+    } else {
+      setAnimation("start");
+      setTimeout(() => setAnimation("none"), 1000);
+    }
   }
   return (
     <AddContainer>
       <Label>
         Title
-        <Input align="center" value={title} onChange={event => setTitle(event.target.value)} />
+        <Input
+          align="center"
+          value={title}
+          onChange={event => setTitle(event.target.value)}
+          animation={animation}
+        />
       </Label>
 
       <Label>
