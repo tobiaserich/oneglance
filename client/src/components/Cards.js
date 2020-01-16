@@ -15,6 +15,7 @@ export default function Cards() {
 
   React.useEffect(() => {
     fetchEvents();
+    // eslint-disable-next-line
   }, []);
 
   return (

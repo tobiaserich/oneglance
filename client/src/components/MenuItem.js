@@ -17,7 +17,9 @@ export default function menuItem({ children, spacer, onClick, target, animation 
     <Item
       spacer={spacer}
       onClick={() => {
-        setTimeout(() => onClick(target), 250);
+        if (onClick) {
+          setTimeout(() => onClick(target), 250);
+        }
         if (animation) {
           animation(true, "ease-in", "fading");
         }

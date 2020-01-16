@@ -17,6 +17,7 @@ export default function BackgroundSelect({ onChange }) {
 
   React.useEffect(() => {
     onChange("bg", null, background);
+    // eslint-disable-next-line
   }, [background]);
 
   const backgrounds = [

@@ -22,6 +22,7 @@ export default function TaskOverview() {
       setTasks(result);
     }
     tasksFetch();
+    // eslint-disable-next-line
   }, []);
 
   return (
