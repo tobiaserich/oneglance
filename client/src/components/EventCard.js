@@ -14,13 +14,15 @@ export default function Card({ event, onDelete }) {
   const [firstAnimation, setFirstAnimation] = React.useState("none");
   const [secondAnimation, setSecondAnimation] = React.useState("none");
 
-  function clickHandler(stateValue, firstAnimation, secondAnimation) {
+  function clickHandler(stateValue, animationOne, animationTwo) {
     if (stateValue) {
       setMenuVisibility(stateValue);
+      setFirstAnimation(animationOne);
+      setSecondAnimation(animationTwo);
     } else {
       setTimeout(() => setMenuVisibility(stateValue), 500);
-      setFirstAnimation(firstAnimation);
-      setSecondAnimation(secondAnimation);
+      setFirstAnimation(animationOne);
+      setSecondAnimation(animationTwo);
     }
   }
 
