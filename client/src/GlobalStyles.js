@@ -17,6 +17,7 @@ function GlobalStyles() {
           width: 100vw;
           font-family: "roboto", "sans-serif";
           background-color: ${theme.colors.background};
+          scrollbar-width: none;
         }
         #root {
           margin: auto;
