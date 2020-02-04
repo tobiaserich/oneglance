@@ -26,8 +26,9 @@ export default function EventDetails() {
       setSwipeDirection("none");
     }, 475);
   }
+
   function handleSwipe(event, task) {
-    const swipeX = event.changedTouches[0].screenX;
+    const swipeX = event.screenX||event.changedTouches[0].screenX  
     if (task === "begin") {
       swipeBegin = swipeX;
     } else if (task === "end") {
@@ -37,12 +38,13 @@ export default function EventDetails() {
   }
 
   function swipeCalc() {
-    if (swipeBegin > swipeEnd + 100 && siteNumber < 3) {
+    const swipeLength = 50;
+    if (swipeBegin > swipeEnd + swipeLength && siteNumber < 3) {
       setSwipeDirection("left");
       const newNumber = siteNumber + 1;
       setSiteNumber(newNumber);
       startAnimation();
-    } else if (swipeBegin + 100 < swipeEnd && siteNumber > 0) {
+    } else if (swipeBegin + swipeLength < swipeEnd && siteNumber > 0) {
       setSwipeDirection("right");
       const newNumber = siteNumber - 1;
       setSiteNumber(newNumber);
@@ -67,10 +69,12 @@ export default function EventDetails() {
           onTouchEnd={event => {
             handleSwipe(event, "end");
           }}
+          onMouseDown={event=>handleSwipe(event,"begin")}
+          onMouseUp={event=>handleSwipe(event,"end")}
           direction={swipeDirection}
         >
           <ExitButton />
-          <EventContent eventData={eventData} site={siteNumber} handleSwipe={handleSwipe} />
+          <EventContent eventData={eventData} site={siteNumber} />
         </EventContainer>
       )}
       <DottedNavBar contentNr={siteNumber} onClick={setSiteNumber} />
