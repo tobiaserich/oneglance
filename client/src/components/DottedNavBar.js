@@ -17,18 +17,19 @@ const Dot = styled.div`
   box-shadow: 2px 2px 4px ${({ theme }) => theme.colors.darkfont};
 `;
 
-export default function DottedNavBar({ contentNr }) {
+export default function DottedNavBar({ contentNr, onClick }) {
   const dots = new Array(4).fill("");
   return (
     <DotContainer>
       {dots.map((dot, index) => {
         const background = index === contentNr ? "#BDBDBD" : "white";
-        return <Dot key={index} background={background} />;
+        return <Dot key={index} background={background} onClick={()=>onClick(index)} />;
       })}
     </DotContainer>
   );
 }
 
 DottedNavBar.propTypes = {
-  contentNr: PropTypes.number
+  contentNr: PropTypes.number,
+  onClick:PropTypes.func
 };

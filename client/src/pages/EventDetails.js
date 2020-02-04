@@ -73,7 +73,7 @@ export default function EventDetails() {
           <EventContent eventData={eventData} site={siteNumber} handleSwipe={handleSwipe} />
         </EventContainer>
       )}
-      <DottedNavBar contentNr={siteNumber} />
+      <DottedNavBar contentNr={siteNumber} onClick={setSiteNumber} />
     </PageWrapper>
   );
 }
