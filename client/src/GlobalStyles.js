@@ -23,7 +23,11 @@ function GlobalStyles() {
           margin: auto;
           height: 100%;
           max-width: 400px;
+          scrollbar-width: none;
         }
+        ::-webkit-scrollbar {
+          display: none;
+      }
       `}
     />
   );
