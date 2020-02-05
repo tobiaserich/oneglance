@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 export const AddContainer = styled.form`
-
   height: 90%;
   width: 100%;
   display: flex;

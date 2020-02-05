@@ -23,7 +23,7 @@ export default function DottedNavBar({ contentNr, onClick }) {
     <DotContainer>
       {dots.map((dot, index) => {
         const background = index === contentNr ? "#BDBDBD" : "white";
-        return <Dot key={index} background={background} onClick={()=>onClick(index)} />;
+        return <Dot key={index} background={background} onClick={() => onClick(index)} />;
       })}
     </DotContainer>
   );
@@ -31,5 +31,5 @@ export default function DottedNavBar({ contentNr, onClick }) {
 
 DottedNavBar.propTypes = {
   contentNr: PropTypes.number,
-  onClick:PropTypes.func
+  onClick: PropTypes.func
 };

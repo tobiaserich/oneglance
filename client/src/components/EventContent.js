@@ -14,7 +14,7 @@ const CustomLink = styled(LinkNoDeco)`
   position: absolute;
   bottom: 0;
 `;
-export default function EventContent({eventData,site}) {
+export default function EventContent({ eventData, site }) {
   const siteContent = [
     <>
       <HeadlineDark>User</HeadlineDark>
