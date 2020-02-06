@@ -17,6 +17,7 @@ export const EventContainer = styled.article`
   margin-bottom: 0px;
   border-radius: 10px;
   padding: 15px 0px;
+  user-select: none;
   background-color: ${({ theme }) => theme.colors.secondBackgroundTransparent};
   color: ${({ theme }) => theme.colors.darkfont};
   animation-duration: 0.6s;
