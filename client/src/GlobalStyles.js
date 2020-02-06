@@ -17,12 +17,17 @@ function GlobalStyles() {
           width: 100vw;
           font-family: "roboto", "sans-serif";
           background-color: ${theme.colors.background};
+          scrollbar-width: none;
         }
         #root {
           margin: auto;
           height: 100%;
           max-width: 400px;
+          scrollbar-width: none;
         }
+        ::-webkit-scrollbar {
+          display: none;
+      }
       `}
     />
   );

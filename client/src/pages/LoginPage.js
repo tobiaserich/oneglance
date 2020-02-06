@@ -18,15 +18,13 @@ const CustomLink = styled(Link)`
 
 export default function LoginPage({ auth }) {
   const [popOver, setPopOver] = React.useState(false);
-  const [setButtonState] = React.useState("enable");
 
   function togglePopOver() {
     if (!popOver) {
       setPopOver(true);
-      setButtonState("disable");
       setTimeout(() => {
         setPopOver(false);
-      }, 2000);
+      }, 1900);
     }
   }
   return (

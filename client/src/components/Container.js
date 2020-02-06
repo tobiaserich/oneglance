@@ -48,6 +48,7 @@ export const PagesContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  scroll-bar: none;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
   animation-duration: 0.7s;

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const Input = styled.input`
+export const Input = styled.input`
   display: block;
 
   height: ${({ height }) => height || "40px"};
