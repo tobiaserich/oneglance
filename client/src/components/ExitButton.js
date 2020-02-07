@@ -31,10 +31,15 @@ const ExitButtonLine = styled.div`
 
 export default function ExitButton({ onClick }) {
   const history = useHistory();
+  function handleClick() {
+    if (onClick) {
+      onClick(false, "ease-out", "fade-out");
+    } else {
+      history.push("/overview");
+    }
+  }
   return (
-    <ExitButtonContainer
-      onClick={() => (onClick ? onClick(false, "ease-out", "fade-out") : history.push("/overview"))}
-    >
+    <ExitButtonContainer onClick={() => handleClick()}>
       <ExitButtonLine direction="left"></ExitButtonLine>
       <ExitButtonLine direction="right"></ExitButtonLine>
     </ExitButtonContainer>
