@@ -9,8 +9,9 @@ import DottedNavBar from "../components/DottedNavBar";
 
 export default function EventDetails() {
   const { eventID } = useParams();
+  const site = parseInt(sessionStorage.getItem(`siteNo`)) || 1;
   const [eventData, setEventData] = React.useState([]);
-  const [siteNumber, setSiteNumber] = React.useState(0);
+  const [siteNumber, setSiteNumber] = React.useState(site);
   const [swipeDirection, setSwipeDirection] = React.useState("first-call");
 
   let swipeBegin = null;
@@ -28,7 +29,7 @@ export default function EventDetails() {
   }
 
   function handleSwipe(event, task) {
-    const swipeX = event.screenX||event.changedTouches[0].screenX  
+    const swipeX = event.screenX || event.changedTouches[0].screenX;
     if (task === "begin") {
       swipeBegin = swipeX;
     } else if (task === "end") {
@@ -42,11 +43,13 @@ export default function EventDetails() {
     if (swipeBegin > swipeEnd + swipeLength && siteNumber < 3) {
       setSwipeDirection("left");
       const newNumber = siteNumber + 1;
+      sessionStorage.setItem(`siteNo`, newNumber);
       setSiteNumber(newNumber);
       startAnimation();
     } else if (swipeBegin + swipeLength < swipeEnd && siteNumber > 0) {
       setSwipeDirection("right");
       const newNumber = siteNumber - 1;
+      sessionStorage.setItem(`siteNo`, newNumber);
       setSiteNumber(newNumber);
       startAnimation();
     }
@@ -69,11 +72,11 @@ export default function EventDetails() {
           onTouchEnd={event => {
             handleSwipe(event, "end");
           }}
-          onMouseDown={event=>handleSwipe(event,"begin")}
-          onMouseUp={event=>handleSwipe(event,"end")}
+          onMouseDown={event => handleSwipe(event, "begin")}
+          onMouseUp={event => handleSwipe(event, "end")}
           direction={swipeDirection}
         >
-          <ExitButton />
+          <ExitButton eventID={eventID} />
           <EventContent eventData={eventData} site={siteNumber} />
         </EventContainer>
       )}

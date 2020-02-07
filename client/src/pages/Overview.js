@@ -17,6 +17,10 @@ const CustomLink = styled(Link)`
 `;
 
 export default function Overview() {
+  React.useEffect(() => {
+    sessionStorage.clear();
+  }, []);
+
   return (
     <PagesContainer animation="fade-in">
       <Cards />
