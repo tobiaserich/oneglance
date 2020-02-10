@@ -10,13 +10,15 @@ export const MemberNav = styled(InfoNav)`
   width: 100%;
   padding: 0;
   overflow: scroll;
+  scrollbar-width: none;
 `;
 
-export const PollNav = styled(InfoNav)`
+export const PollTaskNav = styled(InfoNav)`
   width: 100%;
   margin-bottom: 45px;
   padding: 0;
   overflow: scroll;
+  scrollbar-width: none;
 `;
 
 export const InfoEntry = styled.li`

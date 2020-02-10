@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { getPolls } from "../api/poll";
-import { InfoEntry, PollNav } from "../components/ProfileNavigation";
+import { InfoEntry, PollTaskNav } from "../components/ProfileNavigation";
 import LinkNoDeco from "../components/LinkNoDeco";
 
 export default function PollOverview() {
@@ -18,7 +18,7 @@ export default function PollOverview() {
   }, []);
 
   return (
-    <PollNav>
+    <PollTaskNav>
       {polls &&
         polls.map((poll, index) => {
           return (
@@ -29,6 +29,6 @@ export default function PollOverview() {
             </LinkNoDeco>
           );
         })}
-    </PollNav>
+    </PollTaskNav>
   );
 }

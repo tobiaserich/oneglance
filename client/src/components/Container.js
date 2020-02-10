@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 export const AddContainer = styled.form`
-
   height: 90%;
   width: 100%;
   display: flex;
@@ -10,6 +9,7 @@ export const AddContainer = styled.form`
   align-items: center;
   z-index: 0;
   overflow: scroll;
+  scrollbar-width: none;
   background-color: ${({ theme }) => theme.colors.background};
   animation-duration: 0.9s;
   animation-name: on-load;
@@ -49,7 +49,6 @@ export const PagesContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  scroll-bar: none;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
   animation-duration: 0.7s;
@@ -63,10 +62,14 @@ export const PagesContainer = styled.div`
     }
   }
 `;
+
+//necessary for Firefox
+
 export const CardsOverviewContainer = styled.div`
   height: 100%;
   width: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
+  scrollbar-width: none;
 `;
 
 export const ClickContainer = styled.div`
