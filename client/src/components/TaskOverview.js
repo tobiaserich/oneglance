@@ -1,16 +1,8 @@
 import React from "react";
-import styled from "@emotion/styled";
 import { getTasks } from "../api/task";
-import { InfoNav, InfoEntry } from "../components/ProfileNavigation";
+import { PollTaskNav, InfoEntry } from "../components/ProfileNavigation";
 import LinkNoDeco from "../components/LinkNoDeco";
 import { useParams } from "react-router-dom";
-
-const Nav = styled(InfoNav)`
-  width: 100%;
-  overflow: scroll;
-  margin-bottom: 45px;
-  padding: 0;
-`;
 
 export default function TaskOverview() {
   const [tasks, setTasks] = React.useState();
@@ -26,7 +18,7 @@ export default function TaskOverview() {
   }, []);
 
   return (
-    <Nav>
+    <PollTaskNav>
       {tasks &&
         tasks.map((task, index) => {
           return (
@@ -37,6 +29,6 @@ export default function TaskOverview() {
             </LinkNoDeco>
           );
         })}
-    </Nav>
+    </PollTaskNav>
   );
 }

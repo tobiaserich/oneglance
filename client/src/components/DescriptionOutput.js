@@ -18,6 +18,7 @@ export const OutputWithOverflow = styled.div`
   width: 95%;
   height: 90%;
   overflow: scroll;
+  scrollbar-width: none;
   margin-top: 20px;
   margin-left: 10px;
   color: ${({ theme }) => theme.colors.darkfont};
